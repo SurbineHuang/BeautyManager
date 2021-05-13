@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MyListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
 
+    @IBAction func addTapped(_ sender: Any) {
+    }
+    
+    @IBAction func search(_ sender: Any) {
+    }
 
 }
 

@@ -56,6 +56,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D44B149E26517DC800E7366D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		D49A2FF0264CC52500C84BB9 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +87,8 @@
 				D49A2FFC264CC52500C84BB9 /* AppDelegate.swift */,
 				D49A2FFE264CC52500C84BB9 /* SceneDelegate.swift */,
 				D4B94E61264D304E006EB765 /* Mylist */,
+				D4FB407F264E5114000AB82A /* Product */,
+				D44B149E26517DC800E7366D /* Manager */,
 				D49A3002264CC52500C84BB9 /* Main.storyboard */,
 				D49A3005264CC52500C84BB9 /* Assets.xcassets */,
 				D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */,
@@ -94,7 +103,6 @@
 			children = (
 				D49A3000264CC52500C84BB9 /* MyListViewController.swift */,
 				D42BB304264D264700B079FE /* MyListTableViewCell.swift */,
-				D4FB407F264E5114000AB82A /* Product */,
 			);
 			path = Mylist;
 			sourceTree = "<group>";

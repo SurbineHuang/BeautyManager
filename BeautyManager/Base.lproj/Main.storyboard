@@ -12,7 +12,7 @@
         <!--My List-->
         <scene sceneID="1ia-IB-e7T">
             <objects>
-                <viewController id="fBe-aw-x8o" sceneMemberID="viewController">
+                <viewController id="fBe-aw-x8o" customClass="MyListViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qLM-7Y-e3Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,9 +20,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JgL-lX-2sY">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="nMS-9X-E3u">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyListTableViewCell" rowHeight="193" id="HL9-vC-YTY" customClass="MyListTableViewCell" customModule="BeautyManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="193"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="193"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HL9-vC-YTY" id="2dc-68-v8o">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="193"/>
@@ -30,7 +35,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f7g-kg-QD3">
                                                     <rect key="frame" x="16" y="18" width="140" height="135.5"/>
-                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="140" id="0Hr-cd-VOX"/>
                                                         <constraint firstAttribute="width" constant="140" id="Rei-zO-Xbt"/>
@@ -49,8 +54,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到期日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-PC-Nsf">
-                                                    <rect key="frame" x="181" y="118" width="56" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="保存期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-PC-Nsf">
+                                                    <rect key="frame" x="181" y="118" width="74" height="59"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -72,13 +77,12 @@
                                                 <constraint firstItem="ouZ-GX-Z8X" firstAttribute="top" secondItem="fAj-pf-Kii" secondAttribute="bottom" constant="25" id="WJr-5d-MLn"/>
                                                 <constraint firstItem="fAj-pf-Kii" firstAttribute="top" secondItem="2dc-68-v8o" secondAttribute="top" constant="24" id="b9n-tG-HCV"/>
                                                 <constraint firstItem="f7g-kg-QD3" firstAttribute="top" secondItem="2dc-68-v8o" secondAttribute="top" constant="16" id="ePQ-JA-PAv"/>
+                                                <constraint firstAttribute="bottom" secondItem="VfQ-PC-Nsf" secondAttribute="bottom" constant="16" id="erf-Ab-s6m"/>
                                                 <constraint firstItem="VfQ-PC-Nsf" firstAttribute="leading" secondItem="ouZ-GX-Z8X" secondAttribute="leading" id="le8-8v-eBD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="brand" destination="fAj-pf-Kii" id="jki-b5-ihn"/>
                                             <outlet property="dateLabel" destination="VfQ-PC-Nsf" id="96a-8k-LbZ"/>
-                                            <outlet property="image" destination="f7g-kg-QD3" id="vGI-yR-QWl"/>
                                             <outlet property="productLabel" destination="ouZ-GX-Z8X" id="zNd-0g-wGF"/>
                                             <outlet property="typeLabel" destination="aB5-tj-B1q" id="mX4-6c-Auy"/>
                                         </connections>
@@ -92,12 +96,10 @@
                                     <constraint firstAttribute="width" constant="50" id="sv2-qB-UvX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" backgroundImage="circle" catalog="system">
-                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
-                                </state>
+                                <color key="tintColor" red="0.72549019607843135" green="0.53333333333333333" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
                                 <connections>
-                                    <segue destination="p68-l3-z5Q" kind="presentation" modalPresentationStyle="fullScreen" id="Wpo-gm-TMg"/>
+                                    <segue destination="p68-l3-z5Q" kind="presentation" id="3NQ-tW-0uG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,17 +115,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My List" id="ge9-KD-KWY">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="5Bb-yP-M6o">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ejt-of-Mle">
-                                <rect key="frame" x="20" y="11" width="64" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="magnifyingglass" catalog="system"/>
-                            </button>
-                            <connections>
-                                <action selector="search:" destination="FHL-zL-DAD" id="GLE-mL-NsP"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="QHW-RZ-v7A">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nRN-B9-6H1">
                                 <rect key="frame" x="374" y="11" width="20" height="22"/>
@@ -133,9 +124,12 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="nMS-9X-E3u" id="21S-BW-NH3"/>
+                        <outlet property="tableView" destination="JgL-lX-2sY" id="3Kf-HG-FUL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIF-gp-Wqj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="FHL-zL-DAD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4166.666666666667" y="20.758928571428569"/>
         </scene>
@@ -148,6 +142,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ue-BX-Q9K">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -224,7 +222,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneTapped:" destination="ZQV-p9-Xpu" eventType="touchUpInside" id="GQ4-8U-OMV"/>
+                                    <action selector="addTapped:" destination="dac-do-cZe" eventType="touchUpInside" id="L9T-B7-DYf"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4BH-H2-tkw">
@@ -245,6 +243,9 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74E-mr-GFN">
                                 <rect key="frame" x="0.0" y="16" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uUe-lx-8Nv"/>
@@ -283,19 +284,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Product Detail" id="9iH-fS-N6u">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="QT2-RG-MFl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="QT2-RG-MFl">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QRG-g8-HpU">
-                                <rect key="frame" x="-23" y="-15" width="13" height="22"/>
+                                <rect key="frame" x="20" y="11" width="51.5" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="back" image="chevron.left" catalog="system">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="dac-do-cZe" eventType="touchUpInside" id="MxW-7X-F5I"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="brandTextField" destination="H0k-m7-L0W" id="WbG-uV-5iS"/>
-                        <outlet property="doneButton" destination="o1h-8N-1uO" id="1mi-ha-slz"/>
                         <outlet property="productTextField" destination="IaA-Lt-4RD" id="7W5-nb-xF0"/>
                         <outlet property="textField01" destination="4BH-H2-tkw" id="VPW-jX-e0g"/>
                         <outlet property="textField02" destination="Xb6-zh-opS" id="KDr-x0-LrX"/>
@@ -304,7 +307,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKS-7y-Jl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ZQV-p9-Xpu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5966.666666666667" y="20.758928571428569"/>
         </scene>
@@ -329,11 +331,16 @@
         <!--Navigation Controller-->
         <scene sceneID="cez-io-Rct">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p68-l3-z5Q" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="p68-l3-z5Q" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Yt0-sv-bKu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KtH-D1-qt0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -349,12 +356,10 @@
     <resources>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
         <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

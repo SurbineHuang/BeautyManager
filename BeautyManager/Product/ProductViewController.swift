@@ -71,9 +71,42 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
             self.textField03.text = dateFormatter.string(from: datePicker.date)
         }
     }
+    
     @objc func viewTapped() {
         self.view.endEditing(true)
     }
     
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func addTapped(_ sender: Any) {
+        
+        guard let product = self.productTextField.text, !product.isEmpty else {
+            
+            print("product is empty")
+            return
+        }
+        
+        guard let brand = self.brandTextField.text, !brand.isEmpty else {
+            
+            print("brand is empty")
+            return
+        }
+        
+        guard let type = self.typeTextField.text, !type.isEmpty else {
+            
+            print("type is empty")
+            return
+        }
+        
+        ProductManager.shared.addProduct(product: product)
+//        ProductManager.shared.setBrand(brand: brand)
+//        ProductManager.shared.setType(type: type)
+//        
+        self.dismiss(animated: true, completion: nil)
+    }
 }
-

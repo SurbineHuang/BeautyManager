@@ -20,6 +20,28 @@ struct Product {
     let periodAfterOpening: Timestamp
     
 }
+
+struct User {
+    
+    let id: String
+    let appleId: String
+    let name: String
+    
+}
+
+struct Brand {
+    
+    let id: String
+    let name: String
+}
+
+struct Type {
+    
+    let id: String
+    let name: String
+    
+}
+
 class ProductManager {
     
     static let shared = ProductManager()
@@ -60,7 +82,7 @@ class ProductManager {
         document.setData(data)
     }
     
-    func setBrand(brand: String) {
+    func addBrand(brand: String) {
 
         let brand = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand")
 
@@ -74,7 +96,7 @@ class ProductManager {
         document.setData(data)
     }
     
-    func setType(type: String) {
+    func addType(type: String) {
         
         let type = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type")
         

@@ -25,6 +25,7 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // 設定 datePicker 功能及外觀
         self.datePicker.datePickerMode = .date
         self.datePicker.locale = NSLocale(
@@ -33,6 +34,7 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
         self.datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         self.datePicker.preferredDatePickerStyle = .wheels
         
+        // 設定 textField 外觀
         self.textField01.backgroundColor = .clear
         self.textField01.borderStyle = .none
         self.textField01.inputView = self.datePicker
@@ -45,6 +47,7 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
         self.textField03.borderStyle = .none
         self.textField03.inputView = self.datePicker
         
+        // 設定空白處點選結束
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
         

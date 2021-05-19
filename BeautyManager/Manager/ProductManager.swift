@@ -10,15 +10,12 @@ import Firebase
 import FirebaseFirestore
 
 struct Product {
-    
-    let product: String
-    let brand: String
-    let type: String
+    let name: String
     let id: String
-    let expiryDate: Timestamp
-    let openedDate: Timestamp
-    let periodAfterOpening: Timestamp
-    
+    let status: String
+    let expiryDate: TimeInterval
+    let openedDate: TimeInterval
+    let periodAfterOpening: TimeInterval
 }
 
 struct User {
@@ -46,20 +43,76 @@ class ProductManager {
     
     static let shared = ProductManager()
     
-    func addProduct(product: String) {
+    func getProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
+        
+        var products: [Product] = []
+        
+        Firestore.firestore().collection("Products").getDocuments() { (querySnapshot, error) in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+               }
+            
+            for document in querySnapshot!.documents {
+                
+                if let id = document.get("ID") as? String,
+                   let name = document.get("name") as? String,
+                   let status = document.get("status") as? String,
+                   let expiryDate = document.get("expiryDate") as? TimeInterval,
+                   let openedDate = document.get("openedDate") as? TimeInterval,
+                   let periodAfterOpening = document.get("periodAfterOpening") as? TimeInterval {
+                    
+                    let product = Product(name: name, id: id, status: status, expiryDate: expiryDate, openedDate: openedDate, periodAfterOpening: periodAfterOpening)
+                    
+                    products.append(product)
+                }                
+            }
+            
+            completion(.success(products))
+        }
+    }
+    
+    func getBrand() {
+        
+        Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand").getDocuments {
+            (querySnapshot, error) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for document in querySnapshot.documents {
+                    print(document.documentID)
+                }
+            }
+        }
+    }
+    
+    func getType() {
+        
+        Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type").getDocuments {
+            (querySnapshot, error) in
+            
+            if let querySnapshot = querySnapshot {
+                
+                for document in querySnapshot.documents {
+                    print(document.documentID)
+                }
+            }
+        }
+    }
+    
+    func addProduct(name: String, expiryDate: TimeInterval, openedDate: TimeInterval, periodAfterOpening: TimeInterval) {
         
         let products = Firestore.firestore().collection("Products")
         
         let document = products.document()
         
-        let time = Timestamp.init(date: NSDate() as Date)
-        
         let data: [String: Any] = [
             "ID": document.documentID,
-            "name": product,
-            "expiryDate": time,
-            "openedDate": time,
-            "periodAfterOpening": time,
+            "name": name,
+            "expiryDate": expiryDate,
+            "openedDate": openedDate,
+            "periodAfterOpening": periodAfterOpening,
             "status": "待交換",
             "photo": ""
         ]
@@ -86,7 +139,7 @@ class ProductManager {
 
         let brand = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand")
 
-        let document = brand.document("Test")
+        let document = brand.document("nCOL06W911SbGQYtRDi8")
         
         let data: [String: Any] = [
             "ID": document.documentID,
@@ -109,5 +162,4 @@ class ProductManager {
         
         document.setData(data)
     }
-    
 }

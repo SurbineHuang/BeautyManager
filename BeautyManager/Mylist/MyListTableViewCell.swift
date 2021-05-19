@@ -27,12 +27,12 @@ class MyListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setData(product: String, brand: String, type: String) {
+    func setData(name: String, brand: String, type: String, expiryDate: String) {
         
-        
-        self.productLabel.text = product
+        self.productLabel.text = name
         self.brandLabel.text = brand
         self.typeLabel.text = type
+        self.dateLabel.text = expiryDate
         
     }
 }

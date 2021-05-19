@@ -10,21 +10,21 @@ import Firebase
 
 class ProductViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var productTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
-    @IBOutlet weak var textField01: UITextField!
-    @IBOutlet weak var textField02: UITextField!
-    @IBOutlet weak var textField03: UITextField!
+    @IBOutlet weak var expiryTextField: UITextField!
+    @IBOutlet weak var openedTextField: UITextField!
+    @IBOutlet weak var periodTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
-    @IBAction func doneTapped(_ sender: Any) {
-    }
-    
     let datePicker: UIDatePicker = UIDatePicker()
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.dateFormatter.dateFormat = "yyyy.MM.dd"
         
         // 設定 datePicker 功能及外觀
         self.datePicker.datePickerMode = .date
@@ -35,43 +35,40 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
         self.datePicker.preferredDatePickerStyle = .wheels
         
         // 設定 textField 外觀
-        self.textField01.backgroundColor = .clear
-        self.textField01.borderStyle = .none
-        self.textField01.inputView = self.datePicker
+        self.expiryTextField.backgroundColor = .clear
+        self.expiryTextField.borderStyle = .none
+        self.expiryTextField.inputView = self.datePicker
         
-        self.textField02.backgroundColor = .clear
-        self.textField02.borderStyle = .none
-        self.textField02.inputView = self.datePicker
+        self.openedTextField.backgroundColor = .clear
+        self.openedTextField.borderStyle = .none
+        self.openedTextField.inputView = self.datePicker
         
-        self.textField03.backgroundColor = .clear
-        self.textField03.borderStyle = .none
-        self.textField03.inputView = self.datePicker
+        self.periodTextField.backgroundColor = .clear
+        self.periodTextField.borderStyle = .none
+        self.periodTextField.inputView = self.datePicker
         
         // 設定空白處點選結束
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
         
-        // 設定 productTextField
-        self.productTextField.delegate = self
+        // 設定 nameTextField
+        self.nameTextField.delegate = self
         
-        self.productTextField.clearButtonMode = .whileEditing
+        self.nameTextField.clearButtonMode = .whileEditing
         self.typeTextField.clearButtonMode = .whileEditing
         self.brandTextField.clearButtonMode = .whileEditing
     }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        
-        if self.textField01.isFirstResponder {
-            self.textField01.text = dateFormatter.string(from: datePicker.date)
+        if self.expiryTextField.isFirstResponder {
+            self.expiryTextField.text = self.dateFormatter.string(from: datePicker.date)
             
-        } else if self.textField02.isFirstResponder {
-            self.textField02.text = dateFormatter.string(from: datePicker.date)
+        } else if self.openedTextField.isFirstResponder {
+            self.openedTextField.text = self.dateFormatter.string(from: datePicker.date)
             
-        } else if self.textField03.isFirstResponder {
-            self.textField03.text = dateFormatter.string(from: datePicker.date)
+        } else if self.periodTextField.isFirstResponder {
+            self.periodTextField.text = self.dateFormatter.string(from: datePicker.date)
         }
     }
     
@@ -79,36 +76,65 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    
     @IBAction func cancelButton(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func addTapped(_ sender: Any) {
         
-        guard let product = self.productTextField.text, !product.isEmpty else {
-            
-            print("product is empty")
+        guard let name = self.nameTextField.text, !name.isEmpty else {
+            print("Error: product is empty")
             return
         }
         
         guard let brand = self.brandTextField.text, !brand.isEmpty else {
-            
-            print("brand is empty")
+            print("Error: brand is empty")
             return
         }
         
         guard let type = self.typeTextField.text, !type.isEmpty else {
-            
-            print("type is empty")
+            print("Error: type is empty")
             return
         }
         
-        ProductManager.shared.addProduct(product: product)
-//        ProductManager.shared.setBrand(brand: brand)
-//        ProductManager.shared.setType(type: type)
+        guard let expiryDateStr = self.expiryTextField.text else {
+            print("Error: expiryDate text is nil")
+            return
+        }
+    
+        guard let expiryDate = self.dateFormatter.date(from: expiryDateStr) else {
+            print("Error: expiryDate can not parse to date")
+            return
+        }
+        
+        guard let openedDateStr = self.openedTextField.text else {
+            print("Error: openedDate text is nil")
+            return
+        }
+    
+        guard let openedDate = self.dateFormatter.date(from: openedDateStr) else {
+            print("Error: openedDate can not parse to date")
+            return
+        }
+        
+        guard let periodAfterOpeningStr = self.periodTextField.text else {
+            print("Error: periodAfterOpening text is nil")
+            return
+        }
+    
+        guard let periodAfterOpening = self.dateFormatter.date(from: periodAfterOpeningStr) else {
+            print("Error: periodAfterOpening can not parse to date")
+            return
+        }
+        
+        ProductManager.shared.addProduct(name: name,
+                                         expiryDate: expiryDate.timeIntervalSince1970,
+                                         openedDate: openedDate.timeIntervalSince1970,
+                                         periodAfterOpening: periodAfterOpening.timeIntervalSince1970)
+        
+//        ProductManager.shared.addBrand(brand: brand)
+//        ProductManager.shared.addType(type: type)
 //        
         self.dismiss(animated: true, completion: nil)
     }

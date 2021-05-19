@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyListViewController: UIViewController {
+class MyListViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,35 +19,53 @@ class MyListViewController: UIViewController {
        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//
-    
-//    }
-//
+    override func viewWillAppear(_ animated: Bool) {
+
+        self.loadProducts()
+    }
+
     func loadProducts() {
 
-        
+        ProductManager.shared.getProducts { [weak self] result in
+            switch result {
+
+            case .success(let products):
+                
+                print(products)
+                self?.products = products
+                self?.tableView.reloadData()
+
+            case .failure(let error):
+
+                print("loadProducts.failure: \(error)")
+            }
+        }
     }
+    
+//     設定模糊搜尋
+//    func searchBar(_searchBar: UISearchBar, textDidChange searchText: String) {
+//
+//
+//    }
+    
 }
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return products.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-//        let product = self.products[indexPath.row]
+        let product = self.products[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             
-//            cell.setData(product: product.product, brand: product.brand, type: product.type)
+            cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: product.expiryDate)
             
             return cell
         }
@@ -69,6 +87,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
     // 右滑移動交換
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -83,3 +102,4 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [addToChange])
     }
 }
+

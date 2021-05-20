@@ -42,38 +42,46 @@
                                                     </constraints>
                                                     <imageReference key="image" image="camera.circle" catalog="system" symbolScale="small"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAj-pf-Kii">
-                                                    <rect key="frame" x="181" y="24" width="37" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAj-pf-Kii">
+                                                    <rect key="frame" x="181" y="24" width="34" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HannotateTC-W5" family="Hannotate TC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="產品名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouZ-GX-Z8X">
-                                                    <rect key="frame" x="181" y="71" width="74" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <rect key="frame" x="181" y="69" width="69.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="保存期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-PC-Nsf">
-                                                    <rect key="frame" x="181" y="118" width="74" height="59"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="保存期限:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-PC-Nsf">
+                                                    <rect key="frame" x="181" y="114.5" width="74" height="62.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="類型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB5-tj-B1q">
-                                                    <rect key="frame" x="347" y="24" width="37" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <rect key="frame" x="349" y="24" width="35" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3L-Ve-P6h">
+                                                    <rect key="frame" x="349" y="135.5" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="b3L-Ve-P6h" firstAttribute="centerY" secondItem="VfQ-PC-Nsf" secondAttribute="centerY" id="1HZ-Oa-iTW"/>
                                                 <constraint firstItem="VfQ-PC-Nsf" firstAttribute="top" secondItem="ouZ-GX-Z8X" secondAttribute="bottom" constant="25" id="2Dw-d4-D3l"/>
                                                 <constraint firstItem="fAj-pf-Kii" firstAttribute="leading" secondItem="f7g-kg-QD3" secondAttribute="trailing" constant="25" id="3nN-56-No6"/>
                                                 <constraint firstItem="ouZ-GX-Z8X" firstAttribute="leading" secondItem="fAj-pf-Kii" secondAttribute="leading" id="7F1-nO-k1S"/>
                                                 <constraint firstItem="aB5-tj-B1q" firstAttribute="top" secondItem="fAj-pf-Kii" secondAttribute="top" id="7kJ-Wl-3Uk"/>
                                                 <constraint firstItem="f7g-kg-QD3" firstAttribute="leading" secondItem="2dc-68-v8o" secondAttribute="leading" constant="16" id="Aag-Ck-p1T"/>
                                                 <constraint firstAttribute="trailing" secondItem="aB5-tj-B1q" secondAttribute="trailing" constant="30" id="Grg-ai-KhY"/>
+                                                <constraint firstAttribute="trailing" secondItem="b3L-Ve-P6h" secondAttribute="trailing" constant="30" id="Kvj-4o-5rg"/>
                                                 <constraint firstItem="ouZ-GX-Z8X" firstAttribute="top" secondItem="fAj-pf-Kii" secondAttribute="bottom" constant="25" id="WJr-5d-MLn"/>
                                                 <constraint firstItem="fAj-pf-Kii" firstAttribute="top" secondItem="2dc-68-v8o" secondAttribute="top" constant="24" id="b9n-tG-HCV"/>
                                                 <constraint firstItem="f7g-kg-QD3" firstAttribute="top" secondItem="2dc-68-v8o" secondAttribute="top" constant="16" id="ePQ-JA-PAv"/>
@@ -82,7 +90,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="VfQ-PC-Nsf" id="96a-8k-LbZ"/>
+                                            <outlet property="brandLabel" destination="fAj-pf-Kii" id="x9L-lD-HJ9"/>
+                                            <outlet property="dateLabel" destination="b3L-Ve-P6h" id="y6d-yZ-Gng"/>
                                             <outlet property="productLabel" destination="ouZ-GX-Z8X" id="zNd-0g-wGF"/>
                                             <outlet property="typeLabel" destination="aB5-tj-B1q" id="mX4-6c-Auy"/>
                                         </connections>
@@ -251,7 +260,7 @@
         <!--Product Detail-->
         <scene sceneID="QM3-nf-7bZ">
             <objects>
-                <viewController id="dac-do-cZe" customClass="ProductViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dac-do-cZe" customClass="ProductDetailViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hvx-Zu-xx3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

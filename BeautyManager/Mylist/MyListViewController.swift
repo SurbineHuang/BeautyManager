@@ -13,17 +13,22 @@ class MyListViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var products: [Product] = []
+    var brands: [Brand] = []
+    var types: [Type] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
 
         self.loadProducts()
+        self.loadBrands()
+        self.loadTypes()
     }
 
     func loadProducts() {
@@ -33,7 +38,7 @@ class MyListViewController: UIViewController, UISearchBarDelegate {
 
             case .success(let products):
                 
-                print(products)
+                print("======\(products)")
                 self?.products = products
                 self?.tableView.reloadData()
 
@@ -41,6 +46,44 @@ class MyListViewController: UIViewController, UISearchBarDelegate {
 
                 print("loadProducts.failure: \(error)")
             }
+        }
+    }
+    
+    func loadBrands() {
+        
+        ProductManager.shared.getBrands { [weak self] result in
+            switch result {
+            
+            case .success(let brands):
+                
+                print("======\(brands)")
+                self?.brands = brands
+                self?.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print("loadBrands.failure: \(error)")
+            }
+            
+        }
+    }
+    
+    func loadTypes() {
+        
+        ProductManager.shared.getTypes { [weak self] result in
+            switch result {
+            
+            case .success(let types):
+                
+                print("======\(types)")
+                self?.types = types
+                self?.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print("loadTypes.failure: \(error)")
+            }
+            
         }
     }
     
@@ -62,10 +105,15 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let product = self.products[indexPath.row]
+
+        let date = Date(timeIntervalSince1970: product.expiryDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let expiryStr = formatter.string(from: date)
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             
-            cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: product.expiryDate)
+            cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: expiryStr )
             
             return cell
         }
@@ -78,7 +126,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") {
             
             (action, view, completionHandler) in
-//            self.products.remove(at: indexPath.row)
+            self.products.remove(at: indexPath.row)
             completionHandler(true)
         }
         

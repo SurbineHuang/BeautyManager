@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProductViewController: UIViewController, UITextFieldDelegate {
+class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -16,7 +16,7 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var expiryTextField: UITextField!
     @IBOutlet weak var openedTextField: UITextField!
     @IBOutlet weak var periodTextField: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
     let datePicker: UIDatePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
@@ -133,9 +133,9 @@ class ProductViewController: UIViewController, UITextFieldDelegate {
                                          openedDate: openedDate.timeIntervalSince1970,
                                          periodAfterOpening: periodAfterOpening.timeIntervalSince1970)
         
-//        ProductManager.shared.addBrand(brand: brand)
-//        ProductManager.shared.addType(type: type)
-//        
+        ProductManager.shared.addBrand(brand: brand)
+        ProductManager.shared.addType(type: type)
+        
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
+
 struct Product {
     let name: String
     let id: String
@@ -52,7 +53,7 @@ class ProductManager {
             if let error = error {
                 completion(.failure(error))
                 return
-               }
+            }
             
             for document in querySnapshot!.documents {
                 
@@ -72,32 +73,56 @@ class ProductManager {
             completion(.success(products))
         }
     }
-    
-    func getBrand() {
+
+    func getBrands(completion: @escaping (Result<[Brand], Error>) -> Void) {
+
+        var brands: [Brand] = []
         
-        Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand").getDocuments {
-            (querySnapshot, error) in
+        Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand").getDocuments { (querySnapshot, error) in
             
-            if let querySnapshot = querySnapshot {
-                
-                for document in querySnapshot.documents {
-                    print(document.documentID)
-                }
+            if let error = error {
+                completion(.failure(error))
+                return
             }
+
+            for document in querySnapshot!.documents {
+
+                if let id = document.get("ID") as? String,
+                   let brand = document.get("name") as? String {
+
+                    let brand = Brand(id: id, name: brand)
+
+                    brands.append(brand)
+                   }
+                }
+            
+            completion(.success(brands))
         }
     }
     
-    func getType() {
+    func getTypes(completion: @escaping (Result<[Type], Error>) -> Void) {
         
-        Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type").getDocuments {
-            (querySnapshot, error) in
+        var types: [Type] = []
+        
+        Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type").getDocuments { (querySnapshot, error) in
             
-            if let querySnapshot = querySnapshot {
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            for document in querySnapshot!.documents {
                 
-                for document in querySnapshot.documents {
-                    print(document.documentID)
+                if let id = document.get("ID") as? String,
+                   let type = document.get("name") as? String {
+                    
+                    let type = Type(id: id, name: type)
+                    
+                    types.append(type)
                 }
             }
+            
+            completion(.success(types))
         }
     }
     
@@ -136,10 +161,10 @@ class ProductManager {
     }
     
     func addBrand(brand: String) {
-
-        let brand = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand")
-
-        let document = brand.document("nCOL06W911SbGQYtRDi8")
+        
+        let brands = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Brand")
+        
+        let document = brands.document()
         
         let data: [String: Any] = [
             "ID": document.documentID,
@@ -151,9 +176,9 @@ class ProductManager {
     
     func addType(type: String) {
         
-        let type = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type")
+        let types = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type")
         
-        let document = type.document()
+        let document = types.document()
         
         let data: [String: Any] = [
             "ID": document.documentID,

@@ -20,4 +20,5 @@ pod 'Firebase/Firestore'
 #pod 'FirebaseFirestoreSwift'
 
 pod 'SwiftLint'
+
 end

@@ -9,6 +9,7 @@ import UIKit
 
 class MyListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -19,6 +20,7 @@ class MyListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.selectionStyle = .none
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,6 +28,7 @@ class MyListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
     func setData(name: String, brand: String, type: String, expiryDate: String) {
         
@@ -36,3 +39,4 @@ class MyListTableViewCell: UITableViewCell {
         
     }
 }
+

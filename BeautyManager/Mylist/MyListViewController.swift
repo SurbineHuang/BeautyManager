@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MJRefresh
 
-class MyListViewController: UIViewController, UISearchBarDelegate {
+class MyListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -15,13 +16,23 @@ class MyListViewController: UIViewController, UISearchBarDelegate {
     var products: [Product] = []
     var brands: [Brand] = []
     var types: [Type] = []
+    var productList: [Product] = [Product]()// 儲存所有資料
+    var searchList: [Product] = [Product]() // 顯示時使用的資料
+    
+//    let productArray = ["AVEDA", "BOBBI BROWN", "Cellina", "Dior"]
+    var searchProduct = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.searchBar.delegate =  self
         
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.tableView.mj_header?.endRefreshing()
+            self.loadProducts()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +75,6 @@ class MyListViewController: UIViewController, UISearchBarDelegate {
                 
                 print("loadBrands.failure: \(error)")
             }
-            
         }
     }
     
@@ -83,16 +93,8 @@ class MyListViewController: UIViewController, UISearchBarDelegate {
                 
                 print("loadTypes.failure: \(error)")
             }
-            
         }
     }
-    
-//     設定模糊搜尋
-//    func searchBar(_searchBar: UISearchBar, textDidChange searchText: String) {
-//
-//
-//    }
-    
 }
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -113,6 +115,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             
+            cell.backView.layer.cornerRadius = 30.0
+            cell.backView.layer.shadowOpacity = 0.2
             cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: expiryStr )
             
             return cell
@@ -130,8 +134,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             completionHandler(true)
         }
         
-        deleteAction.backgroundColor = UIColor.gray
-        deleteAction.image = UIImage(named: "delete64*64")
+        deleteAction.backgroundColor = UIColor.lightGray
+        deleteAction.image = UIImage(named: "delete(2)64*64")
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
@@ -145,9 +149,35 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             completionHandler(true)
         }
         
+        addToChange.backgroundColor = UIColor.lightGray
         addToChange.image = UIImage(named: "exchange64*64")
         
         return UISwipeActionsConfiguration(actions: [addToChange])
+    }
+}
+
+extension MyListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText == "" {
+            
+            self.searchList.append(contentsOf: self.productList)
+        } else {
+            
+            self.searchList.removeAll()
+            for product in self.productList {
+                
+                if product.name.hasPrefix(searchText) {
+                    self.searchList.append(product)
+                }
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

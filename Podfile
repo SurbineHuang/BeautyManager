@@ -20,5 +20,5 @@ pod 'Firebase/Firestore'
 #pod 'FirebaseFirestoreSwift'
 
 pod 'SwiftLint'
-
+pod 'MJRefresh'
 end

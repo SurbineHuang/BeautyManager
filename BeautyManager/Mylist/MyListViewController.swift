@@ -16,11 +16,18 @@ class MyListViewController: UIViewController {
     var products: [Product] = []
     var brands: [Brand] = []
     var types: [Type] = []
-    var productList: [Product] = [Product]()// 儲存所有資料
-    var searchList: [Product] = [Product]() // 顯示時使用的資料
+    var filteredProducts: [Product] = []
     
-//    let productArray = ["AVEDA", "BOBBI BROWN", "Cellina", "Dior"]
-    var searchProduct = [String]()
+    var isSearching = false
+    
+    
+    
+    // Array init 的三種方式
+//    let stringArray = Array<String>()
+//    let stringArray2 = [String]()
+//    let stringArray3: [String] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,13 +108,24 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return products.count
+        if isSearching {
+            return filteredProducts.count
+        } else {
+            return products.count
+        }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let product = self.products[indexPath.row]
-
+        // Computed property
+        var product: Product {
+            if isSearching {
+                return self.filteredProducts[indexPath.row]
+            } else {
+                return self.products[indexPath.row]
+            }
+        }
+     
         let date = Date(timeIntervalSince1970: product.expiryDate)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
@@ -117,7 +135,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.backView.layer.cornerRadius = 30.0
             cell.backView.layer.shadowOpacity = 0.2
-            cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: expiryStr )
+            cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: expiryStr)
             
             return cell
         }
@@ -160,24 +178,33 @@ extension MyListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        print("searchText \(searchText)")
+        
         if searchText == "" {
             
-            self.searchList.append(contentsOf: self.productList)
+            self.isSearching = false
+            
         } else {
             
-            self.searchList.removeAll()
-            for product in self.productList {
-                
-                if product.name.hasPrefix(searchText) {
-                    self.searchList.append(product)
-                }
+            self.isSearching = true
+            
+            self.filteredProducts = []
+            
+            let filteredArrayByName = self.products.filter { (product) -> Bool in
+                product.name.contains(searchText)
             }
+            
+            self.filteredProducts.append(contentsOf: filteredArrayByName)
+            
+            // TODO: Waiting for brand struct changed
+            /*
+            let filteredArrayByBrand = self.brands.filter { (brand) -> Bool in
+                brand.name.contains(searchText)
+            }
+            self.filteredProducts.append(contentsOf: filteredArrayByBrand)
+             */
         }
+        
         self.tableView.reloadData()
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
 }
-

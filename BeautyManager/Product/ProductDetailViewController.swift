@@ -131,9 +131,9 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         ProductManager.shared.addProduct(name: name,
                                          expiryDate: expiryDate.timeIntervalSince1970,
                                          openedDate: openedDate.timeIntervalSince1970,
-                                         periodAfterOpening: periodAfterOpening.timeIntervalSince1970)
+                                         periodAfterOpening: periodAfterOpening.timeIntervalSince1970, brandName: brand)
         
-        ProductManager.shared.addBrand(brand: brand)
+        ProductManager.shared.addBrand(brandName: brand)
         ProductManager.shared.addType(type: type)
         
         self.dismiss(animated: true, completion: nil)

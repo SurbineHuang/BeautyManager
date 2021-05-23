@@ -20,15 +20,6 @@ class MyListViewController: UIViewController {
     
     var isSearching = false
     
-    
-    
-    // Array init 的三種方式
-//    let stringArray = Array<String>()
-//    let stringArray2 = [String]()
-//    let stringArray3: [String] = []
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +35,9 @@ class MyListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 
-        self.loadProducts()
         self.loadBrands()
         self.loadTypes()
+        self.loadProducts()
     }
 
     func loadProducts() {
@@ -148,8 +139,10 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") {
             
             (action, view, completionHandler) in
-            self.products.remove(at: indexPath.row)
             completionHandler(true)
+            
+            self.products.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         deleteAction.backgroundColor = UIColor.lightGray
@@ -196,13 +189,6 @@ extension MyListViewController: UISearchBarDelegate {
             
             self.filteredProducts.append(contentsOf: filteredArrayByName)
             
-            // TODO: Waiting for brand struct changed
-            /*
-            let filteredArrayByBrand = self.brands.filter { (brand) -> Bool in
-                brand.name.contains(searchText)
-            }
-            self.filteredProducts.append(contentsOf: filteredArrayByBrand)
-             */
         }
         
         self.tableView.reloadData()

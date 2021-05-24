@@ -16,7 +16,7 @@ struct Product {
     let expiryDate: TimeInterval
     let openedDate: TimeInterval
     let periodAfterOpening: TimeInterval
-    let brand: String
+    let brandId: String
 }
 
 struct User {
@@ -81,13 +81,13 @@ extension ProductManager {
                 
                 if let id = document.get("ID") as? String,
                    let name = document.get("name") as? String,
-                   let brand = document.get("brand") as? String,
+                   let brandId = document.get("brandId") as? String,
                    let status = document.get("status") as? String,
                    let expiryDate = document.get("expiryDate") as? TimeInterval,
                    let openedDate = document.get("openedDate") as? TimeInterval,
                    let periodAfterOpening = document.get("periodAfterOpening") as? TimeInterval {
                     
-                    let product = Product(name: name, id: id, status: status, expiryDate: expiryDate, openedDate: openedDate, periodAfterOpening: periodAfterOpening, brand: brand)
+                    let product = Product(name: name, id: id, status: status, expiryDate: expiryDate, openedDate: openedDate, periodAfterOpening: periodAfterOpening, brandId: brandId)
                     
                     products.append(product)
                 }
@@ -113,10 +113,21 @@ extension ProductManager {
             "periodAfterOpening": periodAfterOpening,
             "status": "待交換",
             "photo": "",
-            "brand": brandId
+            "brandId": brandId
         ]
         
         document.setData(data)
+    }
+    
+    func removeProduct(documentID: String) {
+        
+        Firestore.firestore().collection("Products").document(documentID).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }
 
@@ -184,6 +195,22 @@ extension ProductManager {
         var brandId = addBrand(brandName: brandName)
         return brandId
          */
+    }
+    
+    // 利用 brandID 去換回名稱
+    func getBrandName(by brandID: String) -> String {
+        
+        let filteredBrands = self.brandList.filter { (brand) -> Bool in
+            brand.id == brandID
+        }
+        
+        if let brand = filteredBrands.first {
+            // 有找到的話, 回傳品牌名稱
+            return brand.name
+        } else {
+            // 沒有找到的話, 回傳一個空字串
+            return ""
+        }
     }
 }
 

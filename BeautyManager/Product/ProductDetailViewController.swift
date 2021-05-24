@@ -17,8 +17,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var openedTextField: UITextField!
     @IBOutlet weak var periodTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var photoImage: UIButton!
-    
+    @IBOutlet weak var photoButton: UIButton!
     
     let datePicker: UIDatePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
@@ -134,7 +133,8 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         ProductManager.shared.addProduct(name: name,
                                          expiryDate: expiryDate.timeIntervalSince1970,
                                          openedDate: openedDate.timeIntervalSince1970,
-                                         periodAfterOpening: periodAfterOpening.timeIntervalSince1970, brandName: brand)
+                                         periodAfterOpening: periodAfterOpening.timeIntervalSince1970,
+                                         brandName: brand)
         
         ProductManager.shared.addBrand(brandName: brand)
         ProductManager.shared.addType(type: type)
@@ -153,15 +153,18 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func camera() {
+        if !(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            // Device does not have camera
+            return
+        }
+        
         let cameraController = UIImagePickerController()
         cameraController.delegate = self
-        cameraController.sourceType = .photoLibrary
+        cameraController.sourceType = .camera
         present(cameraController, animated: true, completion: nil)
     }
     
     @IBAction func takePhotoTapped(_ sender: Any) {
-        
-        print("======takePhotoTapped")
         
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -173,9 +176,18 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
             self.photoPicker()
         }
         
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
         controller.addAction(cameraAction)
         controller.addAction(libraryAction)
+        controller.addAction(cancelAction)
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as? UIImage
+        photoButton.setImage(image, for: .normal)
+        dismiss(animated: true, completion: nil)
     }
 }

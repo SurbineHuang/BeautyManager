@@ -23,11 +23,15 @@
 		<string>i386</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Take photo</string>
+	<string>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.
+You need to grant the app access to your photo library so you can pick your favorite restaurant photo.
+</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Save photo</string>
+	<string>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.
+</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Look photo</string>
+	<string>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.
+</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

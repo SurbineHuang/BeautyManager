@@ -126,7 +126,10 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.backView.layer.cornerRadius = 30.0
             cell.backView.layer.shadowOpacity = 0.2
-            cell.setData(name: product.name, brand: "brand", type: "type", expiryDate: expiryStr)
+            
+            let brand = ProductManager.shared.getBrandName(by: product.brandId)
+            
+            cell.setData(name: product.name, brand: brand, type: "type", expiryDate: expiryStr)
             
             return cell
         }
@@ -136,11 +139,11 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     // 左滑刪除
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "刪除") {
+        let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { (action, view, completionHandler) in
             
-            (action, view, completionHandler) in
             completionHandler(true)
             
+            ProductManager.shared.removeProduct(documentID: self.products[indexPath.row].id)
             self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -154,9 +157,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     // 右滑移動交換
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let addToChange = UIContextualAction(style: .normal, title: "來交換吧！") {
-            
-            (action, view, completionHandler) in
+        let addToChange = UIContextualAction(style: .normal, title: "來交換吧！") { (action, view, completionHandler) in
             completionHandler(true)
         }
         
@@ -188,11 +189,8 @@ extension MyListViewController: UISearchBarDelegate {
             }
             
             self.filteredProducts.append(contentsOf: filteredArrayByName)
-            
         }
         
         self.tableView.reloadData()
     }
 }
-
-

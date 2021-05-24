@@ -17,6 +17,8 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var openedTextField: UITextField!
     @IBOutlet weak var periodTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var photoImage: UIButton!
+    
     
     let datePicker: UIDatePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
@@ -58,6 +60,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.typeTextField.clearButtonMode = .whileEditing
         self.brandTextField.clearButtonMode = .whileEditing
     }
+    
     
     @objc func dateChanged(datePicker: UIDatePicker) {
         
@@ -137,5 +140,42 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         ProductManager.shared.addType(type: type)
         
         self.dismiss(animated: true, completion: nil)
+    }
+}
+// MARK: - camera
+extension ProductDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func photoPicker() {
+        let photoController = UIImagePickerController()
+        photoController.delegate = self
+        photoController.sourceType = .photoLibrary
+        present(photoController, animated: true, completion: nil)
+    }
+    
+    func camera() {
+        let cameraController = UIImagePickerController()
+        cameraController.delegate = self
+        cameraController.sourceType = .photoLibrary
+        present(cameraController, animated: true, completion: nil)
+    }
+    
+    @IBAction func takePhotoTapped(_ sender: Any) {
+        
+        print("======takePhotoTapped")
+        
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "開啟相機拍照", style: .default) { (_) in
+            self.camera()
+        }
+        
+        let  libraryAction = UIAlertAction(title: "從相簿選擇", style: .default) { (_) in
+            self.photoPicker()
+        }
+        
+        controller.addAction(cameraAction)
+        controller.addAction(libraryAction)
+        
+        present(controller, animated: true, completion: nil)
     }
 }

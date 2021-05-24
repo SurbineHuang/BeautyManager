@@ -19,7 +19,15 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<array>
+		<string>i386</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Take photo</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Look photo</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

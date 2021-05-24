@@ -375,17 +375,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p2b-un-ubS">
-                                <rect key="frame" x="16" y="106" width="140" height="135.5"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="rN4-Jz-yPx"/>
-                                    <constraint firstAttribute="width" constant="140" id="sjK-Ul-0Jg"/>
-                                </constraints>
-                                <imageReference key="image" image="camera.circle" catalog="system" symbolScale="small"/>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="產品名稱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IaA-Lt-4RD">
-                                <rect key="frame" x="181" y="112" width="130" height="34"/>
+                                <rect key="frame" x="169" y="112" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="QJf-cs-9qg"/>
                                 </constraints>
@@ -393,7 +384,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="品牌" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-m7-L0W">
-                                <rect key="frame" x="181" y="156" width="130" height="34"/>
+                                <rect key="frame" x="169" y="156" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="MZy-mq-Sw9"/>
                                 </constraints>
@@ -401,24 +392,24 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="類型" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HOb-42-Tm9">
-                                <rect key="frame" x="181" y="200" width="130" height="34"/>
+                                <rect key="frame" x="169" y="200" width="130" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未拆封有效期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coZ-xh-ons">
-                                <rect key="frame" x="16" y="294" width="129" height="22"/>
+                                <rect key="frame" x="16" y="264" width="129" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拆封日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsf-BF-pwo">
-                                <rect key="frame" x="16" y="341" width="74" height="34"/>
+                                <rect key="frame" x="16" y="311" width="74" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拆封後保存期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6a-1u-PAC">
-                                <rect key="frame" x="16" y="400" width="129" height="22"/>
+                                <rect key="frame" x="16" y="370" width="129" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -438,17 +429,17 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4BH-H2-tkw">
-                                <rect key="frame" x="245" y="288" width="153" height="34"/>
+                                <rect key="frame" x="245" y="258" width="153" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xb6-zh-opS">
-                                <rect key="frame" x="245" y="341" width="153" height="34"/>
+                                <rect key="frame" x="245" y="311" width="153" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttY-aX-C70">
-                                <rect key="frame" x="245" y="394" width="153" height="34"/>
+                                <rect key="frame" x="245" y="364" width="153" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -459,18 +450,28 @@
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3I-1C-EoJ">
+                                <rect key="frame" x="16" y="112" width="128" height="128"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="camera" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhotoTapped:" destination="dac-do-cZe" eventType="touchUpInside" id="x9c-Gn-nmx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uUe-lx-8Nv"/>
                         <color key="backgroundColor" red="0.93975245949999997" green="0.93236309289999997" blue="0.89840608840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xb6-zh-opS" firstAttribute="centerY" secondItem="gsf-BF-pwo" secondAttribute="centerY" id="0eO-xT-rzw"/>
+                            <constraint firstItem="IaA-Lt-4RD" firstAttribute="leading" secondItem="G3I-1C-EoJ" secondAttribute="trailing" constant="25" id="2Q2-VI-hyE"/>
                             <constraint firstItem="HOb-42-Tm9" firstAttribute="trailing" secondItem="H0k-m7-L0W" secondAttribute="trailing" id="7Bg-Qd-AC0"/>
                             <constraint firstItem="Xb6-zh-opS" firstAttribute="top" secondItem="4BH-H2-tkw" secondAttribute="bottom" constant="19" id="7Uh-6T-cKc"/>
                             <constraint firstItem="uUe-lx-8Nv" firstAttribute="trailing" secondItem="ttY-aX-C70" secondAttribute="trailing" constant="16" id="8Lx-bB-FpS"/>
-                            <constraint firstItem="p2b-un-ubS" firstAttribute="top" secondItem="uUe-lx-8Nv" secondAttribute="top" constant="16" id="AEa-W8-9Hc"/>
+                            <constraint firstItem="G3I-1C-EoJ" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="BRn-J5-xyg"/>
                             <constraint firstItem="H0k-m7-L0W" firstAttribute="top" secondItem="IaA-Lt-4RD" secondAttribute="bottom" constant="10" id="D4l-mR-f3i"/>
-                            <constraint firstItem="IaA-Lt-4RD" firstAttribute="leading" secondItem="p2b-un-ubS" secondAttribute="trailing" constant="25" id="Gou-CK-Sjy"/>
                             <constraint firstItem="ttY-aX-C70" firstAttribute="top" secondItem="Xb6-zh-opS" secondAttribute="bottom" constant="19" id="IHr-tG-7Qf"/>
+                            <constraint firstItem="G3I-1C-EoJ" firstAttribute="top" secondItem="uUe-lx-8Nv" secondAttribute="top" constant="24" id="JW4-Zk-92N"/>
                             <constraint firstItem="B6a-1u-PAC" firstAttribute="top" secondItem="gsf-BF-pwo" secondAttribute="bottom" constant="25" id="K1u-eL-qTX"/>
                             <constraint firstItem="B6a-1u-PAC" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="MrN-xM-gwJ"/>
                             <constraint firstItem="IaA-Lt-4RD" firstAttribute="top" secondItem="uUe-lx-8Nv" secondAttribute="top" constant="24" id="Oz8-04-TOS"/>
@@ -479,9 +480,7 @@
                             <constraint firstItem="gsf-BF-pwo" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="QuF-nv-PGT"/>
                             <constraint firstItem="H0k-m7-L0W" firstAttribute="leading" secondItem="IaA-Lt-4RD" secondAttribute="leading" id="Svb-qz-OGt"/>
                             <constraint firstItem="HOb-42-Tm9" firstAttribute="leading" secondItem="H0k-m7-L0W" secondAttribute="leading" id="TDx-wV-V1X"/>
-                            <constraint firstItem="p2b-un-ubS" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="Tej-jx-5Cc"/>
                             <constraint firstItem="uUe-lx-8Nv" firstAttribute="trailing" secondItem="Xb6-zh-opS" secondAttribute="trailing" constant="16" id="XXq-mn-Cab"/>
-                            <constraint firstItem="coZ-xh-ons" firstAttribute="top" secondItem="p2b-un-ubS" secondAttribute="bottom" constant="50" id="YAi-8r-O0V"/>
                             <constraint firstItem="o1h-8N-1uO" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="ZGH-Bx-Lo1"/>
                             <constraint firstItem="uUe-lx-8Nv" firstAttribute="bottom" secondItem="o1h-8N-1uO" secondAttribute="bottom" constant="16" id="bvt-Ay-CwM"/>
                             <constraint firstItem="Xb6-zh-opS" firstAttribute="leading" secondItem="ttY-aX-C70" secondAttribute="leading" id="dxx-e2-vtZ"/>
@@ -489,6 +488,7 @@
                             <constraint firstItem="coZ-xh-ons" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="eAa-QF-eot"/>
                             <constraint firstItem="ttY-aX-C70" firstAttribute="centerY" secondItem="B6a-1u-PAC" secondAttribute="centerY" id="geO-yt-bvu"/>
                             <constraint firstItem="HOb-42-Tm9" firstAttribute="top" secondItem="H0k-m7-L0W" secondAttribute="bottom" constant="10" id="ipf-qO-jtI"/>
+                            <constraint firstItem="coZ-xh-ons" firstAttribute="top" secondItem="G3I-1C-EoJ" secondAttribute="bottom" constant="24" id="jUd-wT-4ce"/>
                             <constraint firstItem="gsf-BF-pwo" firstAttribute="top" secondItem="coZ-xh-ons" secondAttribute="bottom" constant="25" id="oBY-D0-hQq"/>
                             <constraint firstItem="uUe-lx-8Nv" firstAttribute="trailing" secondItem="o1h-8N-1uO" secondAttribute="trailing" constant="16" id="tjs-4h-yCw"/>
                             <constraint firstItem="4BH-H2-tkw" firstAttribute="leading" secondItem="coZ-xh-ons" secondAttribute="trailing" constant="100" id="v1g-ex-9vk"/>
@@ -515,6 +515,7 @@
                         <outlet property="nameTextField" destination="IaA-Lt-4RD" id="7W5-nb-xF0"/>
                         <outlet property="openedTextField" destination="Xb6-zh-opS" id="KDr-x0-LrX"/>
                         <outlet property="periodTextField" destination="ttY-aX-C70" id="jvu-tZ-YDU"/>
+                        <outlet property="photoImage" destination="G3I-1C-EoJ" id="M5U-pb-yos"/>
                         <outlet property="typeTextField" destination="HOb-42-Tm9" id="hzq-a3-MMF"/>
                     </connections>
                 </viewController>
@@ -711,6 +712,7 @@
     </scenes>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="camera" width="128" height="128"/>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>

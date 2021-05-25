@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,6 +22,9 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     
     let datePicker: UIDatePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
+    
+    var productImage: UIImage?
+    var productImageUrlString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,11 +134,18 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        guard let imageUrlString = self.productImageUrlString else {
+            print("Error: productImageUrlString is nil")
+            return
+        }
+        
         ProductManager.shared.addProduct(name: name,
                                          expiryDate: expiryDate.timeIntervalSince1970,
                                          openedDate: openedDate.timeIntervalSince1970,
                                          periodAfterOpening: periodAfterOpening.timeIntervalSince1970,
-                                         brandName: brand, typeName: type)
+                                         photoUrlString: imageUrlString,
+                                         brandName: brand,
+                                         typeName: type)
         
         ProductManager.shared.addBrand(brandName: brand)
         ProductManager.shared.addType(typeName: type)
@@ -142,9 +153,11 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
 // MARK: - camera
 extension ProductDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // 從圖庫取得照片
     func photoPicker() {
         let photoController = UIImagePickerController()
         photoController.delegate = self
@@ -186,8 +199,45 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as? UIImage
-        photoButton.setImage(image, for: .normal)
+        
+        self.productImage = info[.originalImage] as? UIImage
+        self.photoButton.setImage(self.productImage, for: .normal)
+        self.uploadImage()
         dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadImage() {
+        // 自動產生 ID ，方便上傳命名
+        let uuidStr = UUID().uuidString
+        
+        if let image = self.productImage,
+           let imageDate = image.jpegData(compressionQuality: 0.5) {
+            
+            let storageRef = Storage.storage().reference()
+            let imageRef = storageRef.child("ProductImages").child("\(uuidStr).jpg")
+            
+            imageRef.putData(imageDate, metadata: nil) { (metadata, error) in
+                
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                }
+                
+                guard let metadata = metadata else {
+                    return
+                }
+                
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                
+                // You can also access to download URL after upload.
+                imageRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        return
+                    }
+                    self.productImageUrlString = downloadURL.absoluteString
+                }
+            }
+        }
     }
 }

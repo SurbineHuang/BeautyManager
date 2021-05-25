@@ -16,6 +16,7 @@ struct Product {
     let expiryDate: TimeInterval
     let openedDate: TimeInterval
     let periodAfterOpening: TimeInterval
+    let photo: String
     let brandId: String
     let typeId: String
 }
@@ -86,11 +87,20 @@ extension ProductManager {
                    let brandId = document.get("brandId") as? String,
                    let typeId = document.get("typeId") as? String,
                    let status = document.get("status") as? String,
+                   let photo = document.get("photo") as? String,
                    let expiryDate = document.get("expiryDate") as? TimeInterval,
                    let openedDate = document.get("openedDate") as? TimeInterval,
                    let periodAfterOpening = document.get("periodAfterOpening") as? TimeInterval {
                     
-                    let product = Product(name: name, id: id, status: status, expiryDate: expiryDate, openedDate: openedDate, periodAfterOpening: periodAfterOpening, brandId: brandId, typeId: typeId)
+                    let product = Product(name: name,
+                                          id: id,
+                                          status: status,
+                                          expiryDate: expiryDate,
+                                          openedDate: openedDate,
+                                          periodAfterOpening: periodAfterOpening,
+                                          photo: photo,
+                                          brandId: brandId,
+                                          typeId: typeId)
                     
                     products.append(product)
                 }
@@ -100,7 +110,7 @@ extension ProductManager {
         }
     }
     
-    func addProduct(name: String, expiryDate: TimeInterval, openedDate: TimeInterval, periodAfterOpening: TimeInterval, brandName: String, typeName: String) {
+    func addProduct(name: String, expiryDate: TimeInterval, openedDate: TimeInterval, periodAfterOpening: TimeInterval, photoUrlString: String, brandName: String, typeName: String) {
         
         let products = Firestore.firestore().collection("Products")
         
@@ -117,7 +127,7 @@ extension ProductManager {
             "openedDate": openedDate,
             "periodAfterOpening": periodAfterOpening,
             "status": "待交換",
-            "photo": "",
+            "photo": photoUrlString,
             "brandId": brandId,
             "typeId": typeId
         ]
@@ -133,7 +143,7 @@ extension ProductManager {
             } else {
                 print("Document successfully removed!")
             }
-        }
+        } 
     }
 }
 
@@ -218,6 +228,7 @@ extension ProductManager {
             return ""
         }
     }
+    
 }
 
 // MARK: - Type

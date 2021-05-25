@@ -10,7 +10,7 @@ import UIKit
 class MyListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -30,7 +30,7 @@ class MyListTableViewCell: UITableViewCell {
     }
     
 
-    func setData(name: String, brand: String, type: String, expiryDate: String) {
+    func setData(name: String, photoUrlString: String, brand: String, type: String, expiryDate: String) {
         
         self.productLabel.text = name
         self.brandLabel.text = brand

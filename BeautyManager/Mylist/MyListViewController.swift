@@ -47,7 +47,6 @@ class MyListViewController: UIViewController {
 
             case .success(let products):
                 
-                print("======\(products)")
                 self?.products = products
                 self?.tableView.reloadData()
 
@@ -65,7 +64,6 @@ class MyListViewController: UIViewController {
             
             case .success(let brands):
                 
-                print("======\(brands)")
                 self?.brands = brands
                 self?.tableView.reloadData()
                 
@@ -83,7 +81,6 @@ class MyListViewController: UIViewController {
             
             case .success(let types):
                 
-                print("======\(types)")
                 self?.types = types
                 self?.tableView.reloadData()
                 
@@ -130,7 +127,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            cell.setData(name: product.name, brand: brand, type: type, expiryDate: expiryStr)
+            cell.setData(name: product.name, photoUrlString: photoUrlString , brand: brand, type: type, expiryDate: expiryStr)
             
             return cell
         }

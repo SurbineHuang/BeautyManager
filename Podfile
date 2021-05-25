@@ -21,4 +21,6 @@ pod 'Firebase/Firestore'
 
 pod 'SwiftLint'
 pod 'MJRefresh'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
 end

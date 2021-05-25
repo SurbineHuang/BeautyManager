@@ -128,8 +128,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.backView.layer.shadowOpacity = 0.2
             
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
+            let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            cell.setData(name: product.name, brand: brand, type: "type", expiryDate: expiryStr)
+            cell.setData(name: product.name, brand: brand, type: type, expiryDate: expiryStr)
             
             return cell
         }
@@ -149,7 +150,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         deleteAction.backgroundColor = UIColor.lightGray
-        deleteAction.image = UIImage(named: "delete(2)64*64")
+        deleteAction.image = UIImage(named: "delete(3)32*32")
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
@@ -162,7 +163,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         addToChange.backgroundColor = UIColor.lightGray
-        addToChange.image = UIImage(named: "exchange64*64")
+        addToChange.image = UIImage(named: "exchange32*32")
         
         return UISwipeActionsConfiguration(actions: [addToChange])
     }

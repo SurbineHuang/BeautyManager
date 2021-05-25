@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpiryDateTableViewController: UIViewController {
+class ExpiryDateViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,7 +21,7 @@ class ExpiryDateTableViewController: UIViewController {
     }
 
 }
-extension ExpiryDateTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

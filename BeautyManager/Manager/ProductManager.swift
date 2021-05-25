@@ -17,6 +17,7 @@ struct Product {
     let openedDate: TimeInterval
     let periodAfterOpening: TimeInterval
     let brandId: String
+    let typeId: String
 }
 
 struct User {
@@ -42,6 +43,7 @@ class ProductManager {
     static let shared = ProductManager()
     
     var brandList: [Brand] = []
+    var typeList: [Type] = []
 }
 
 // MARK: - User
@@ -82,12 +84,13 @@ extension ProductManager {
                 if let id = document.get("ID") as? String,
                    let name = document.get("name") as? String,
                    let brandId = document.get("brandId") as? String,
+                   let typeId = document.get("typeId") as? String,
                    let status = document.get("status") as? String,
                    let expiryDate = document.get("expiryDate") as? TimeInterval,
                    let openedDate = document.get("openedDate") as? TimeInterval,
                    let periodAfterOpening = document.get("periodAfterOpening") as? TimeInterval {
                     
-                    let product = Product(name: name, id: id, status: status, expiryDate: expiryDate, openedDate: openedDate, periodAfterOpening: periodAfterOpening, brandId: brandId)
+                    let product = Product(name: name, id: id, status: status, expiryDate: expiryDate, openedDate: openedDate, periodAfterOpening: periodAfterOpening, brandId: brandId, typeId: typeId)
                     
                     products.append(product)
                 }
@@ -97,13 +100,15 @@ extension ProductManager {
         }
     }
     
-    func addProduct(name: String, expiryDate: TimeInterval, openedDate: TimeInterval, periodAfterOpening: TimeInterval, brandName: String) {
+    func addProduct(name: String, expiryDate: TimeInterval, openedDate: TimeInterval, periodAfterOpening: TimeInterval, brandName: String, typeName: String) {
         
         let products = Firestore.firestore().collection("Products")
         
         let document = products.document()
         
         let brandId = checkBrandExistAndGetBrandId(brandName: brandName)
+        
+        let typeId = checkBrandExistAndGetTypeId(typeName: typeName)
         
         let data: [String: Any] = [
             "ID": document.documentID,
@@ -113,7 +118,8 @@ extension ProductManager {
             "periodAfterOpening": periodAfterOpening,
             "status": "待交換",
             "photo": "",
-            "brandId": brandId
+            "brandId": brandId,
+            "typeId": typeId
         ]
         
         document.setData(data)
@@ -239,21 +245,48 @@ extension ProductManager {
                 }
             }
             
+            self.typeList = types
             completion(.success(types))
         }
     }
     
-    func addType(type: String) {
+    func addType(typeName: String) -> String {
         
         let types = Firestore.firestore().collection("Users").document("k0QvqvGaG5CDTeRQtAKL").collection("Type")
         
-        let document = types.document()
+        let typeDocument = types.document()
         
-        let data: [String: Any] = [
-            "ID": document.documentID,
-            "name": type
-        ]
+       typeDocument.setData(["ID": typeDocument.documentID, "name": typeName])
         
-        document.setData(data)
+        return typeDocument.documentID
+    }
+    
+    func checkBrandExistAndGetTypeId(typeName: String) -> String {
+        
+        let filteredTypes = self.typeList.filter { (type) -> Bool in
+            typeName == type.name
+        }
+        
+        if let theType = filteredTypes.first {
+            return theType.id
+        } else {
+            let typeId = addType(typeName: typeName)
+            return typeId
+        }
+    }
+    
+    func getTypeName(by typeId: String) -> String {
+        
+        let filteredTypes = self.typeList.filter { (type) -> Bool in
+            type.id == typeId
+        }
+        
+        if let type = filteredTypes.first {
+            // 有找到的話, 回傳品牌名稱
+            return type.name
+        } else {
+            // 沒有找到的話, 回傳一個空字串
+            return ""
+        }
     }
 }

@@ -20,6 +20,7 @@ class MyListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.selectionStyle = .none
+        self.productImageView.layer.cornerRadius = 8
         
     }
 

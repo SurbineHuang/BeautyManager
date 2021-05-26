@@ -8,6 +8,7 @@
 import UIKit
 import MJRefresh
 import Kingfisher
+import UserNotifications
 
 class MyListViewController: UIViewController {
 
@@ -32,6 +33,9 @@ class MyListViewController: UIViewController {
             self.tableView.mj_header?.endRefreshing()
             self.loadProducts()
         })
+        
+        self.setNotification()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,8 +43,22 @@ class MyListViewController: UIViewController {
         self.loadBrands()
         self.loadTypes()
         self.loadProducts()
+        
     }
 
+    func setNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Hello~"
+        content.subtitle = "是不是很久沒來開 APP 了"
+        content.body = "快來看看有什麼東西快過期了吧！"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "ProductReminder", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+
+    }
     func loadProducts() {
 
         ProductManager.shared.getProducts { [weak self] result in
@@ -91,6 +109,7 @@ class MyListViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {

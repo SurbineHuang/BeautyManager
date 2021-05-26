@@ -211,12 +211,12 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
         let uuidStr = UUID().uuidString
         
         if let image = self.productImage,
-           let imageDate = image.jpegData(compressionQuality: 0.5) {
+           let imageData = image.jpegData(compressionQuality: 0.5) {
             
             let storageRef = Storage.storage().reference()
             let imageRef = storageRef.child("ProductImages").child("\(uuidStr).jpg")
             
-            imageRef.putData(imageDate, metadata: nil) { (metadata, error) in
+            imageRef.putData(imageData, metadata: nil) { (metadata, error) in
                 
                 if let error = error {
                     print("Error: \(error)")

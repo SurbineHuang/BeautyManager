@@ -23,4 +23,5 @@ pod 'SwiftLint'
 pod 'MJRefresh'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
+pod 'Kingfisher', '~> 6.2'
 end

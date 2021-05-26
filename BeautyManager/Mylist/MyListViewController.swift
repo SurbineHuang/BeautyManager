@@ -7,6 +7,7 @@
 
 import UIKit
 import MJRefresh
+import Kingfisher
 
 class MyListViewController: UIViewController {
 
@@ -113,7 +114,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
                 return self.products[indexPath.row]
             }
         }
-     
+        
         let date = Date(timeIntervalSince1970: product.expiryDate)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
@@ -127,7 +128,13 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            cell.setData(name: product.name, photoUrlString: photoUrlString , brand: brand, type: type, expiryDate: expiryStr)
+            cell.setData(name: product.name, photoUrlString: product.photo , brand: brand, type: type, expiryDate: expiryStr)
+            
+            let photoImage = self.products[indexPath.row]
+            
+            let imageUrl = photoImage.photo
+            let url = URL(string: imageUrl)
+            cell.productImageView.kf.setImage(with: url)
             
             return cell
         }

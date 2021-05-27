@@ -25,6 +25,8 @@ class MyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.dateAlert()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate =  self
@@ -216,5 +218,19 @@ extension MyListViewController: UISearchBarDelegate {
         }
         
         self.tableView.reloadData()
+    }
+}
+
+extension MyListViewController: UIAlertViewDelegate {
+    
+    func dateAlert() {
+        // 建立提示框
+        let alertController = UIAlertController(title: "!!", message: "快看看什麼東西快到期囉！", preferredStyle: .alert)
+        // 建立確認按鈕
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        // 顯示提示框
+        self.present(alertController, animated: true, completion: nil)
     }
 }

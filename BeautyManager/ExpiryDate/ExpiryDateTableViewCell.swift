@@ -8,18 +8,15 @@
 import UIKit
 
 class ExpiryDateTableViewCell: UITableViewCell {
-
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var view: UIView!
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         self.selectionStyle = .none
-       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,6 +24,4 @@ class ExpiryDateTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    
 }

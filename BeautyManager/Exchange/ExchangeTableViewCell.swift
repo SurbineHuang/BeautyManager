@@ -8,9 +8,8 @@
 import UIKit
 
 class ExchangeTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var view: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +20,4 @@ class ExchangeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

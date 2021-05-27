@@ -147,7 +147,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My List" id="ge9-KD-KWY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="QHW-RZ-v7A">
+                        <barButtonItem key="rightBarButtonItem" id="QHW-RZ-v7A">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nRN-B9-6H1">
                                 <rect key="frame" x="284" y="11" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -206,7 +206,7 @@
                                                     <imageReference key="image" image="camera.circle" catalog="system" symbolScale="small"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="產品名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-Nf-lei">
-                                                    <rect key="frame" x="180" y="50" width="74" height="26.5"/>
+                                                    <rect key="frame" x="180" y="50" width="148" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -242,6 +242,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Czq-Xu-L2n" secondAttribute="bottom" constant="8" id="H1f-kv-QmH"/>
                                                 <constraint firstItem="0fI-Rw-9hW" firstAttribute="leading" secondItem="IGa-7f-1Lf" secondAttribute="trailing" constant="12" id="JJz-sv-5KK"/>
                                                 <constraint firstItem="Czq-Xu-L2n" firstAttribute="leading" secondItem="jsX-jl-8Ts" secondAttribute="leading" constant="8" id="Jy6-VB-8B6"/>
+                                                <constraint firstItem="Dkb-Nf-lei" firstAttribute="trailing" secondItem="Czq-Xu-L2n" secondAttribute="trailing" constant="16" id="SVn-Ox-kle"/>
                                                 <constraint firstAttribute="bottom" secondItem="OLE-xH-Bg7" secondAttribute="bottom" constant="50" id="caO-pa-BNy"/>
                                                 <constraint firstItem="IGa-7f-1Lf" firstAttribute="leading" secondItem="OLE-xH-Bg7" secondAttribute="trailing" constant="3" id="pq3-ib-Y0s"/>
                                                 <constraint firstItem="Dkb-Nf-lei" firstAttribute="top" secondItem="jsX-jl-8Ts" secondAttribute="top" constant="50" id="q4D-Dn-m30"/>
@@ -538,7 +539,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Product Detail" id="9iH-fS-N6u">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="QT2-RG-MFl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="QT2-RG-MFl">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QRG-g8-HpU">
                                 <rect key="frame" x="16" y="11" width="51.5" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -25,8 +25,6 @@ class MyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.dateAlert()
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate =  self
@@ -37,7 +35,6 @@ class MyListViewController: UIViewController {
         })
         
         self.setNotification()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +42,6 @@ class MyListViewController: UIViewController {
         self.loadBrands()
         self.loadTypes()
         self.loadProducts()
-        
     }
 
     func setNotification() {
@@ -59,8 +55,8 @@ class MyListViewController: UIViewController {
         let request = UNNotificationRequest(identifier: "ProductReminder", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-
     }
+    
     func loadProducts() {
 
         ProductManager.shared.getProducts { [weak self] result in
@@ -70,7 +66,23 @@ class MyListViewController: UIViewController {
                 
                 self?.products = products
                 self?.tableView.reloadData()
-
+                
+//                // 檢查每個產品的過期時間, 將即將過期的產品名稱, 組成一個字串
+//                var willExpiredProductNames = ""
+//
+//                products.forEach { (product) in
+//                    let now = Date().timeIntervalSince1970
+//                    let oneDaySeconds: Double = (24 * 60 * 60)
+//                    let willExpired = (product.expiryDate - now) < (oneDaySeconds * 30)
+//                    if (willExpired) {
+//                        willExpiredProductNames.append(product.name)
+//                        willExpiredProductNames.append("\n")
+//                    }
+//                }
+//
+//                let expiredProducts = willExpiredProductNames
+//                self?.showExpiredWarningAlert(message: expiredProducts)
+                
             case .failure(let error):
 
                 print("loadProducts.failure: \(error)")
@@ -223,14 +235,40 @@ extension MyListViewController: UISearchBarDelegate {
 
 extension MyListViewController: UIAlertViewDelegate {
     
-    func dateAlert() {
+    func showExpiredWarningAlert(message: String) {
         // 建立提示框
-        let alertController = UIAlertController(title: "!!", message: "快看看什麼東西快到期囉！", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "倒數30天就到期囉！",
+                                                message: message,
+                                                preferredStyle: .alert)
         // 建立確認按鈕
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        
+
         alertController.addAction(okAction)
         // 顯示提示框
         self.present(alertController, animated: true, completion: nil)
+        
+        /*
+         * NOTE: Title 有圖片的 Alert
+        // Create the image NSTextAttachment
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(named: "attention")
+
+        let attributedTitle = NSAttributedString(attachment: imageAttachment)
+
+        let alertController = UIAlertController(
+            title: "", // This gets overridden below.
+            message: "倒數30天就到期囉！\nP1\nP2\nP3\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1",
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "OK", style: .cancel) { _ -> Void in
+        }
+        alertController.addAction(okAction)
+
+        // override title
+        alertController.setValue(attributedTitle, forKey: "attributedTitle")
+
+        self.present(alertController, animated: true, completion: nil)
+        */
     }
 }

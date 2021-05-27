@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Data.png",
+      "filename" : "exclamation.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Data@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Data@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

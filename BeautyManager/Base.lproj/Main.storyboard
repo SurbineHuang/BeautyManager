@@ -130,6 +130,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.72549019607843135" green="0.53333333333333333" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="p68-l3-z5Q" kind="presentation" id="3NQ-tW-0uG"/>
                                 </connections>
@@ -160,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addTapped" destination="f2K-do-4P0" id="rfA-Oh-IHw"/>
                         <outlet property="searchBar" destination="9NK-9y-Q8z" id="r6w-xo-mXX"/>
                         <outlet property="tableView" destination="JgL-lX-2sY" id="3Kf-HG-FUL"/>
                     </connections>
@@ -189,7 +195,20 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Czq-Xu-L2n">
                                                     <rect key="frame" x="8" y="8" width="304" height="155"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expired" translatesAutoresizingMaskIntoConstraints="NO" id="Rgc-MM-y7x">
+                                                            <rect key="frame" x="52" y="27.5" width="200" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="200" id="bat-qm-snl"/>
+                                                                <constraint firstAttribute="height" constant="100" id="t4I-vg-EAQ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Rgc-MM-y7x" firstAttribute="centerX" secondItem="Czq-Xu-L2n" secondAttribute="centerX" id="4e3-A9-Uc7"/>
+                                                        <constraint firstItem="Rgc-MM-y7x" firstAttribute="centerY" secondItem="Czq-Xu-L2n" secondAttribute="centerY" id="jEE-We-7Xt"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
                                                             <size key="value" width="0.0" height="10"/>
@@ -254,6 +273,7 @@
                                         <color key="backgroundColor" red="0.93975245949999997" green="0.93236309289999997" blue="0.89840608840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="IGa-7f-1Lf" id="oD9-8u-O09"/>
+                                            <outlet property="expiredImageView" destination="Rgc-MM-y7x" id="D8S-8h-xhR"/>
                                             <outlet property="imageView" destination="IlW-pR-Ald" id="IC3-Ee-3Fl"/>
                                             <outlet property="productImage" destination="IlW-pR-Ald" id="7Nm-JK-0de"/>
                                             <outlet property="productLabel" destination="Dkb-Nf-lei" id="aa1-el-KjN"/>
@@ -279,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peB-oa-bG0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4160.8695652173919" y="-631.47321428571422"/>
+            <point key="canvasLocation" x="4160.625" y="-631.69014084507046"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="b02-y1-1tf">
@@ -289,65 +309,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入 Apple ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-aQ-KtF">
-                                <rect key="frame" x="95" y="222" width="130" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入 Apple ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-aQ-KtF">
+                                <rect key="frame" x="95" y="216" width="130" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ln-F7-GVa">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ln-F7-GVa">
                                 <rect key="frame" x="95" y="260" width="130" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukq-6b-QG7">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukq-6b-QG7">
                                 <rect key="frame" x="100" y="318" width="120" height="30"/>
                                 <color key="backgroundColor" red="0.72549019609999998" green="0.53333333329999999" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="登入"/>
                             </button>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45C-W8-rYG">
-                                <rect key="frame" x="100" y="100" width="120" height="120"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pAm-co-17U">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath=" layer.cornerRadius">
-                                                <integer key="value" value="60"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath=" layer.cornerRadius">
-                                        <integer key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8za-Gm-0t7">
                                 <rect key="frame" x="290.5" y="12" width="17.5" height="22"/>
                                 <state key="normal" image="xmark" catalog="system"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cool" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-0j-8nu">
+                                <rect key="frame" x="120" y="90" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="52O-KV-Kaq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OHT-Jj-vKg"/>
                         <color key="backgroundColor" red="0.93975245949999997" green="0.93236309289999997" blue="0.89840608840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="45C-W8-rYG" secondAttribute="trailing" constant="100" id="0qk-kG-rJb"/>
-                            <constraint firstItem="hmv-aQ-KtF" firstAttribute="top" secondItem="45C-W8-rYG" secondAttribute="bottom" constant="2" id="6XK-HM-OZY"/>
                             <constraint firstItem="Ukq-6b-QG7" firstAttribute="top" secondItem="8ln-F7-GVa" secondAttribute="bottom" constant="24" id="9gu-Vc-YIm"/>
                             <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="hmv-aQ-KtF" secondAttribute="trailing" constant="95" id="CkW-WA-9l9"/>
                             <constraint firstItem="8ln-F7-GVa" firstAttribute="top" secondItem="hmv-aQ-KtF" secondAttribute="bottom" constant="4" id="GU5-Kq-cOC"/>
-                            <constraint firstItem="45C-W8-rYG" firstAttribute="top" secondItem="OHT-Jj-vKg" secondAttribute="top" constant="100" id="HWF-N0-Zto"/>
+                            <constraint firstItem="hmv-aQ-KtF" firstAttribute="top" secondItem="P1j-0j-8nu" secondAttribute="bottom" constant="46" id="Jxf-jQ-Vlv"/>
+                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="P1j-0j-8nu" secondAttribute="trailing" constant="120" id="Laq-g0-K3Z"/>
                             <constraint firstItem="hmv-aQ-KtF" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="95" id="N54-On-j5M"/>
                             <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="Ukq-6b-QG7" secondAttribute="trailing" constant="100" id="NRA-Dc-7RF"/>
                             <constraint firstItem="8ln-F7-GVa" firstAttribute="leading" secondItem="hmv-aQ-KtF" secondAttribute="leading" id="WUI-8N-k5N"/>
                             <constraint firstItem="Ukq-6b-QG7" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="100" id="Xgr-Zh-P65"/>
+                            <constraint firstItem="P1j-0j-8nu" firstAttribute="top" secondItem="OHT-Jj-vKg" secondAttribute="top" constant="90" id="aaz-cG-wxg"/>
                             <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="8za-Gm-0t7" secondAttribute="trailing" constant="12" id="eMU-Oq-H1Q"/>
                             <constraint firstItem="OHT-Jj-vKg" firstAttribute="bottom" secondItem="Ukq-6b-QG7" secondAttribute="bottom" constant="200" id="fFb-vd-e2e"/>
                             <constraint firstItem="8ln-F7-GVa" firstAttribute="trailing" secondItem="hmv-aQ-KtF" secondAttribute="trailing" id="fOe-Xk-mGc"/>
+                            <constraint firstItem="P1j-0j-8nu" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="120" id="hGy-4v-uKF"/>
                             <constraint firstItem="8za-Gm-0t7" firstAttribute="top" secondItem="OHT-Jj-vKg" secondAttribute="top" constant="12" id="qkL-1t-ooG"/>
-                            <constraint firstItem="45C-W8-rYG" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="100" id="x0F-Uh-PM2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IBR-RF-xGj"/>
@@ -360,7 +371,7 @@
         <scene sceneID="uO1-WH-NmV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xsv-sd-A83" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My List" image="doc.plaintext" catalog="system" id="Q5N-zm-iO1"/>
+                    <tabBarItem key="tabBarItem" title="My List" image="List" id="Q5N-zm-iO1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ue-BX-Q9K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -380,7 +391,7 @@
             </objects>
             <point key="canvasLocation" x="3251" y="49"/>
         </scene>
-        <!--Product Detail-->
+        <!--New Product -->
         <scene sceneID="QM3-nf-7bZ">
             <objects>
                 <viewController id="dac-do-cZe" customClass="ProductDetailViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -437,6 +448,11 @@
                                 <state key="normal" title="完成">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addTapped:" destination="dac-do-cZe" eventType="touchUpInside" id="L9T-B7-DYf"/>
                                 </connections>
@@ -459,25 +475,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-of-GOX">
-                                <rect key="frame" x="16" y="70" width="114" height="114"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="pF2-FZ-nqF"/>
-                                    <constraint firstAttribute="height" constant="114" id="vPv-gB-Jx5"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath=" layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
-                                        <size key="value" width="10" height="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
-                                        <real key="value" value="0.20000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74E-mr-GFN">
                                 <rect key="frame" x="0.0" y="16" width="320" height="44"/>
                                 <textAttributes key="titleTextAttributes">
@@ -485,10 +482,10 @@
                                 </textAttributes>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3I-1C-EoJ">
-                                <rect key="frame" x="24" y="81" width="100" height="100"/>
+                                <rect key="frame" x="24" y="86" width="90" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="36j-IH-3G9"/>
-                                    <constraint firstAttribute="width" constant="100" id="eOP-It-0aN"/>
+                                    <constraint firstAttribute="height" constant="90" id="36j-IH-3G9"/>
+                                    <constraint firstAttribute="width" constant="90" id="eOP-It-0aN"/>
                                 </constraints>
                                 <state key="normal">
                                     <imageReference key="image" image="camera" symbolScale="large"/>
@@ -507,12 +504,10 @@
                             <constraint firstItem="gsf-BF-pwo" firstAttribute="trailing" secondItem="coZ-xh-ons" secondAttribute="trailing" id="5Kg-t4-OIf"/>
                             <constraint firstItem="HOb-42-Tm9" firstAttribute="trailing" secondItem="H0k-m7-L0W" secondAttribute="trailing" id="7Bg-Qd-AC0"/>
                             <constraint firstItem="H0k-m7-L0W" firstAttribute="trailing" secondItem="IaA-Lt-4RD" secondAttribute="trailing" id="89S-4l-tRj"/>
-                            <constraint firstItem="KvA-of-GOX" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="A8f-RY-4wg"/>
                             <constraint firstItem="G3I-1C-EoJ" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="24" id="BRn-J5-xyg"/>
                             <constraint firstItem="H0k-m7-L0W" firstAttribute="top" secondItem="IaA-Lt-4RD" secondAttribute="bottom" constant="12" id="D4l-mR-f3i"/>
                             <constraint firstItem="gsf-BF-pwo" firstAttribute="leading" secondItem="coZ-xh-ons" secondAttribute="leading" id="IeR-XQ-r6l"/>
                             <constraint firstItem="B6a-1u-PAC" firstAttribute="top" secondItem="gsf-BF-pwo" secondAttribute="bottom" constant="24" id="K1u-eL-qTX"/>
-                            <constraint firstItem="IaA-Lt-4RD" firstAttribute="leading" secondItem="KvA-of-GOX" secondAttribute="trailing" constant="24" id="MId-GF-oVd"/>
                             <constraint firstItem="ttY-aX-C70" firstAttribute="centerY" secondItem="B6a-1u-PAC" secondAttribute="centerY" id="O4v-dG-yiA"/>
                             <constraint firstItem="IaA-Lt-4RD" firstAttribute="top" secondItem="uUe-lx-8Nv" secondAttribute="top" constant="24" id="Oz8-04-TOS"/>
                             <constraint firstItem="uUe-lx-8Nv" firstAttribute="trailing" secondItem="4BH-H2-tkw" secondAttribute="trailing" constant="16" id="POj-aj-2e2"/>
@@ -522,7 +517,6 @@
                             <constraint firstItem="HOb-42-Tm9" firstAttribute="leading" secondItem="H0k-m7-L0W" secondAttribute="leading" id="TDx-wV-V1X"/>
                             <constraint firstItem="B6a-1u-PAC" firstAttribute="trailing" secondItem="gsf-BF-pwo" secondAttribute="trailing" id="Vdh-Rg-6fA"/>
                             <constraint firstItem="o1h-8N-1uO" firstAttribute="leading" secondItem="uUe-lx-8Nv" secondAttribute="leading" constant="16" id="ZGH-Bx-Lo1"/>
-                            <constraint firstItem="KvA-of-GOX" firstAttribute="top" secondItem="74E-mr-GFN" secondAttribute="bottom" constant="10" id="b3O-L8-dNP"/>
                             <constraint firstItem="uUe-lx-8Nv" firstAttribute="bottom" secondItem="o1h-8N-1uO" secondAttribute="bottom" constant="16" id="bvt-Ay-CwM"/>
                             <constraint firstItem="Xb6-zh-opS" firstAttribute="leading" secondItem="ttY-aX-C70" secondAttribute="leading" id="dxx-e2-vtZ"/>
                             <constraint firstItem="Xb6-zh-opS" firstAttribute="trailing" secondItem="ttY-aX-C70" secondAttribute="trailing" id="e1u-Hd-2Jx"/>
@@ -538,7 +532,7 @@
                             <constraint firstItem="Xb6-zh-opS" firstAttribute="trailing" secondItem="4BH-H2-tkw" secondAttribute="trailing" id="zMb-AM-hFC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Product Detail" id="9iH-fS-N6u">
+                    <navigationItem key="navigationItem" title="New Product " id="9iH-fS-N6u">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="QT2-RG-MFl">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QRG-g8-HpU">
                                 <rect key="frame" x="16" y="11" width="51.5" height="22"/>
@@ -553,6 +547,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addTapped" destination="o1h-8N-1uO" id="iBF-Gg-7Ft"/>
                         <outlet property="brandTextField" destination="H0k-m7-L0W" id="WbG-uV-5iS"/>
                         <outlet property="expiryTextField" destination="4BH-H2-tkw" id="VPW-jX-e0g"/>
                         <outlet property="nameTextField" destination="IaA-Lt-4RD" id="7W5-nb-xF0"/>
@@ -564,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKS-7y-Jl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5947.5" y="48.591549295774648"/>
+            <point key="canvasLocation" x="5948" y="72"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ir9-QF-N25">
@@ -609,7 +604,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEK-e2-n0I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5044" y="49"/>
+            <point key="canvasLocation" x="5046" y="72"/>
         </scene>
         <!--Data-->
         <scene sceneID="flP-BM-Ez9">
@@ -651,7 +646,7 @@
         <scene sceneID="bho-5z-9bR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qsa-A3-vo1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="交換" image="exchange32*32" id="6Xh-BF-78U"/>
+                    <tabBarItem key="tabBarItem" title="交換" image="repeat" catalog="system" id="6Xh-BF-78U"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U08-fI-BSm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -775,7 +770,7 @@
         <scene sceneID="VTY-jb-pP6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bNM-Kh-z4m" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="快到期產品" image="clock (1)" id="DHS-Fg-OFR"/>
+                    <tabBarItem key="tabBarItem" title="快到期產品" image="Expirydate" id="DHS-Fg-OFR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EsI-zY-Q3P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -798,7 +793,7 @@
         <scene sceneID="Ijd-6H-To2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QNp-98-gjY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Data" image="chart.bar.xaxis" catalog="system" id="Gkj-zc-Rcb"/>
+                    <tabBarItem key="tabBarItem" title="Data" image="Data" id="Gkj-zc-Rcb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mbg-PD-c8C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -818,16 +813,18 @@
     </scenes>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="Data" width="36" height="32"/>
+        <image name="Expirydate" width="32" height="32"/>
+        <image name="List" width="24" height="32"/>
         <image name="camera" width="128" height="128"/>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="clock (1)" width="32" height="32"/>
-        <image name="doc.plaintext" catalog="system" width="115" height="128"/>
-        <image name="exchange32*32" width="32" height="32"/>
-        <image name="face.smiling" catalog="system" width="128" height="121"/>
+        <image name="cool" width="64" height="64"/>
+        <image name="expired" width="200" height="96"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="repeat" catalog="system" width="128" height="99"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

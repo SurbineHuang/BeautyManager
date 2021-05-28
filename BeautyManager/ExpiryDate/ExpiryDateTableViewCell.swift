@@ -12,7 +12,8 @@ class ExpiryDateTableViewCell: UITableViewCell {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var view: UIView!
-
+    @IBOutlet weak var expiredImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -23,5 +24,9 @@ class ExpiryDateTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func setData() {
+        self.expiredImageView.isHidden = true
+
     }
 }

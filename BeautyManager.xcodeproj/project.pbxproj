@@ -22,6 +22,7 @@
 		D49A3006264CC52500C84BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49A3005264CC52500C84BB9 /* Assets.xcassets */; };
 		D49A3009264CC52500C84BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */; };
 		D49A3017264CCD4400C84BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */; };
+		D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3377F2661488E000667C4 /* TabBarViewController.swift */; };
 		D4FB4081264E5140000AB82A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		D49A3008264CC52500C84BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D49A300A264CC52500C84BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4E3377F2661488E000667C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6890E0E5609A43C2464D133 /* Pods-BeautyManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyManager.release.xcconfig"; path = "Target Support Files/Pods-BeautyManager/Pods-BeautyManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		D49A2FF0264CC52500C84BB9 = {
 			isa = PBXGroup;
 			children = (
+				D4E3377E26614861000667C4 /* TabBar */,
 				D49A2FFB264CC52500C84BB9 /* BeautyManager */,
 				D49A2FFA264CC52500C84BB9 /* Products */,
 				E976F321883154D630C95CD3 /* Pods */,
@@ -147,6 +150,14 @@
 				D42BB304264D264700B079FE /* MyListTableViewCell.swift */,
 			);
 			path = Mylist;
+			sourceTree = "<group>";
+		};
+		D4E3377E26614861000667C4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3377F2661488E000667C4 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		D4FB407F264E5114000AB82A /* Product */ = {
@@ -304,6 +315,7 @@
 				D409B97C26524FBF008667C0 /* ProductManager.swift in Sources */,
 				D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */,
 				D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */,
+				D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */,
 				D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */,
 				D42BB305264D264700B079FE /* MyListTableViewCell.swift in Sources */,
 				D49A2FFD264CC52500C84BB9 /* AppDelegate.swift in Sources */,

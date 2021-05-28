@@ -16,7 +16,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var expiryTextField: UITextField!
     @IBOutlet weak var openedTextField: UITextField!
     @IBOutlet weak var periodTextField: UITextField!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var addTapped: UIButton!
     @IBOutlet weak var photoButton: UIButton!
 
     let datePicker = UIDatePicker()
@@ -50,7 +50,9 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.periodTextField.backgroundColor = .clear
         self.periodTextField.borderStyle = .none
         self.periodTextField.inputView = self.datePicker
-
+        self.addTapped.layer.shadowOpacity = 0.2
+        self.addTapped.layer.cornerRadius = 20
+        self.photoButton.layer.cornerRadius = 10
         // 設定空白處點選結束
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)

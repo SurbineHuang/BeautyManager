@@ -25,8 +25,9 @@ class ExpiryDateTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setData() {
+    func setData(name: String) {
         self.expiredImageView.isHidden = true
-
+        print("===setData \(name)")
+        self.productLabel.text = name
     }
 }

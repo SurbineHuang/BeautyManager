@@ -11,30 +11,49 @@ class ExpiryDateViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
    
     var products: [Product] = []
-
+    var filteredExpired: [Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadExpiredProduct()
+    }
+    func loadExpiredProduct() {
+        ProductManager.shared.getProducts { [weak self] result in
+            switch result {
+            case .success(let products):
+                self?.products = products
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print("===loadExpiredProduct.failure: \(error)")
+            }
+        }
     }
 }
 extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return products.count
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let product: Product = self.products[indexPath.row]
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ExpiryDateTableViewCell", for: indexPath) as? ExpiryDateTableViewCell {
             cell.view.layer.cornerRadius = 30.0
             cell.view.layer.shadowOpacity = 0.2
-            cell.setData()
+            cell.setData(name: product.name)
+            
+            let photoImage = self.products[indexPath.row]
+            let imageUrl = photoImage.photo
+            let url = URL(string: imageUrl)
+            cell.productImage.kf.setImage(with: url)
 
             return cell
         }
         return UITableViewCell()
     }
-
     // swiftlint:disable closure_parameter_position
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
@@ -42,12 +61,9 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
             self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-
         deleteAction.backgroundColor = UIColor.lightGray
         deleteAction.image = UIImage(named: "delete(3)32*32")
-
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     // swiftlint:enable closure_parameter_position
-    
 }

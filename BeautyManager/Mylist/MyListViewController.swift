@@ -14,7 +14,6 @@ class MyListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var addTapped: UIButton!
-    
     var products: [Product] = []
     var brands: [Brand] = []
     var types: [Type] = []
@@ -65,7 +64,7 @@ class MyListViewController: UIViewController {
                 self?.products = products
                 self?.tableView.reloadData()
 
-                // 檢查每個產品的過期時間, 將即將過期的產品名稱, 組成一個字串
+//                // 檢查每個產品的過期時間, 將即將過期的產品名稱, 組成一個字串
 //                var willExpiredProductNames = ""
 //
 //                products.forEach { (product) in

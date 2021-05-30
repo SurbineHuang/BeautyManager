@@ -40,6 +40,7 @@ struct Type {
 ////////////////////////////////////////////
 
 class ProductManager {
+    
     static let shared = ProductManager()
 
     var brandList: [Brand] = []
@@ -127,7 +128,6 @@ extension ProductManager {
         document.setData(data)
     }
     // swiftlint:ensable function_parameter_count
-
     func removeProduct(documentID: String) {
         Firestore.firestore().collection("Products").document(documentID).delete { err in
             if let err = err {

@@ -11,14 +11,15 @@ import UIKit
 import UserNotifications
 
 class MyListViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var addTapped: UIButton!
+    
     var products: [Product] = []
     var brands: [Brand] = []
     var types: [Type] = []
     var filteredProducts: [Product] = []
-
     var isSearching = false
 
     override func viewDidLoad() {
@@ -65,20 +66,20 @@ class MyListViewController: UIViewController {
                 self?.tableView.reloadData()
 
 //                // 檢查每個產品的過期時間, 將即將過期的產品名稱, 組成一個字串
-//                var willExpiredProductNames = ""
-//
-//                products.forEach { (product) in
-//                    let now = Date().timeIntervalSince1970
-//                    let oneDaySeconds: Double = (24 * 60 * 60)
-//                    let willExpired = (product.expiryDate - now) < (oneDaySeconds * 30)
-//                    if (willExpired) {
-//                        willExpiredProductNames.append(product.name)
-//                        willExpiredProductNames.append("\n")
-//                    }
-//                }
-//
-//                let expiredProducts = willExpiredProductNames
-//                self?.showExpiredWarningAlert(message: expiredProducts)
+                var willExpiredProductNames = ""
+
+                products.forEach { (product) in
+                    let now = Date().timeIntervalSince1970
+                    let oneDaySeconds: Double = (24 * 60 * 60)
+                    let willExpired = (product.expiryDate - now) <= (oneDaySeconds * 30)
+                    if (willExpired) {
+                        willExpiredProductNames.append(product.name)
+                        willExpiredProductNames.append("\n")
+                    }
+                }
+
+                let expiredProducts = willExpiredProductNames
+                self?.showExpiredWarningAlert(message: expiredProducts)
 
             case .failure(let error):
 

@@ -10,6 +10,7 @@ import FirebaseStorage
 import UIKit
 
 class ProductDetailViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
@@ -29,6 +30,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         self.dateFormatter.dateFormat = "yyyy.MM.dd"
+        self.datePicker.minimumDate = Date()
 
         // 設定 datePicker 功能及外觀
         self.datePicker.datePickerMode = .date

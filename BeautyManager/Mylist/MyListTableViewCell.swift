@@ -8,6 +8,7 @@
 import UIKit
 
 class MyListTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var brandLabel: UILabel!

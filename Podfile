@@ -24,4 +24,6 @@ pod 'MJRefresh'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'Kingfisher', '~> 6.2'
+pod 'Firebase/Auth'
+
 end

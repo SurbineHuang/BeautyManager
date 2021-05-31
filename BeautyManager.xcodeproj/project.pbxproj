@@ -13,6 +13,7 @@
 		D42BB305264D264700B079FE /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BB304264D264700B079FE /* MyListTableViewCell.swift */; };
 		D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4332802265414FE00915F85 /* ExpiryDateViewController.swift */; };
 		D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43328052654208E00915F85 /* ExpiryDateTableViewCell.swift */; };
+		D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440A7AC2664E5AF00438D35 /* SignInViewController.swift */; };
 		D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4914D68265CF87200C0B266 /* ExchangeViewController.swift */; };
 		D4914D6C265CF89500C0B266 /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4914D6B265CF89500C0B266 /* ExchangeTableViewCell.swift */; };
 		D49A2FFD264CC52500C84BB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2FFC264CC52500C84BB9 /* AppDelegate.swift */; };
@@ -33,6 +34,8 @@
 		D42BB304264D264700B079FE /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
 		D4332802265414FE00915F85 /* ExpiryDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryDateViewController.swift; sourceTree = "<group>"; };
 		D43328052654208E00915F85 /* ExpiryDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryDateTableViewCell.swift; sourceTree = "<group>"; };
+		D440A7A92664DDC000438D35 /* BeautyManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeautyManager.entitlements; sourceTree = "<group>"; };
+		D440A7AC2664E5AF00438D35 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D4914D68265CF87200C0B266 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		D4914D6B265CF89500C0B266 /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
 		D49A2FF9264CC52500C84BB9 /* BeautyManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +90,14 @@
 			path = ExpiryDate;
 			sourceTree = "<group>";
 		};
+		D440A7AB2664E58800438D35 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				D440A7AC2664E5AF00438D35 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		D44B149E26517DC800E7366D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +137,7 @@
 		D49A2FFB264CC52500C84BB9 /* BeautyManager */ = {
 			isa = PBXGroup;
 			children = (
+				D440A7A92664DDC000438D35 /* BeautyManager.entitlements */,
 				D49A2FFC264CC52500C84BB9 /* AppDelegate.swift */,
 				D49A2FFE264CC52500C84BB9 /* SceneDelegate.swift */,
 				D40200FA265D66D400E81B16 /* Extension */,
@@ -133,6 +145,7 @@
 				D4FB407F264E5114000AB82A /* Product */,
 				D4332801265414C300915F85 /* ExpiryDate */,
 				D4914D67265CF85800C0B266 /* Exchange */,
+				D440A7AB2664E58800438D35 /* SignIn */,
 				D44B149E26517DC800E7366D /* Manager */,
 				D49A3002264CC52500C84BB9 /* Main.storyboard */,
 				D49A3005264CC52500C84BB9 /* Assets.xcassets */,
@@ -316,6 +329,7 @@
 				D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */,
 				D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */,
 				D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */,
+				D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */,
 				D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */,
 				D42BB305264D264700B079FE /* MyListTableViewCell.swift in Sources */,
 				D49A2FFD264CC52500C84BB9 /* AppDelegate.swift in Sources */,
@@ -399,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -454,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -470,9 +484,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeautyManager/BeautyManager.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M7Z59NJ38L;
 				INFOPLIST_FILE = BeautyManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,9 +507,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeautyManager/BeautyManager.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = M7Z59NJ38L;
 				INFOPLIST_FILE = BeautyManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,9 +17,10 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var expiryTextField: UITextField!
     @IBOutlet weak var openedTextField: UITextField!
     @IBOutlet weak var periodTextField: UITextField!
-    @IBOutlet weak var addTapped: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var photoButton: UIButton!
-
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
     let datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
 
@@ -52,8 +53,8 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.periodTextField.backgroundColor = .clear
         self.periodTextField.borderStyle = .none
         self.periodTextField.inputView = self.datePicker
-        self.addTapped.layer.shadowOpacity = 0.2
-        self.addTapped.layer.cornerRadius = 20
+        self.addButton.layer.shadowOpacity = 0.2
+        self.addButton.layer.cornerRadius = 20
         self.photoButton.layer.cornerRadius = 10
         // 設定空白處點選結束
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -81,10 +82,10 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
-    @IBAction func cancelButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-
+    
     @IBAction func addTapped(_ sender: Any) {
         guard let name = self.nameTextField.text, !name.isEmpty else {
             print("Error: product is empty")

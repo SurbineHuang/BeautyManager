@@ -21,6 +21,7 @@ class MyListViewController: UIViewController {
     var types: [Type] = []
     var filteredProducts: [Product] = []
     var isSearching = false
+    var didShowExpiredWarning = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,28 +60,24 @@ class MyListViewController: UIViewController {
 
     func loadProducts() {
         ProductManager.shared.getProducts { [weak self] result in
+            
+            // NOTE: 確保 self 存在, 遇到 weak self 時, 就寫下面這段 guard let
+            // =============================
+            guard let weakSelf = self else {
+                return
+            }
+            // =============================
+            
             switch result {
             case .success(let products):
 
-                self?.products = products
-                self?.tableView.reloadData()
+                weakSelf.products = products
+                weakSelf.tableView.reloadData()
 
-//                // 檢查每個產品的過期時間, 將即將過期的產品名稱, 組成一個字串
-                var willExpiredProductNames = ""
-
-                products.forEach { (product) in
-                    let now = Date().timeIntervalSince1970
-                    let oneDaySeconds: Double = (24 * 60 * 60)
-                    let willExpired = (product.expiryDate - now) <= (oneDaySeconds * 30)
-                    if (willExpired) {
-                        willExpiredProductNames.append(product.name)
-                        willExpiredProductNames.append("\n")
-                    }
+                if !weakSelf.didShowExpiredWarning {
+                    self?.showExpiredWarningAlert(products: products)
                 }
-
-                let expiredProducts = willExpiredProductNames
-                self?.showExpiredWarningAlert(message: expiredProducts)
-
+                
             case .failure(let error):
 
                 print("loadProducts.failure: \(error)")
@@ -215,10 +212,25 @@ extension MyListViewController: UISearchBarDelegate {
 }
 
 extension MyListViewController: UIAlertViewDelegate {
-    func showExpiredWarningAlert(message: String) {
+    
+    func showExpiredWarningAlert(products: [Product]) {
+        
+        // 檢查每個產品的過期時間, 將即將過期的產品名稱, 組成一個字串
+        var willExpiredProductNames = ""
+
+        products.forEach { (product) in
+            let now = Date().timeIntervalSince1970
+            let oneDaySeconds: Double = (24 * 60 * 60)
+            let willExpired = (product.expiryDate - now) <= (oneDaySeconds * 30)
+            if willExpired {
+                willExpiredProductNames.append(product.name)
+                willExpiredProductNames.append("\n")
+            }
+        }
+
         // 建立提示框
         let alertController = UIAlertController(title: "快看什麼東西要到期了！",
-                                                message: message,
+                                                message: willExpiredProductNames,
                                                 preferredStyle: .alert)
         // 建立確認按鈕
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -227,6 +239,8 @@ extension MyListViewController: UIAlertViewDelegate {
         // 顯示提示框
         self.present(alertController, animated: true, completion: nil)
 
+        self.didShowExpiredWarning = true
+        
         /*
          * NOTE: Title 有圖片的 Alert
         // Create the image NSTextAttachment

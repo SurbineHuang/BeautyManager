@@ -17,6 +17,7 @@ class ExpiryDateViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        UINavigationBar.appearance().barTintColor = UIColor(red: 245.0/255.0, green: 238.0/255.0, blue: 210.0/255.0, alpha: 1.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {

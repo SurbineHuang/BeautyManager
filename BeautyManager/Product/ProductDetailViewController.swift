@@ -202,6 +202,7 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
 
     func uploadImage() {
         // 自動產生 ID ，方便上傳命名
+        print("===uploadImage error")
         let uuidStr = UUID().uuidString
 
         if let image = self.productImage,

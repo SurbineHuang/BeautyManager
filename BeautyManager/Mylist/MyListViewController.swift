@@ -144,7 +144,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let expiryStr = formatter.string(from: date)
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
-            cell.backView.layer.cornerRadius = 30.0
+            cell.backView.layer.cornerRadius = 8
             cell.backView.layer.shadowOpacity = 0.2
 
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
@@ -217,7 +217,7 @@ extension MyListViewController: UISearchBarDelegate {
 extension MyListViewController: UIAlertViewDelegate {
     func showExpiredWarningAlert(message: String) {
         // 建立提示框
-        let alertController = UIAlertController(title: "倒數30天就到期囉！",
+        let alertController = UIAlertController(title: "快看什麼東西要到期了！",
                                                 message: message,
                                                 preferredStyle: .alert)
         // 建立確認按鈕

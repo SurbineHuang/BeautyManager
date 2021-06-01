@@ -54,7 +54,7 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
         let product: Product = self.products[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ExpiryDateTableViewCell", for: indexPath) as? ExpiryDateTableViewCell {
             
-            cell.view.layer.cornerRadius = 30.0
+            cell.view.layer.cornerRadius = 8
             cell.view.layer.shadowOpacity = 0.2
             cell.setData(product: product)
             

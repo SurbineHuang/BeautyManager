@@ -28,21 +28,19 @@ class ExpiryDateTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     // 把 product 帶進來
-    func setData(name: String, product: Product) {
+    func setData(product: Product) {
         
-        print("===setData \(name)")
-        self.productLabel.text = name
-        // expiry - name
+        self.productLabel.text = product.name
+    
         let now = Date().timeIntervalSince1970
         let oneDaySeconds = 24*60*60
-        let day = Int(product.expiryDate - now) / oneDaySeconds + 1
+        let day = Int(product.expiryDate - now) / oneDaySeconds + 1 // day 的單位是(天)
         self.dateLabel.text = "\(day)"
         
-        if day <= 86400 {
+        if day <= 0 {
             self.expiredImageView.isHidden = false
         } else {
-            self.dateLabel.text = "\(day)"
-            
+            self.expiredImageView.isHidden = true
         }
     }
 }

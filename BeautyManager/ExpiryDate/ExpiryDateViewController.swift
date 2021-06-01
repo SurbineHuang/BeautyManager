@@ -18,13 +18,16 @@ class ExpiryDateViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.loadExpiredProduct()
     }
     
     func loadExpiredProduct() {
+        
         ProductManager.shared.getProducts { [weak self] result in
             switch result {
+            
             case .success(let products):
                 self?.products = products
                 self?.products = products.filter { product in
@@ -41,15 +44,20 @@ class ExpiryDateViewController: UIViewController {
 }
 
 extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let product: Product = self.products[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ExpiryDateTableViewCell", for: indexPath) as? ExpiryDateTableViewCell {
+            
             cell.view.layer.cornerRadius = 30.0
             cell.view.layer.shadowOpacity = 0.2
-            cell.setData(name: product.name, product: product)
+            cell.setData(product: product)
+            
             let photoImage = self.products[indexPath.row]
             let imageUrl = photoImage.photo
             let url = URL(string: imageUrl)

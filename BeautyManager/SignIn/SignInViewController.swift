@@ -26,23 +26,25 @@ class LoginViewController: UIViewController {
         print("=== skipTapped")
         self.dismiss(animated: true, completion: nil)
     }
+    
     func setupProviderLoginView() {
+        print("=== setupProviderLoginView")
         let authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.signInWithAppleButtonView.addSubview(authorizationButton)
-        NSLayoutConstraint.activate([
-            authorizationButton.heightAnchor.constraint(equalToConstant: 45),
-            authorizationButton.widthAnchor.constraint(equalToConstant: 280),
-            authorizationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            authorizationButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor,constant: -20)
-            
-        ])
+//        NSLayoutConstraint.activate([
+//            authorizationButton.heightAnchor.constraint(equalToConstant: 45),
+//            authorizationButton.widthAnchor.constraint(equalToConstant: 280),
+//            authorizationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            authorizationButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor, constant: -20)
+//        ])
     }
     
     @objc
     func handleAuthorizationAppleIDButtonPress() {
+        print("=== handleAuthorizationAppleIDButtonPress")
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -52,18 +54,11 @@ class LoginViewController: UIViewController {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-    
-    // 把 user 資料暫存在 userDefault 
-    func setUser(Any, forKey: String) {
-        
-        userDefaults.set("abc", forKey: "userId")
-        userDefaults.set("a82192002@yahoo.com.tw", forKey: "email")
-    }
 }
 
 extension LoginViewController: ASAuthorizationControllerDelegate {
     
-    /// 授權成功
+        /// 授權成功
         /// - Parameters:
         ///   - controller: _
         ///   - authorization: _
@@ -75,8 +70,9 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 print("Email: \(String(describing: appleIDCredential.email))")
                 print("realUserStatus: \(String(describing: appleIDCredential.realUserStatus))")
                 
+                userDefaults.set(appleIDCredential.user, forKey: "appleId")
                 
-                
+                ProductManager.shared.addUser(appleId: appleIDCredential.user)
             }
         }
         
@@ -86,7 +82,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         ///   - error: _
         func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
                     
-            switch (error) {
+            switch error {
             case ASAuthorizationError.canceled:
                 break
             case ASAuthorizationError.failed:
@@ -104,10 +100,9 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         }
 }
 
-extension LoginViewController:  ASAuthorizationControllerPresentationContextProviding {
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
 }
-
-

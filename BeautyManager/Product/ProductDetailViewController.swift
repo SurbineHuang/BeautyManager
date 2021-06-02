@@ -87,6 +87,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addTapped(_ sender: Any) {
+        print("=== addTapped ")
         guard let name = self.nameTextField.text, !name.isEmpty else {
             print("Error: product is empty")
             return

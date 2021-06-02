@@ -26,6 +26,8 @@ class MyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let appleId = UserDefaults.standard.string(forKey: "appleId")
+        print("=== \(appleId)")
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
@@ -165,7 +167,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
             completionHandler(true)
 
-            ProductManager.shared.removeProduct(documentID: self.products[indexPath.row].id)
+            ProductManager.shared.removeProduct(appleId: self.products[indexPath.row].id)
             self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }

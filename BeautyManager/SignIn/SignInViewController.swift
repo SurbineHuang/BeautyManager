@@ -12,6 +12,9 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var signInWithAppleButtonView: UIView!
+    @IBOutlet weak var privacyButton: UIButton!
+    
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +22,23 @@ class LoginViewController: UIViewController {
         self.setupProviderLoginView()
     }
     
+    @IBAction func skipTapped(_ sender: Any) {
+        print("=== skipTapped")
+        self.dismiss(animated: true, completion: nil)
+    }
     func setupProviderLoginView() {
-        let authorizationButton = ASAuthorizationAppleIDButton()
+        let authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+        authorizationButton.translatesAutoresizingMaskIntoConstraints = false
+        
         self.signInWithAppleButtonView.addSubview(authorizationButton)
+        NSLayoutConstraint.activate([
+            authorizationButton.heightAnchor.constraint(equalToConstant: 45),
+            authorizationButton.widthAnchor.constraint(equalToConstant: 280),
+            authorizationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            authorizationButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor,constant: -20)
+            
+        ])
     }
     
     @objc
@@ -35,6 +51,13 @@ class LoginViewController: UIViewController {
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
+    }
+    
+    // 把 user 資料暫存在 userDefault 
+    func setUser(Any, forKey: String) {
+        
+        userDefaults.set("abc", forKey: "userId")
+        userDefaults.set("a82192002@yahoo.com.tw", forKey: "email")
     }
 }
 
@@ -51,6 +74,9 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 print("fullName: \(String(describing: appleIDCredential.fullName))")
                 print("Email: \(String(describing: appleIDCredential.email))")
                 print("realUserStatus: \(String(describing: appleIDCredential.realUserStatus))")
+                
+                
+                
             }
         }
         
@@ -84,37 +110,4 @@ extension LoginViewController:  ASAuthorizationControllerPresentationContextProv
     }
 }
 
-//extension LoginViewController: ASAuthorizationControllerDelegate {
-//    /// - Tag: did_complete_authorization
-//    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-//        switch authorization.credential {
-//        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-//
-//            // Create an account in your system.
-//            let userIdentifier = appleIDCredential.user
-//            let fullName = appleIDCredential.fullName
-//            let email = appleIDCredential.email
-//
-//            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
-////            self.saveUserInKeychain(userIdentifier)
-//
-//            // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
-////            self.showResultViewController(userIdentifier: userIdentifier, fullName: fullName, email: email)
-//
-//        case let passwordCredential as ASPasswordCredential:
-//
-//            // Sign in using an existing iCloud Keychain credential.
-//            let username = passwordCredential.user
-//            let password = passwordCredential.password
-//
-//            // For the purpose of this demo app, show the password credential as an alert.
-//            DispatchQueue.main.async {
-//                self.showPasswordCredentialAlert(username: username, password: password)
-//            }
-//
-//        default:
-//            break
-//        }
-//    }
-//
-//}
+

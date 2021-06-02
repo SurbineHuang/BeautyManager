@@ -142,7 +142,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             cell.backView.layer.cornerRadius = 8
-            cell.backView.layer.shadowOpacity = 0.2
+            cell.backView.layer.shadowOpacity = 0.1
 
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)

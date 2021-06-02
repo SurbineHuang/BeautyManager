@@ -56,7 +56,7 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ExpiryDateTableViewCell", for: indexPath) as? ExpiryDateTableViewCell {
             
             cell.view.layer.cornerRadius = 8
-            cell.view.layer.shadowOpacity = 0.2
+            cell.view.layer.shadowOpacity = 0.1
             cell.setData(product: product)
             
             let photoImage = self.products[indexPath.row]

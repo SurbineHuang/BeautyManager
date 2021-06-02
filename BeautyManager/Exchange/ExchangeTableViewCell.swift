@@ -10,7 +10,10 @@ import UIKit
 class ExchangeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var view: UIView!
-
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

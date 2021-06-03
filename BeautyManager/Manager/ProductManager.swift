@@ -147,7 +147,7 @@ extension ProductManager {
         var brands: [Brand] = []
         
         if let appleId = UserDefaults.standard.string(forKey: "appleId") {
-            
+            print("=== getBrands ===")
             Firestore.firestore().collection("Users").document(appleId).collection("Brand").getDocuments { querySnapshot, error in
                 if let error = error {
                     completion(.failure(error))

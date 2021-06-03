@@ -13,7 +13,7 @@
         <!--My List-->
         <scene sceneID="1ia-IB-e7T">
             <objects>
-                <viewController id="fBe-aw-x8o" customClass="MyListViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyListViewController" id="fBe-aw-x8o" customClass="MyListViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qLM-7Y-e3Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="dac-do-cZe" kind="show" id="IvI-5F-F4A"/>
+                                    <segue destination="dac-do-cZe" kind="show" id="qlJ-Tf-t4j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKS-7y-Jl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5025" y="49"/>
+            <point key="canvasLocation" x="5108" y="49"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ir9-QF-N25">

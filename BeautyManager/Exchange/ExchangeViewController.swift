@@ -11,6 +11,8 @@ class ExchangeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var products: [Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +24,14 @@ class ExchangeViewController: UIViewController {
     @IBAction func mySegmentedAction(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
-        
+            
         }
     }
 }
 
 extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return products.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -149,6 +149,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         ProductManager.shared.addBrand(brandName: brand)
         ProductManager.shared.addType(typeName: type)
 
+        print("=== addTapped dismiss")
         self.dismiss(animated: true, completion: nil)
     }
 }

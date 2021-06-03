@@ -39,12 +39,19 @@ class MyListViewController: UIViewController {
         })
 
         self.setNotification()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.loadBrands()
         self.loadTypes()
         self.loadProducts()
+    }
+    
+    @objc func viewTapped() {
+        self.view.endEditing(true)
     }
 
     func setNotification() {

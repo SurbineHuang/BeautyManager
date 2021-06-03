@@ -9,7 +9,7 @@ import UIKit
 import AuthenticationServices
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController {
     
     @IBOutlet weak var signInWithAppleButtonView: UIView!
     @IBOutlet weak var privacyButton: UIButton!
@@ -34,12 +34,12 @@ class LoginViewController: UIViewController {
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.signInWithAppleButtonView.addSubview(authorizationButton)
-//        NSLayoutConstraint.activate([
-//            authorizationButton.heightAnchor.constraint(equalToConstant: 45),
-//            authorizationButton.widthAnchor.constraint(equalToConstant: 280),
-//            authorizationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            authorizationButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor, constant: -20)
-//        ])
+        NSLayoutConstraint.activate([
+            authorizationButton.heightAnchor.constraint(equalToConstant: 45),
+            authorizationButton.widthAnchor.constraint(equalToConstant: 280),
+            authorizationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            authorizationButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor, constant: -20)
+        ])
     }
     
     @objc
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: ASAuthorizationControllerDelegate {
+extension SignInViewController: ASAuthorizationControllerDelegate {
     
         /// 授權成功
         /// - Parameters:
@@ -100,9 +100,21 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         }
 }
 
-extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+extension SignInViewController: ASAuthorizationControllerPresentationContextProviding {
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
+    }
+}
+
+extension UIViewController {
+    
+    func showSignInViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let signInViewController = storyboard.instantiateViewController(withIdentifier: "signInViewController") as? SignInViewController {
+            signInViewController.modalPresentationStyle = .formSheet
+            signInViewController.isModalInPresentation = true
+            self.present(signInViewController, animated: true, completion: nil)
+        }
     }
 }

@@ -28,6 +28,4 @@ class TabBarViewController: UIViewController {
 //                let expiredProducts = willExpiredProductNames
 //                self?.showExpiredWarningAlert(message: expiredProducts)
     }
-    
-
 }

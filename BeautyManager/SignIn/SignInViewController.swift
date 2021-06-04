@@ -23,12 +23,12 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func skipTapped(_ sender: Any) {
-        print("=== skipTapped")
+        
         self.dismiss(animated: true, completion: nil)
     }
     
     func setupProviderLoginView() {
-        print("=== setupProviderLoginView")
+
         let authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ class SignInViewController: UIViewController {
     
     @objc
     func handleAuthorizationAppleIDButtonPress() {
-        print("=== handleAuthorizationAppleIDButtonPress")
+
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]

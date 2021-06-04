@@ -130,6 +130,7 @@ extension ProductManager {
         document.setData(data)
     }
     // swiftlint:ensable function_parameter_count
+
     func removeProduct(appleId: String) {
         Firestore.firestore().collection("Products").document(appleId).delete { err in
             if let err = err {
@@ -143,18 +144,19 @@ extension ProductManager {
 
 // MARK: - Brand
 extension ProductManager {
+
     func getBrands(completion: @escaping (Result<[Brand], Error>) -> Void) {
         var brands: [Brand] = []
         
         if let appleId = UserDefaults.standard.string(forKey: "appleId") {
-            print("=== getBrands ===")
+            
             Firestore.firestore().collection("Users").document(appleId).collection("Brand").getDocuments { querySnapshot, error in
                 if let error = error {
                     completion(.failure(error))
                     return
                 }
                 for document in querySnapshot!.documents {
-                    print("=== getBrands id")
+                   
                     if let id = document.get("ID") as? String,
                        let brand = document.get("name") as? String {
                         let brand = Brand(id: id, name: brand)
@@ -162,11 +164,11 @@ extension ProductManager {
                         brands.append(brand)
                     }
                 }
+                
+                self.brandList = brands
+                
+                completion(.success(brands))
             }
-            
-            self.brandList = brands
-            
-            completion(.success(brands))
         }
     }
     
@@ -174,17 +176,17 @@ extension ProductManager {
         
         if let appleId = UserDefaults.standard.string(forKey: "appleId") {
             
-            print("=== addBrand ===")
-            
             let brands = Firestore.firestore().collection("Users").document(appleId).collection("Brand")
             let brandDocument = brands.document()
             brandDocument.setData(["ID": brandDocument.documentID, "name": brandName])
             
             return brandDocument.documentID
+            
+        } else {
+            
+            print("ERROR: func addBrand can't find appleId from userDefault")
+            return ""
         }
-        
-        print("=== ERROR: func addBrand can't find appleId from userDefault")
-        return ""
     }
     
     func checkBrandExistAndGetBrandId(brandName: String) -> String {
@@ -227,6 +229,7 @@ extension ProductManager {
 
 // MARK: - Type
 extension ProductManager {
+
     func getTypes(completion: @escaping (Result<[Type], Error>) -> Void) {
         var types: [Type] = []
         
@@ -245,14 +248,16 @@ extension ProductManager {
                         types.append(type)
                     }
                 }
+                
+                self.typeList = types
+                completion(.success(types))
             }
-            self.typeList = types
-            completion(.success(types))
+           
         }
     }
     
     func addType(typeName: String) -> String {
-        
+
         if let appleId = UserDefaults.standard.string(forKey: "appleId") {
             
             let types = Firestore.firestore().collection("Users").document(appleId).collection("Type")
@@ -262,10 +267,12 @@ extension ProductManager {
             typeDocument.setData(["ID": typeDocument.documentID, "name": typeName])
             
             return typeDocument.documentID
+            
+        } else {
+            
+            print("ERROR: func addType can't find appleId from userDefault")
+            return ""
         }
-        
-        print("=== ERROR: func addType can't find appleId from userDefault")
-        return ""
     }
     
     func checkBrandExistAndGetTypeId(typeName: String) -> String {

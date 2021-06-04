@@ -25,8 +25,6 @@ class MyListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let appleId = UserDefaults.standard.string(forKey: "appleId")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -95,7 +93,7 @@ class MyListViewController: UIViewController {
     }
 
     func loadBrands() {
-        print("=== loadBrands ")
+        
         ProductManager.shared.getBrands { [weak self] result in
             switch result {
             case .success(let brands):
@@ -152,10 +150,13 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             cell.backView.layer.cornerRadius = 8
-            cell.backView.layer.shadowOpacity = 0.1
+            cell.backView.layer.shadowOpacity = 0.09
 
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
+            
+            print("=== brand: \(brand)")
+            print("=== type: \(type)")
             
             cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
 

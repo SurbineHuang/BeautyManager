@@ -154,6 +154,7 @@ extension ProductManager {
                     return
                 }
                 for document in querySnapshot!.documents {
+                    print("=== getBrands id")
                     if let id = document.get("ID") as? String,
                        let brand = document.get("name") as? String {
                         let brand = Brand(id: id, name: brand)
@@ -172,6 +173,8 @@ extension ProductManager {
     func addBrand(brandName: String) -> String {
         
         if let appleId = UserDefaults.standard.string(forKey: "appleId") {
+            
+            print("=== addBrand ===")
             
             let brands = Firestore.firestore().collection("Users").document(appleId).collection("Brand")
             let brandDocument = brands.document()

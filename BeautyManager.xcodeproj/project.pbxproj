@@ -23,7 +23,7 @@
 		D49A3006264CC52500C84BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49A3005264CC52500C84BB9 /* Assets.xcassets */; };
 		D49A3009264CC52500C84BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */; };
 		D49A3017264CCD4400C84BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */; };
-		D4D42F3B2665E04F00EF5FCE /* 50089-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = D4D42F3A2665E04F00EF5FCE /* 50089-cosmetic.json */; };
+		D4B618D0266A5D2E00B01396 /* 50089-cosmetic .json in Resources */ = {isa = PBXBuildFile; fileRef = D4B618CF266A5D2E00B01396 /* 50089-cosmetic .json */; };
 		D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3377F2661488E000667C4 /* TabBarViewController.swift */; };
 		D4FB4081264E5140000AB82A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,7 @@
 		D49A3008264CC52500C84BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D49A300A264CC52500C84BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D4D42F3A2665E04F00EF5FCE /* 50089-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "50089-cosmetic.json"; sourceTree = "<group>"; };
+		D4B618CF266A5D2E00B01396 /* 50089-cosmetic .json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "50089-cosmetic .json"; sourceTree = "<group>"; };
 		D4E3377F2661488E000667C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +171,7 @@
 		D4D42F392665E01C00EF5FCE /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				D4D42F3A2665E04F00EF5FCE /* 50089-cosmetic.json */,
+				D4B618CF266A5D2E00B01396 /* 50089-cosmetic .json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				D49A3017264CCD4400C84BB9 /* GoogleService-Info.plist in Resources */,
 				D49A3006264CC52500C84BB9 /* Assets.xcassets in Resources */,
 				D49A3004264CC52500C84BB9 /* Main.storyboard in Resources */,
-				D4D42F3B2665E04F00EF5FCE /* 50089-cosmetic.json in Resources */,
+				D4B618D0266A5D2E00B01396 /* 50089-cosmetic .json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

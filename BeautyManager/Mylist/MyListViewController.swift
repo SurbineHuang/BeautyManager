@@ -27,7 +27,7 @@ class MyListViewController: UIViewController {
         super.viewDidLoad()
 
         let appleId = UserDefaults.standard.string(forKey: "appleId")
-        print("=== \(appleId)")
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
@@ -95,6 +95,7 @@ class MyListViewController: UIViewController {
     }
 
     func loadBrands() {
+        print("=== loadBrands ")
         ProductManager.shared.getBrands { [weak self] result in
             switch result {
             case .success(let brands):
@@ -155,7 +156,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
-
+            
             cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
 
             let photoImage = self.products[indexPath.row]

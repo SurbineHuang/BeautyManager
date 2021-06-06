@@ -16,12 +16,18 @@ class ExchangeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.productImageView.layer.cornerRadius = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func setData(name: String, expiryDate: String) {
+        
+        self.productLabel.text = name
+        self.dateLabel.text = expiryDate
     }
 }

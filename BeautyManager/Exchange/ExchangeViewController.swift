@@ -6,46 +6,140 @@
 //
 
 import UIKit
+import Kingfisher
+import MJRefresh
+
+enum ExchangeType: Int {
+    case myItem = 0
+    case all = 1
+    case finished = 2
+}
 
 class ExchangeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var currentType: ExchangeType = .myItem     // Default is myItem
     var products: [Product] = []
+    let myId = UserDefaults.standard.string(forKey: "appleId")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.tableView.mj_header?.endRefreshing()
+            self.loadProducts(type: self.currentType)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        self.loadProducts(type: self.currentType)
     }
     
     @IBAction func mySegmentedAction(_ sender: UISegmentedControl) {
         
-        if sender.selectedSegmentIndex == 0 {
-            self.tableView.backgroundColor = .white
-        } else if sender.selectedSegmentIndex == 1 {
-            self.tableView.backgroundColor = .yellow
-        } else {
-            self.tableView.backgroundColor = .brown
+        if sender.selectedSegmentIndex == ExchangeType.myItem.rawValue {
+            
+            self.loadProducts(type: .myItem)
+            
+        } else if sender.selectedSegmentIndex == ExchangeType.all.rawValue {
+            
+            self.loadProducts(type: .all)
+            
+        } else if sender.selectedSegmentIndex == ExchangeType.finished.rawValue {
+            
+            self.loadProducts(type: .finished)
+        }
+    }
+    
+    func loadProducts(type: ExchangeType) {
+        
+        ProductManager.shared.getProducts { [weak self] result in
+            
+            // NOTE: 確保 self 存在, 遇到 weak self 時, 就寫下面這段 guard let
+            // =============================
+            guard let weakSelf = self else {
+                return
+            }
+            // =============================
+            
+            switch result {
+            case .success(let products):
+
+//                weakSelf.products = products
+                
+                switch type {
+                
+                case .myItem:
+                    weakSelf.products = products.filter { (product) -> Bool in
+                        let isExchanging = (product.status == "exchanging")
+                        let isMyItem = (product.ownerId == weakSelf.myId)
+                        return isExchanging && isMyItem
+                        
+//                        let isExchanging = (product.status == "exchanging")
+//                        return isExchanging
+                    }
+                    
+                case .all:
+                    weakSelf.products = products.filter { (product) -> Bool in
+                        
+                        let isExchanging = (product.status == "exchanging")
+                        let isNotMyItem = (product.ownerId != weakSelf.myId)
+                        return isExchanging && isNotMyItem
+                        
+//                        let isExchanging = (product.status == "exchanging")
+//                        return isExchanging
+                    }
+                    
+                case .finished:
+                    weakSelf.products = products.filter { (product) -> Bool in
+                        
+//                        let isFinished = (product.status == "finished")
+//                        let isMyItem = (product.ownerId == weakSelf.myId)
+//                        return isFinished && isMyItem
+                        
+                        let isFinished = (product.status == "finished")
+                        return isFinished
+                    }
+                }
+                
+                weakSelf.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print("ExchangeViewController loadProducts.failure: \(error)")
+            }
         }
     }
 }
 
 extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return products.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let product: Product = self.products[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ExchangeTableViewCell", for: indexPath) as? ExchangeTableViewCell {
             cell.view.layer.cornerRadius = 8.0
-            cell.view.layer.shadowOpacity = 0.1
-
+            cell.view.layer.shadowOpacity = 0.09
+            
+            let date = Date(timeIntervalSince1970: product.expiryDate)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy.MM.dd"
+            let expiryStr = formatter.string(from: date)
+            
+            cell.setData(name: product.name, expiryDate: expiryStr)
+            
+            let photoImage = self.products[indexPath.row]
+            let imageUrl = photoImage.photo
+            let url = URL(string: imageUrl)
+            cell.productImageView.kf.setImage(with: url)
+            
             return cell
         }
         return UITableViewCell()
@@ -54,12 +148,12 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
             completionHandler(true)
-//            ProductManager.shared.removeProduct(documentID: self.products[indexPath.row].id)
-//            self.products.remove(at: indexPath.row)
+            ProductManager.shared.removeProduct(appleId: self.products[indexPath.row].id)
+            self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         deleteAction.backgroundColor = UIColor.lightGray
-        deleteAction.image = UIImage(named: "delete(3)32*32")
+        deleteAction.image = UIImage(named: "delete_32")
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }

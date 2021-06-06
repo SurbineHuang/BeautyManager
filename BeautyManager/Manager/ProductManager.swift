@@ -19,6 +19,7 @@ struct Product {
     let photo: String
     let brandId: String
     let typeId: String
+    let ownerId: String
 }
 
 struct User {
@@ -52,7 +53,6 @@ extension ProductManager {
     
     func addUser(appleId: String) {
         
-        print("=== addUser")
         let users = Firestore.firestore().collection("Users")
         
         let document = users.document(appleId)
@@ -80,6 +80,7 @@ extension ProductManager {
             for document in querySnapshot!.documents {
                 if let id = document.get("ID") as? String,
                    let name = document.get("name") as? String,
+                   let ownerId = document.get("ownerId") as? String,
                    let brandId = document.get("brandId") as? String,
                    let typeId = document.get("typeId") as? String,
                    let status = document.get("status") as? String,
@@ -95,7 +96,7 @@ extension ProductManager {
                                           periodAfterOpening: periodAfterOpening,
                                           photo: photo,
                                           brandId: brandId,
-                                          typeId: typeId)
+                                          typeId: typeId, ownerId: ownerId)
                     
                     products.append(product)
                 }
@@ -115,6 +116,8 @@ extension ProductManager {
         
         let typeId = checkBrandExistAndGetTypeId(typeName: typeName)
         
+        let users = Firestore.firestore().collection("Users")
+        
         let data: [String: Any] = [
             "ID": document.documentID,
             "name": name,
@@ -124,7 +127,8 @@ extension ProductManager {
             "status": "normal",
             "photo": photoUrlString,
             "brandId": brandId,
-            "typeId": typeId
+            "typeId": typeId,
+            "ownerId": users.document().documentID
         ]
         
         document.setData(data)

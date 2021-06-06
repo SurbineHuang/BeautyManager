@@ -138,7 +138,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
             print("Error: productImageUrlString is nil")
             return
         }
-
+        
         ProductManager.shared.addProduct(name: name,
                                          expiryDate: expiryDate.timeIntervalSince1970,
                                          openedDate: openedDate.timeIntervalSince1970,

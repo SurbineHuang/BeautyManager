@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class ExpiryDateViewController: UIViewController {
     
@@ -17,7 +18,9 @@ class ExpiryDateViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        UINavigationBar.appearance().barTintColor = UIColor(red: 245.0/255.0, green: 238.0/255.0, blue: 210.0/255.0, alpha: 1.0)
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.tableView.mj_header?.endRefreshing()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +59,7 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ExpiryDateTableViewCell", for: indexPath) as? ExpiryDateTableViewCell {
             
             cell.view.layer.cornerRadius = 8
-            cell.view.layer.shadowOpacity = 0.1
+            cell.view.layer.shadowOpacity = 0.09
             cell.setData(product: product)
             
             let photoImage = self.products[indexPath.row]
@@ -77,7 +80,7 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         deleteAction.backgroundColor = UIColor.lightGray
-        deleteAction.image = UIImage(named: "delete(3)32*32")
+        deleteAction.image = UIImage(named: "delete_32")
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     // swiftlint:enable closure_parameter_position

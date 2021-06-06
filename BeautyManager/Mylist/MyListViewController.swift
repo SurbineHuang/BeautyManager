@@ -160,9 +160,6 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            print("=== brand: \(brand)")
-            print("=== type: \(type)")
-            
             cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
 
             let photoImage = self.products[indexPath.row]
@@ -187,7 +184,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         deleteAction.backgroundColor = UIColor.lightGray
-        deleteAction.image = UIImage(named: "delete(3)32*32")
+        deleteAction.image = UIImage(named: "delete_32")
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }

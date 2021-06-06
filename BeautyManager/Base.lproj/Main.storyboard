@@ -662,6 +662,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.96078431610000004" green="0.93333339689999995" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -674,7 +675,7 @@
             </objects>
             <point key="canvasLocation" x="3251" y="852"/>
         </scene>
-        <!--交換物品-->
+        <!--Exchange-->
         <scene sceneID="msQ-V1-wFW">
             <objects>
                 <viewController id="72E-02-Pgd" customClass="ExchangeViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -691,6 +692,7 @@
                                     <color key="backgroundColor" red="0.93329709770000002" green="0.92893904449999998" blue="0.89496904610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <segments>
                                         <segment title="待交換"/>
+                                        <segment title="交換大廳"/>
                                         <segment title="完成"/>
                                     </segments>
                                     <connections>
@@ -772,7 +774,7 @@
                             <constraint firstItem="pAG-g5-vnW" firstAttribute="top" secondItem="LVn-ZB-tRv" secondAttribute="top" id="mUv-bE-djk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="交換物品" id="1d7-CA-h83"/>
+                    <navigationItem key="navigationItem" title="Exchange" id="1d7-CA-h83"/>
                     <connections>
                         <outlet property="tableView" destination="pAG-g5-vnW" id="dva-g6-IFs"/>
                     </connections>
@@ -792,6 +794,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.96078431610000004" green="0.93333339689999995" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -815,6 +818,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.93975245949999997" green="0.93236309289999997" blue="0.89840608840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.96078431610000004" green="0.93333339689999995" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

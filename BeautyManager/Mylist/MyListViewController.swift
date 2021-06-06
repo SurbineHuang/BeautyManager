@@ -79,6 +79,11 @@ class MyListViewController: UIViewController {
             case .success(let products):
 
                 weakSelf.products = products
+                
+                self?.products = products.filter { (product) -> Bool in
+        
+                    return product.status == "normal"
+                }
                 weakSelf.tableView.reloadData()
 
                 if !weakSelf.didShowExpiredWarning {
@@ -86,7 +91,7 @@ class MyListViewController: UIViewController {
                 }
                 
             case .failure(let error):
-
+                
                 print("loadProducts.failure: \(error)")
             }
         }
@@ -191,6 +196,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addToChange = UIContextualAction(style: .normal, title: "來交換吧！") { _, _, completionHandler in
             completionHandler(true)
+            ProductManager.shared.changeProductStatus(appleId: self.products[indexPath.row].id)
+            self.products.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
 
         addToChange.backgroundColor = UIColor.lightGray

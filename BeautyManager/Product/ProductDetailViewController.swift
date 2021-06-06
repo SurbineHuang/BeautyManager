@@ -40,6 +40,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
 
         self.datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         self.datePicker.preferredDatePickerStyle = .wheels
+        self.datePicker.backgroundColor = .white
 
         // 設定 textField 外觀
         self.expiryTextField.backgroundColor = .clear

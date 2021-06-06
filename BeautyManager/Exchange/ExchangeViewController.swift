@@ -20,11 +20,18 @@ class ExchangeViewController: UIViewController {
         self.tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     
     @IBAction func mySegmentedAction(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
-            
+            self.tableView.backgroundColor = .white
+        } else if sender.selectedSegmentIndex == 1 {
+            self.tableView.backgroundColor = .yellow
+        } else {
+            self.tableView.backgroundColor = .brown
         }
     }
 }

@@ -121,7 +121,7 @@ extension ProductManager {
             "expiryDate": expiryDate,
             "openedDate": openedDate,
             "periodAfterOpening": periodAfterOpening,
-            "status": "待交換",
+            "status": "normal",
             "photo": photoUrlString,
             "brandId": brandId,
             "typeId": typeId
@@ -137,6 +137,19 @@ extension ProductManager {
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
+            }
+        }
+    }
+    // 改變物品為待交換
+    func changeProductStatus(appleId: String) {
+        
+        Firestore.firestore().collection("Products").document(appleId).updateData([
+            "status": "exchanging"
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
             }
         }
     }

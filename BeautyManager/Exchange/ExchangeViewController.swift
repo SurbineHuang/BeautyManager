@@ -30,32 +30,31 @@ class ExchangeViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.tableView.mj_header?.endRefreshing()
-            self.loadProducts(type: self.currentType)
+            self.loadProducts()
         })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.loadProducts(type: self.currentType)
+        self.loadProducts()
     }
     
     @IBAction func mySegmentedAction(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == ExchangeType.myItem.rawValue {
-            
-            self.loadProducts(type: .myItem)
+            self.currentType = .myItem
             
         } else if sender.selectedSegmentIndex == ExchangeType.all.rawValue {
-            
-            self.loadProducts(type: .all)
+            self.currentType = .all
             
         } else if sender.selectedSegmentIndex == ExchangeType.finished.rawValue {
-            
-            self.loadProducts(type: .finished)
+            self.currentType = .finished
         }
+        
+        self.loadProducts()
     }
     
-    func loadProducts(type: ExchangeType) {
+    func loadProducts() {
         
         ProductManager.shared.getProducts { [weak self] result in
             
@@ -68,13 +67,12 @@ class ExchangeViewController: UIViewController {
             
             switch result {
             case .success(let products):
-
-//                weakSelf.products = products
                 
-                switch type {
+                switch weakSelf.currentType {
                 
                 case .myItem:
                     weakSelf.products = products.filter { (product) -> Bool in
+                        
                         let isExchanging = (product.status == "exchanging")
                         let isMyItem = (product.ownerId == weakSelf.myId)
                         return isExchanging && isMyItem
@@ -97,12 +95,12 @@ class ExchangeViewController: UIViewController {
                 case .finished:
                     weakSelf.products = products.filter { (product) -> Bool in
                         
-//                        let isFinished = (product.status == "finished")
-//                        let isMyItem = (product.ownerId == weakSelf.myId)
-//                        return isFinished && isMyItem
-                        
                         let isFinished = (product.status == "finished")
-                        return isFinished
+                        let isMyItem = (product.ownerId == weakSelf.myId)
+                        return isFinished && isMyItem
+                        
+//                        let isFinished = (product.status == "finished")
+//                        return isFinished
                     }
                 }
                 

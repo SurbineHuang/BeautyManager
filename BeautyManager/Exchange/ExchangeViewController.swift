@@ -131,7 +131,9 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
             completionHandler(true)
+            
             ProductManager.shared.removeProduct(appleId: self.products[indexPath.row].id)
+            
             self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -141,6 +143,11 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if self.currentType == .finished {
+            return nil
+        }
+        
         let addToChange = UIContextualAction(style: .normal, title: "處理完了！") { _, _, completionHandler in
             completionHandler(true)
             

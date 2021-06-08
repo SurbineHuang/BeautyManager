@@ -300,7 +300,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="b02-y1-1tf">
             <objects>
-                <viewController storyboardIdentifier="signInViewController" id="1sf-c1-Qe5" customClass="SignInViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="1sf-c1-Qe5" customClass="SignInViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lRH-rb-zBp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,18 +313,21 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0q-mA-l7t">
-                                <rect key="frame" x="24" y="518" width="272" height="0.0"/>
-                                <color key="backgroundColor" red="0.926780045" green="0.88585561509999999" blue="0.68617093559999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="44" y="450" width="232" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pki-Sc-GoD"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDy-oc-9Su">
-                                <rect key="frame" x="114" y="528" width="92" height="24"/>
+                                <rect key="frame" x="114" y="522" width="92" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="使用條款及隱私政策"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Minimal Feminine Photography Logo Template 的複本 (2)" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-0j-8nu">
-                                <rect key="frame" x="70" y="164" width="180" height="169"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Minimal Feminine Photography Logo Template 的複本 (2)" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-0j-8nu">
+                                <rect key="frame" x="60" y="90" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="XcC-Dz-e69"/>
+                                    <constraint firstAttribute="width" secondItem="P1j-0j-8nu" secondAttribute="height" multiplier="1:1" id="w1w-ES-Oul"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -333,8 +336,8 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beauty Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyE-zH-btb">
-                                <rect key="frame" x="71" y="341" width="178" height="30"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="24"/>
+                                <rect key="frame" x="86" y="274" width="148.5" height="25"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="20"/>
                                 <color key="textColor" red="0.36026677489999998" green="0.35026729109999999" blue="0.32717788219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -342,25 +345,25 @@
                         <viewLayoutGuide key="safeArea" id="OHT-Jj-vKg"/>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.88627450980392153" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="n0q-mA-l7t" firstAttribute="top" secondItem="lRH-rb-zBp" secondAttribute="top" constant="518" id="67E-eH-fy3"/>
-                            <constraint firstItem="jyE-zH-btb" firstAttribute="centerX" secondItem="lRH-rb-zBp" secondAttribute="centerX" id="6bi-o6-Em5"/>
-                            <constraint firstItem="n0q-mA-l7t" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="24" id="D6p-zx-RRz"/>
-                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="bottom" secondItem="n0q-mA-l7t" secondAttribute="bottom" constant="50" id="Fwy-Zs-NZb"/>
-                            <constraint firstItem="P1j-0j-8nu" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="70" id="LbV-1u-6nV"/>
-                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="P1j-0j-8nu" secondAttribute="trailing" constant="70" id="M7N-pZ-pOn"/>
+                            <constraint firstItem="n0q-mA-l7t" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="44" id="D6p-zx-RRz"/>
+                            <constraint firstItem="P1j-0j-8nu" firstAttribute="leading" secondItem="OHT-Jj-vKg" secondAttribute="leading" constant="60" id="LbV-1u-6nV"/>
+                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="P1j-0j-8nu" secondAttribute="trailing" constant="60" id="M7N-pZ-pOn"/>
+                            <constraint firstItem="P1j-0j-8nu" firstAttribute="top" secondItem="OHT-Jj-vKg" secondAttribute="top" constant="90" id="MYx-Fc-Our"/>
                             <constraint firstItem="zMX-Hd-aBJ" firstAttribute="top" secondItem="OHT-Jj-vKg" secondAttribute="top" constant="15" id="Oq3-ma-pVt"/>
                             <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="zMX-Hd-aBJ" secondAttribute="trailing" constant="15" id="Oq5-T4-4wQ"/>
+                            <constraint firstItem="hDy-oc-9Su" firstAttribute="top" secondItem="n0q-mA-l7t" secondAttribute="bottom" constant="22" id="QlP-PO-wqH"/>
+                            <constraint firstItem="jyE-zH-btb" firstAttribute="centerX" secondItem="lRH-rb-zBp" secondAttribute="centerX" id="SjA-VX-Asd"/>
                             <constraint firstItem="hDy-oc-9Su" firstAttribute="centerX" secondItem="lRH-rb-zBp" secondAttribute="centerX" id="Taz-Eb-HoW"/>
-                            <constraint firstItem="P1j-0j-8nu" firstAttribute="top" secondItem="OHT-Jj-vKg" secondAttribute="top" constant="164" id="hvJ-dD-Rw3"/>
-                            <constraint firstItem="jyE-zH-btb" firstAttribute="top" secondItem="P1j-0j-8nu" secondAttribute="bottom" constant="8" id="j3I-O8-nIN"/>
-                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="bottom" secondItem="hDy-oc-9Su" secondAttribute="bottom" constant="16" id="qU7-NP-lXB"/>
-                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="n0q-mA-l7t" secondAttribute="trailing" constant="24" id="xhp-WB-Ru2"/>
+                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="bottom" secondItem="hDy-oc-9Su" secondAttribute="bottom" constant="22" id="qU7-NP-lXB"/>
+                            <constraint firstItem="OHT-Jj-vKg" firstAttribute="trailing" secondItem="n0q-mA-l7t" secondAttribute="trailing" constant="44" id="xhp-WB-Ru2"/>
+                            <constraint firstItem="jyE-zH-btb" firstAttribute="top" secondItem="P1j-0j-8nu" secondAttribute="bottom" constant="-16" id="xmt-YP-ipq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IBR-RF-xGj"/>
                     <connections>
                         <outlet property="privacyButton" destination="hDy-oc-9Su" id="u8t-2P-heY"/>
                         <outlet property="signInWithAppleButtonView" destination="n0q-mA-l7t" id="eTU-Py-DGL"/>
+                        <outlet property="skipButton" destination="zMX-Hd-aBJ" id="HXo-Be-VMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UY9-4k-ahe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -582,10 +585,10 @@
             </objects>
             <point key="canvasLocation" x="5108" y="49"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="Ir9-QF-N25">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="IWh-bz-MZo" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="IWh-bz-MZo" customClass="TabBarViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RRI-GC-hXs"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xmT-or-Y2E">
@@ -848,15 +851,15 @@
     </scenes>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="Data" width="36" height="32"/>
-        <image name="Data_Click" width="36" height="32"/>
+        <image name="Data" width="32" height="32"/>
+        <image name="Data_Click" width="32" height="32"/>
         <image name="DoodleA" width="340" height="300"/>
         <image name="Exchange" width="32" height="32"/>
         <image name="Exchange_Click" width="32" height="32"/>
         <image name="Expirydate" width="32" height="32"/>
         <image name="Expirydate_Click" width="32" height="32"/>
-        <image name="List" width="24" height="32"/>
-        <image name="List_Click" width="24" height="32"/>
+        <image name="List" width="32" height="32"/>
+        <image name="List_Click" width="32" height="32"/>
         <image name="Minimal Feminine Photography Logo Template 的複本 (2)" width="512" height="512"/>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>

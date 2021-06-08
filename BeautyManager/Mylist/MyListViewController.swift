@@ -23,6 +23,18 @@ class MyListViewController: UIViewController {
     var isSearching = false
     var didShowExpiredWarning = false
 
+    var didSignIn: Bool {
+        
+        let appleId = UserDefaults.standard.value(forKey: "appleId")
+        if appleId == nil {
+            print("AppleID in userDefault is nil")
+            return false
+        } else {
+            print("AppleID in userDefault is not nil")
+            return true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -43,9 +55,20 @@ class MyListViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.loadBrands()
-        self.loadTypes()
-        self.loadProducts()
+        
+        if (self.didSignIn) {
+            
+            print("=== viewWillAppear didSignIn")
+            
+            self.loadBrands()
+            self.loadTypes()
+            self.loadProducts()
+            
+        } else {
+            
+            print("=== viewWillAppear did not SignIn")
+            self.showSignInViewController()
+        }
     }
     
     @objc func viewTapped() {
@@ -81,13 +104,12 @@ class MyListViewController: UIViewController {
                 weakSelf.products = products
                 
                 self?.products = products.filter { (product) -> Bool in
-        
                     return product.status == "normal"
                 }
+                
                 weakSelf.tableView.reloadData()
 
                 if !weakSelf.didShowExpiredWarning {
-                    print("=== didShowExpiredWarning ")
                     self?.showExpiredWarningAlert(products: products)
                 }
                 
@@ -194,7 +216,9 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addToChange = UIContextualAction(style: .normal, title: "不用了！") { _, _, completionHandler in
             completionHandler(true)
+            
             ProductManager.shared.changeProductStatus(appleId: self.products[indexPath.row].id)
+            
             self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -253,6 +277,7 @@ extension MyListViewController: UIAlertViewDelegate {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
 
         alertController.addAction(okAction)
+
         // 顯示提示框
         self.present(alertController, animated: true, completion: nil)
 

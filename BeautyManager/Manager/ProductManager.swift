@@ -117,8 +117,7 @@ extension ProductManager {
         let typeId = checkBrandExistAndGetTypeId(typeName: typeName)
         
         if let appleId = UserDefaults.standard.string(forKey: "appleId") {
-            
-            // TODO: ask
+    
             let data: [String: Any] = [
                 "ID": document.documentID,
                 "name": name,
@@ -130,7 +129,6 @@ extension ProductManager {
                 "brandId": brandId,
                 "typeId": typeId,
                 "ownerId": appleId
-//                "ownerId": users.document(appleId)
             ]
             
             document.setData(data)

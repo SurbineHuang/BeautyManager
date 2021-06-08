@@ -13,6 +13,7 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var signInWithAppleButtonView: UIView!
     @IBOutlet weak var privacyButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
     
     let userDefaults = UserDefaults.standard
     
@@ -20,6 +21,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupProviderLoginView()
+        self.skipButton.isHidden = true
     }
     
     @IBAction func skipTapped(_ sender: Any) {
@@ -73,6 +75,8 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 userDefaults.set(appleIDCredential.user, forKey: "appleId")
                 
                 ProductManager.shared.addUser(appleId: appleIDCredential.user)
+                self.dismiss(animated: true, completion: nil)
+                
             }
         }
         
@@ -111,8 +115,8 @@ extension UIViewController {
     
     func showSignInViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let signInViewController = storyboard.instantiateViewController(withIdentifier: "signInViewController") as? SignInViewController {
-            signInViewController.modalPresentationStyle = .formSheet
+        if let signInViewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+            signInViewController.modalPresentationStyle = .fullScreen
             signInViewController.isModalInPresentation = true
             self.present(signInViewController, animated: true, completion: nil)
         }

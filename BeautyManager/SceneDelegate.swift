@@ -37,9 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        self.window?.rootViewController?.showSignInViewController()
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
+//        self.window?.rootViewController?.showSignInViewController()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

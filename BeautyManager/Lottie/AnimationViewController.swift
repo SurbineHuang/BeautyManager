@@ -1,21 +1,20 @@
 //
-//  ViewController.swift
+//  AnimationViewController.swift
 //  BeautyManager
 //
-//  Created by SurbineHuang on 7/6/21.
+//  Created by SurbineHuang on 8/6/21.
 //
 
 import UIKit
 import Lottie
 
-class ViewController: UIViewController {
-    
-    
+class AnimationViewController: UIViewController {
+
     @IBOutlet weak var animationView: AnimationView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let animation = Animation.named("cosmetic")
         animationView.animation = animation
         animationView.animationSpeed = 0.8

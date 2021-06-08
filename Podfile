@@ -27,5 +27,5 @@ pod 'Kingfisher', '~> 6.2'
 pod 'Firebase/Auth'
 pod 'lottie-ios'
 pod 'Charts'
-
+pod 'Crashlytics'
 end

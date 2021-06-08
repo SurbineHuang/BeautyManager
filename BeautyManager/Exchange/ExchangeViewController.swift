@@ -68,13 +68,13 @@ class ExchangeViewController: UIViewController {
                 
                 case .myItem:
                     weakSelf.products = products.filter { (product) -> Bool in
-                        print("=== myItem")
-//                        let isExchanging = (product.status == "exchanging")
-//                        let isMyItem = (product.ownerId == weakSelf.myId)
-//                        return isExchanging && isMyItem
                         
-                        let isExchanging = (product.status == "exchanging")
-                        return isExchanging
+                        let isExchanging = (product.status == "pending")
+                        let isMyItem = (product.ownerId == weakSelf.myId)
+                        return isExchanging && isMyItem
+                        
+//                        let isExchanging = (product.status == "exchanging")
+//                        return isExchanging
                     }
                     
                 case .finished:
@@ -138,5 +138,21 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
         deleteAction.backgroundColor = UIColor.lightGray
         deleteAction.image = UIImage(named: "delete_32")
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let addToChange = UIContextualAction(style: .normal, title: "處理完了！") { _, _, completionHandler in
+            completionHandler(true)
+            
+            ProductManager.shared.changeProductStatusToFinish(appleId: self.products[indexPath.row].id)
+            
+            self.products.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+
+        addToChange.backgroundColor = UIColor.lightGray
+//        addToChange.image = UIImage(named: "exchange32*32")
+
+        return UISwipeActionsConfiguration(actions: [addToChange])
     }
 }

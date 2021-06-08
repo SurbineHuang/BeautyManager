@@ -116,22 +116,25 @@ extension ProductManager {
         
         let typeId = checkBrandExistAndGetTypeId(typeName: typeName)
         
-        let users = Firestore.firestore().collection("Users")
-        
-        let data: [String: Any] = [
-            "ID": document.documentID,
-            "name": name,
-            "expiryDate": expiryDate,
-            "openedDate": openedDate,
-            "periodAfterOpening": periodAfterOpening,
-            "status": "normal",
-            "photo": photoUrlString,
-            "brandId": brandId,
-            "typeId": typeId,
-            "ownerId": users.document().documentID
-        ]
-        
-        document.setData(data)
+        if let appleId = UserDefaults.standard.string(forKey: "appleId") {
+            
+            // TODO: ask
+            let data: [String: Any] = [
+                "ID": document.documentID,
+                "name": name,
+                "expiryDate": expiryDate,
+                "openedDate": openedDate,
+                "periodAfterOpening": periodAfterOpening,
+                "status": "normal",
+                "photo": photoUrlString,
+                "brandId": brandId,
+                "typeId": typeId,
+                "ownerId": appleId
+//                "ownerId": users.document(appleId)
+            ]
+            
+            document.setData(data)
+        }
     }
     // swiftlint:ensable function_parameter_count
 
@@ -144,11 +147,24 @@ extension ProductManager {
             }
         }
     }
-    // 改變物品為待交換
+    // 改變物品為待處理
     func changeProductStatus(appleId: String) {
         
         Firestore.firestore().collection("Products").document(appleId).updateData([
-            "status": "exchanging"
+            "status": "pending"
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
+    func changeProductStatusToFinish(appleId: String) {
+        
+        Firestore.firestore().collection("Products").document(appleId).updateData([
+            "status": "finished"
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")

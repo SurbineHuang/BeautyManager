@@ -87,6 +87,7 @@ class MyListViewController: UIViewController {
                 weakSelf.tableView.reloadData()
 
                 if !weakSelf.didShowExpiredWarning {
+                    print("=== didShowExpiredWarning ")
                     self?.showExpiredWarningAlert(products: products)
                 }
                 

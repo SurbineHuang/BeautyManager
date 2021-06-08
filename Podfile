@@ -4,28 +4,18 @@
 target 'BeautyManager' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for BeautyManager
-  # add the Firebase pod for Google Analytics
-pod 'Firebase/Analytics'
-# or pod ‘Firebase/AnalyticsWithoutAdIdSupport’
-# for Analytics without IDFA collection capability
-
-# add pods for any other desired Firebase products
-# https://firebase.google.com/docs/ios/setup#available-pods
-
-pod 'Firebase/Firestore'
-
-# Optionally, include the Swift extensions if you're using Swift.
-#pod 'FirebaseFirestoreSwift'
-
-pod 'SwiftLint'
-pod 'MJRefresh'
-pod 'Firebase/Storage'
-pod 'Firebase/Database'
-pod 'Kingfisher', '~> 6.2'
-pod 'Firebase/Auth'
-pod 'lottie-ios'
-pod 'Charts'
-pod 'Crashlytics'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Auth'
+  pod 'SwiftLint'
+  pod 'MJRefresh'
+  pod 'Kingfisher', '~> 6.2'
+  pod 'lottie-ios'
+  pod 'Charts'
+  
 end

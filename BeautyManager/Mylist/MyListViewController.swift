@@ -24,7 +24,6 @@ class MyListViewController: UIViewController {
     var didShowExpiredWarning = false
 
     var didSignIn: Bool {
-        
         let appleId = UserDefaults.standard.value(forKey: "appleId")
         if appleId == nil {
             print("AppleID in userDefault is nil")
@@ -56,17 +55,11 @@ class MyListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         
-        if (self.didSignIn) {
-            
-            print("=== viewWillAppear didSignIn")
-            
+        if self.didSignIn {
             self.loadBrands()
             self.loadTypes()
             self.loadProducts()
-            
         } else {
-            
-            print("=== viewWillAppear did not SignIn")
             self.showSignInViewController()
         }
     }
@@ -232,6 +225,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         print("searchText \(searchText)")
 
         if searchText == "" {

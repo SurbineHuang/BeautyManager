@@ -8,7 +8,6 @@
 import Firebase
 import UIKit
 import UserNotifications
-import Crashlytics
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

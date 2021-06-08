@@ -71,7 +71,7 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    // swiftlint:disable closure_parameter_position
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
             completionHandler(true)
@@ -83,5 +83,4 @@ extension ExpiryDateViewController: UITableViewDelegate, UITableViewDataSource {
         deleteAction.image = UIImage(named: "delete_32")
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    // swiftlint:enable closure_parameter_position
 }

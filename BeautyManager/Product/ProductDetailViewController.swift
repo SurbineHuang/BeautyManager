@@ -203,7 +203,6 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
 
     func uploadImage() {
         // 自動產生 ID ，方便上傳命名
-        print("===uploadImage error")
         let uuidStr = UUID().uuidString
 
         if let image = self.productImage,
@@ -223,6 +222,7 @@ extension ProductDetailViewController: UIImagePickerControllerDelegate, UINaviga
 
                 // Metadata contains file metadata such as size, content-type.
                 let size = metadata.size
+                print("Image resize to \(size)")
 
                 // You can also access to download URL after upload.
                 imageRef.downloadURL { url, _ in

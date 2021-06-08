@@ -11,8 +11,7 @@ import MJRefresh
 
 enum ExchangeType: Int {
     case myItem = 0
-    case all = 1
-    case finished = 2
+    case finished = 1
 }
 
 class ExchangeViewController: UIViewController {
@@ -44,9 +43,6 @@ class ExchangeViewController: UIViewController {
         if sender.selectedSegmentIndex == ExchangeType.myItem.rawValue {
             self.currentType = .myItem
             
-        } else if sender.selectedSegmentIndex == ExchangeType.all.rawValue {
-            self.currentType = .all
-            
         } else if sender.selectedSegmentIndex == ExchangeType.finished.rawValue {
             self.currentType = .finished
         }
@@ -72,24 +68,13 @@ class ExchangeViewController: UIViewController {
                 
                 case .myItem:
                     weakSelf.products = products.filter { (product) -> Bool in
+                        print("=== myItem")
+//                        let isExchanging = (product.status == "exchanging")
+//                        let isMyItem = (product.ownerId == weakSelf.myId)
+//                        return isExchanging && isMyItem
                         
                         let isExchanging = (product.status == "exchanging")
-                        let isMyItem = (product.ownerId == weakSelf.myId)
-                        return isExchanging && isMyItem
-                        
-//                        let isExchanging = (product.status == "exchanging")
-//                        return isExchanging
-                    }
-                    
-                case .all:
-                    weakSelf.products = products.filter { (product) -> Bool in
-                        
-                        let isExchanging = (product.status == "exchanging")
-                        let isNotMyItem = (product.ownerId != weakSelf.myId)
-                        return isExchanging && isNotMyItem
-                        
-//                        let isExchanging = (product.status == "exchanging")
-//                        return isExchanging
+                        return isExchanging
                     }
                     
                 case .finished:

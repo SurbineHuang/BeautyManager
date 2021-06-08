@@ -354,38 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UY9-4k-ahe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="491.25" y="48.591549295774648"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="at5-rr-u0O">
-            <objects>
-                <viewController id="bTd-MF-DDt" customClass="ViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yfJ-t1-GpZ" customClass="viewController">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5E2-Ep-GNP" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="40" y="150" width="240" height="99"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="EQ7-oe-MGJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="EQ7-oe-MGJ" firstAttribute="trailing" secondItem="5E2-Ep-GNP" secondAttribute="trailing" constant="40" id="Rcf-uX-fQq"/>
-                            <constraint firstItem="5E2-Ep-GNP" firstAttribute="leading" secondItem="EQ7-oe-MGJ" secondAttribute="leading" constant="40" id="TML-Fl-MuK"/>
-                            <constraint firstItem="EQ7-oe-MGJ" firstAttribute="bottom" secondItem="5E2-Ep-GNP" secondAttribute="bottom" constant="319" id="Y8d-Ds-1g2"/>
-                            <constraint firstItem="5E2-Ep-GNP" firstAttribute="top" secondItem="EQ7-oe-MGJ" secondAttribute="top" constant="150" id="oHN-5p-IDE"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Qqd-id-q0J"/>
-                    <connections>
-                        <outlet property="animationView" destination="5E2-Ep-GNP" id="DEV-5n-FLL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cwc-sd-fZV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1356" y="49"/>
+            <point key="canvasLocation" x="1142" y="49"/>
         </scene>
         <!--My List-->
         <scene sceneID="uO1-WH-NmV">
@@ -706,7 +675,6 @@
                                     <color key="backgroundColor" red="0.93329709770000002" green="0.92893904449999998" blue="0.89496904610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <segments>
                                         <segment title="待交換"/>
-                                        <segment title="交換大廳"/>
                                         <segment title="完成"/>
                                     </segments>
                                     <connections>
@@ -733,11 +701,6 @@
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3F-OW-Jdh">
                                                             <rect key="frame" x="253" y="13" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-PT-brZ">
-                                                            <rect key="frame" x="261" y="8" width="31" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="交換"/>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

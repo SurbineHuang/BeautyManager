@@ -26,4 +26,5 @@ pod 'Firebase/Database'
 pod 'Kingfisher', '~> 6.2'
 pod 'Firebase/Auth'
 pod 'lottie-ios'
+pod 'ChartsRealm'
 end

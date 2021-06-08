@@ -25,7 +25,7 @@ class MyListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.searchBar.delegate = self
@@ -191,7 +191,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
     // 右滑移動交換
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let addToChange = UIContextualAction(style: .normal, title: "來交換吧！") { _, _, completionHandler in
+        let addToChange = UIContextualAction(style: .normal, title: "不用了！") { _, _, completionHandler in
             completionHandler(true)
             ProductManager.shared.changeProductStatus(appleId: self.products[indexPath.row].id)
             self.products.remove(at: indexPath.row)

@@ -150,6 +150,7 @@
 				D4FB407F264E5114000AB82A /* Product */,
 				D4332801265414C300915F85 /* ExpiryDate */,
 				D4914D67265CF85800C0B266 /* Exchange */,
+				D4C10A71266EEB23005D23C9 /* Data */,
 				D440A7AB2664E58800438D35 /* SignIn */,
 				D44B149E26517DC800E7366D /* Manager */,
 				D49A3002264CC52500C84BB9 /* Main.storyboard */,
@@ -168,6 +169,13 @@
 				D42BB304264D264700B079FE /* MyListTableViewCell.swift */,
 			);
 			path = Mylist;
+			sourceTree = "<group>";
+		};
+		D4C10A71266EEB23005D23C9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		D4D42F392665E01C00EF5FCE /* Lottie */ = {

@@ -33,8 +33,8 @@ class ExpiryDateTableViewCell: UITableViewCell {
         self.productLabel.text = product.name
     
         let now = Date().timeIntervalSince1970
-        let oneDaySeconds = 24*60*60
-        let day = Int(product.expiryDate - now) / oneDaySeconds + 1 // day 的單位是(天)
+        let oneDaySeconds: Double = 24*60*60
+        let day = Int((product.expiryDate - now) / oneDaySeconds) + 1  // day 的單位是(天)
         self.dateLabel.text = "\(day)"
         
         if day <= 0 {

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>507454295828-cu7gd2o5ml6ug5satff3p2gn1qlm67en.apps.googleusercontent.com</string>
+	<string>507454295828-fgp67el126bhfg0k6ifipiqlms54h9al.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.507454295828-cu7gd2o5ml6ug5satff3p2gn1qlm67en</string>
+	<string>com.googleusercontent.apps.507454295828-fgp67el126bhfg0k6ifipiqlms54h9al</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCPLr3iDrtl2ZVu6NWfHU61nNf0G8pw8sw</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Swift.BeautyManager</string>
+	<string>com.Swift.BeautyManager</string>
 	<key>PROJECT_ID</key>
 	<string>personalproject-beautymanager</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:507454295828:ios:ef850b499d0bb7d140fc01</string>
+	<string>1:507454295828:ios:32fb35d4cbf98f4940fc01</string>
 </dict>
 </plist>

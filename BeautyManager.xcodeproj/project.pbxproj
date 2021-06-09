@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		79FC1956DB3E208A367A4808 /* Pods_BeautyManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */; };
 		D40200FC265D66F700E81B16 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40200FB265D66F700E81B16 /* UIImage+Ext.swift */; };
+		D4037A082671186B00B1F013 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4037A072671186B00B1F013 /* GoogleService-Info.plist */; };
 		D409B97C26524FBF008667C0 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409B97B26524FBF008667C0 /* ProductManager.swift */; };
 		D42BB305264D264700B079FE /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42BB304264D264700B079FE /* MyListTableViewCell.swift */; };
 		D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4332802265414FE00915F85 /* ExpiryDateViewController.swift */; };
@@ -22,7 +23,6 @@
 		D49A3004264CC52500C84BB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A3002264CC52500C84BB9 /* Main.storyboard */; };
 		D49A3006264CC52500C84BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49A3005264CC52500C84BB9 /* Assets.xcassets */; };
 		D49A3009264CC52500C84BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */; };
-		D49A3017264CCD4400C84BB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */; };
 		D4C10A4E266E1082005D23C9 /* cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = D4C10A4D266E1082005D23C9 /* cosmetic.json */; };
 		D4C10B04266FC312005D23C9 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C10B03266FC312005D23C9 /* AnimationViewController.swift */; };
 		D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3377F2661488E000667C4 /* TabBarViewController.swift */; };
@@ -32,6 +32,7 @@
 /* Begin PBXFileReference section */
 		49BFB4C618A4DEFA0EC3DB1F /* Pods-BeautyManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyManager.debug.xcconfig"; path = "Target Support Files/Pods-BeautyManager/Pods-BeautyManager.debug.xcconfig"; sourceTree = "<group>"; };
 		D40200FB265D66F700E81B16 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		D4037A072671186B00B1F013 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D409B97B26524FBF008667C0 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		D42BB304264D264700B079FE /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
 		D4332802265414FE00915F85 /* ExpiryDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryDateViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		D49A3005264CC52500C84BB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D49A3008264CC52500C84BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D49A300A264CC52500C84BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4C10A4D266E1082005D23C9 /* cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cosmetic.json; sourceTree = "<group>"; };
 		D4C10B03266FC312005D23C9 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		D4E3377F2661488E000667C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 				D49A3005264CC52500C84BB9 /* Assets.xcassets */,
 				D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */,
 				D49A300A264CC52500C84BB9 /* Info.plist */,
-				D49A3016264CCD4400C84BB9 /* GoogleService-Info.plist */,
+				D4037A072671186B00B1F013 /* GoogleService-Info.plist */,
 			);
 			path = BeautyManager;
 			sourceTree = "<group>";
@@ -274,8 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D49A3009264CC52500C84BB9 /* LaunchScreen.storyboard in Resources */,
-				D49A3017264CCD4400C84BB9 /* GoogleService-Info.plist in Resources */,
 				D49A3006264CC52500C84BB9 /* Assets.xcassets in Resources */,
+				D4037A082671186B00B1F013 /* GoogleService-Info.plist in Resources */,
 				D49A3004264CC52500C84BB9 /* Main.storyboard in Resources */,
 				D4C10A4E266E1082005D23C9 /* cosmetic.json in Resources */,
 			);
@@ -534,11 +534,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Swift.BeautyManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Swift.BeautyManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -557,11 +557,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Swift.BeautyManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Swift.BeautyManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -324,7 +324,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="使用條款及隱私政策"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Minimal Feminine Photography Logo Template 的複本 (2)" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-0j-8nu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-0j-8nu">
                                 <rect key="frame" x="60" y="90" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="P1j-0j-8nu" secondAttribute="height" multiplier="1:1" id="w1w-ES-Oul"/>
@@ -406,20 +406,20 @@
                                 <rect key="frame" x="-10" y="182" width="340" height="300"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.94509803921568625" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="產品名稱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IaA-Lt-4RD">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="產品名稱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IaA-Lt-4RD">
                                 <rect key="frame" x="154" y="66.5" width="150" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="QJf-cs-9qg"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="品牌" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-m7-L0W">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="品牌" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-m7-L0W">
                                 <rect key="frame" x="154" y="112.5" width="150" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="類型" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HOb-42-Tm9">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="類型" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HOb-42-Tm9">
                                 <rect key="frame" x="154" y="158.5" width="150" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -494,7 +494,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="photo upload" symbolScale="large"/>
+                                    <imageReference key="image" image="camera" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="takePhotoTapped:" destination="dac-do-cZe" eventType="touchUpInside" id="x9c-Gn-nmx"/>
@@ -860,13 +860,13 @@
         <image name="Expirydate_Click" width="32" height="32"/>
         <image name="List" width="32" height="32"/>
         <image name="List_Click" width="32" height="32"/>
-        <image name="Minimal Feminine Photography Logo Template 的複本 (2)" width="512" height="512"/>
+        <image name="camera" width="140" height="160"/>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="expired" width="200" height="96"/>
         <image name="graph" width="128" height="128"/>
+        <image name="logo-1" width="512" height="512"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
-        <image name="photo upload" width="140" height="160"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -17,5 +17,6 @@ target 'BeautyManager' do
   pod 'Kingfisher', '~> 6.2'
   pod 'lottie-ios'
   pod 'Charts'
+  pod 'IQKeyboardManagerSwift'
   
 end

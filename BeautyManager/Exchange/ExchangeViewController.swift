@@ -158,7 +158,7 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         addToChange.backgroundColor = UIColor.lightGray
-//        addToChange.image = UIImage(named: "exchange32*32")
+//        addToChange.image = UIImage(named: "exchange_32")
 
         return UISwipeActionsConfiguration(actions: [addToChange])
     }

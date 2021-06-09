@@ -21,7 +21,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupProviderLoginView()
-        self.skipButton.isHidden = true
+//        self.skipButton.isHidden = true
     }
     
     @IBAction func skipTapped(_ sender: Any) {

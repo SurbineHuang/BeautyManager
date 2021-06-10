@@ -75,7 +75,7 @@ class MyListViewController: UIViewController {
         content.body = "快來看看有什麼東西快過期了吧！"
         content.sound = UNNotificationSound.default
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 24*60*60*7, repeats: false)
         let request = UNNotificationRequest(identifier: "ProductReminder", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)

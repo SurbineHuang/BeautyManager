@@ -156,16 +156,7 @@
                             <constraint firstItem="qKd-fL-3ZK" firstAttribute="trailing" secondItem="f2K-do-4P0" secondAttribute="trailing" constant="25" id="rT8-5Y-Qu6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My List" id="ge9-KD-KWY">
-                        <barButtonItem key="rightBarButtonItem" id="QHW-RZ-v7A">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nRN-B9-6H1">
-                                <rect key="frame" x="284" y="11" width="20" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="person.crop.circle" catalog="system"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My List" id="ge9-KD-KWY"/>
                     <connections>
                         <outlet property="addTapped" destination="f2K-do-4P0" id="rfA-Oh-IHw"/>
                         <outlet property="searchBar" destination="9NK-9y-Q8z" id="r6w-xo-mXX"/>
@@ -866,7 +857,6 @@
         <image name="expired" width="200" height="96"/>
         <image name="graph" width="128" height="128"/>
         <image name="logo-1" width="512" height="512"/>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

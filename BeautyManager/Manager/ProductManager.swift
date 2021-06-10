@@ -96,9 +96,12 @@ extension ProductManager {
                                           periodAfterOpening: periodAfterOpening,
                                           photo: photo,
                                           brandId: brandId,
-                                          typeId: typeId, ownerId: ownerId)
+                                          typeId: typeId,
+                                          ownerId: ownerId)
                     
-                    products.append(product)
+                    if ownerId == UserDefaults.standard.string(forKey: "appleId") {
+                        products.append(product)
+                    }
                 }
             }
             

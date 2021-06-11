@@ -602,20 +602,11 @@
         <!--Data-->
         <scene sceneID="flP-BM-Ez9">
             <objects>
-                <viewController id="IpA-at-mAn" sceneMemberID="viewController">
+                <viewController id="IpA-at-mAn" customClass="DataViewController" customModule="BeautyManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phl-eL-EfV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graph" translatesAutoresizingMaskIntoConstraints="NO" id="uag-zL-tm9">
-                                <rect key="frame" x="40" y="144" width="240" height="175"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbc-Ug-Dhp">
-                                <rect key="frame" x="24" y="351" width="272" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AXT-3n-idg">
                                 <rect key="frame" x="213" y="60" width="91" height="32"/>
                                 <segments>
@@ -623,22 +614,27 @@
                                     <segment title="種類"/>
                                 </segments>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-Oe-2DW">
+                                <rect key="frame" x="40" y="120" width="240" height="219"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5oM-16-0JE"/>
                         <color key="backgroundColor" red="0.96078431610000004" green="0.93333339689999995" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="9TU-Oe-2DW" firstAttribute="leading" secondItem="5oM-16-0JE" secondAttribute="leading" constant="40" id="5mZ-ld-ZXO"/>
                             <constraint firstItem="AXT-3n-idg" firstAttribute="trailing" secondItem="5oM-16-0JE" secondAttribute="trailing" constant="-16" id="F6q-OZ-IUj"/>
-                            <constraint firstItem="5oM-16-0JE" firstAttribute="bottom" secondItem="uag-zL-tm9" secondAttribute="bottom" constant="200" id="Jkc-lX-3fz"/>
-                            <constraint firstItem="5oM-16-0JE" firstAttribute="trailing" secondItem="vbc-Ug-Dhp" secondAttribute="trailing" constant="24" id="OPx-GY-kot"/>
-                            <constraint firstItem="vbc-Ug-Dhp" firstAttribute="top" secondItem="uag-zL-tm9" secondAttribute="bottom" constant="32" id="Pvz-tf-O91"/>
-                            <constraint firstItem="5oM-16-0JE" firstAttribute="trailing" secondItem="uag-zL-tm9" secondAttribute="trailing" constant="40" id="VIr-rG-dcD"/>
+                            <constraint firstItem="9TU-Oe-2DW" firstAttribute="top" secondItem="phl-eL-EfV" secondAttribute="top" constant="120" id="Qur-JN-FIZ"/>
+                            <constraint firstItem="5oM-16-0JE" firstAttribute="trailing" secondItem="9TU-Oe-2DW" secondAttribute="trailing" constant="40" id="ScU-yB-jjt"/>
+                            <constraint firstItem="5oM-16-0JE" firstAttribute="bottom" secondItem="9TU-Oe-2DW" secondAttribute="bottom" constant="180" id="Uzt-6R-hiO"/>
                             <constraint firstItem="AXT-3n-idg" firstAttribute="top" secondItem="5oM-16-0JE" secondAttribute="top" constant="16" id="huj-jf-ENi"/>
-                            <constraint firstItem="uag-zL-tm9" firstAttribute="leading" secondItem="5oM-16-0JE" secondAttribute="leading" constant="40" id="sB5-6h-fao"/>
-                            <constraint firstItem="uag-zL-tm9" firstAttribute="top" secondItem="5oM-16-0JE" secondAttribute="top" constant="100" id="sVn-4C-BXr"/>
-                            <constraint firstItem="vbc-Ug-Dhp" firstAttribute="leading" secondItem="5oM-16-0JE" secondAttribute="leading" constant="24" id="sfR-Ll-sGN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Data" id="yxn-43-Pv5"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="9TU-Oe-2DW" id="guC-Du-4Oy"/>
+                        <outlet property="typeSegmented" destination="AXT-3n-idg" id="ADz-O9-w6W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Woq-gh-LJi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -855,7 +851,6 @@
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="expired" width="200" height="96"/>
-        <image name="graph" width="128" height="128"/>
         <image name="logo-1" width="512" height="512"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

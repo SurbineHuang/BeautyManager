@@ -199,7 +199,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
 
-        deleteAction.backgroundColor = UIColor.lightGray
+        deleteAction.backgroundColor = UIColor.red
         deleteAction.image = UIImage(named: "delete_32")
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -207,7 +207,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 
     // 右滑移動交換
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let addToChange = UIContextualAction(style: .normal, title: "不用了！") { _, _, completionHandler in
+        let addToChange = UIContextualAction(style: .normal, title: "不適合我！") { _, _, completionHandler in
             completionHandler(true)
             
             ProductManager.shared.changeProductStatus(appleId: self.products[indexPath.row].id)

@@ -25,6 +25,7 @@
 		D49A3009264CC52500C84BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */; };
 		D4C10A4E266E1082005D23C9 /* cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = D4C10A4D266E1082005D23C9 /* cosmetic.json */; };
 		D4C10B04266FC312005D23C9 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C10B03266FC312005D23C9 /* AnimationViewController.swift */; };
+		D4DA94E226735C35007FD204 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA94E126735C35007FD204 /* DataViewController.swift */; };
 		D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3377F2661488E000667C4 /* TabBarViewController.swift */; };
 		D4FB4081264E5140000AB82A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		D49A300A264CC52500C84BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C10A4D266E1082005D23C9 /* cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cosmetic.json; sourceTree = "<group>"; };
 		D4C10B03266FC312005D23C9 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		D4DA94E126735C35007FD204 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		D4E3377F2661488E000667C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 		D4C10A71266EEB23005D23C9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D4DA94E126735C35007FD204 /* DataViewController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */,
 				D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */,
 				D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */,
+				D4DA94E226735C35007FD204 /* DataViewController.swift in Sources */,
 				D42BB305264D264700B079FE /* MyListTableViewCell.swift in Sources */,
 				D49A2FFD264CC52500C84BB9 /* AppDelegate.swift in Sources */,
 				D4FB4081264E5140000AB82A /* ProductDetailViewController.swift in Sources */,
@@ -535,6 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Swift.BeautyManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -559,6 +564,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Swift.BeautyManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

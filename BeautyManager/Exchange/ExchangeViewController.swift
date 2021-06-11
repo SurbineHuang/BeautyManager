@@ -137,7 +137,7 @@ extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
             self.products.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        deleteAction.backgroundColor = UIColor.lightGray
+        deleteAction.backgroundColor = UIColor.red
         deleteAction.image = UIImage(named: "delete_32")
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }

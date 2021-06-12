@@ -614,7 +614,7 @@
                                     <segment title="種類"/>
                                 </segments>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-Oe-2DW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-Oe-2DW" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="40" y="120" width="240" height="219"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -632,7 +632,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Data" id="yxn-43-Pv5"/>
                     <connections>
-                        <outlet property="pieChartView" destination="9TU-Oe-2DW" id="guC-Du-4Oy"/>
+                        <outlet property="chartView" destination="9TU-Oe-2DW" id="DvG-RX-ueu"/>
                         <outlet property="typeSegmented" destination="AXT-3n-idg" id="ADz-O9-w6W"/>
                     </connections>
                 </viewController>

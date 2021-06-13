@@ -15,6 +15,7 @@
 		D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4332802265414FE00915F85 /* ExpiryDateViewController.swift */; };
 		D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43328052654208E00915F85 /* ExpiryDateTableViewCell.swift */; };
 		D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440A7AC2664E5AF00438D35 /* SignInViewController.swift */; };
+		D47875BF26763CF80066073E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47875BE26763CF80066073E /* UIColor+Ext.swift */; };
 		D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4914D68265CF87200C0B266 /* ExchangeViewController.swift */; };
 		D4914D6C265CF89500C0B266 /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4914D6B265CF89500C0B266 /* ExchangeTableViewCell.swift */; };
 		D49A2FFD264CC52500C84BB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49A2FFC264CC52500C84BB9 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		D43328052654208E00915F85 /* ExpiryDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryDateTableViewCell.swift; sourceTree = "<group>"; };
 		D440A7A92664DDC000438D35 /* BeautyManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeautyManager.entitlements; sourceTree = "<group>"; };
 		D440A7AC2664E5AF00438D35 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D47875BE26763CF80066073E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		D4914D68265CF87200C0B266 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		D4914D6B265CF89500C0B266 /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
 		D49A2FF9264CC52500C84BB9 /* BeautyManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				D40200FB265D66F700E81B16 /* UIImage+Ext.swift */,
+				D47875BE26763CF80066073E /* UIColor+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */,
 				D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */,
 				D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */,
+				D47875BF26763CF80066073E /* UIColor+Ext.swift in Sources */,
 				D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */,
 				D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */,
 				D4DA94E226735C35007FD204 /* DataViewController.swift in Sources */,
@@ -532,14 +536,14 @@
 				CODE_SIGN_ENTITLEMENTS = BeautyManager/BeautyManager.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M7Z59NJ38L;
 				INFOPLIST_FILE = BeautyManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Swift.BeautyManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -557,14 +561,14 @@
 				CODE_SIGN_ENTITLEMENTS = BeautyManager/BeautyManager.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M7Z59NJ38L;
 				INFOPLIST_FILE = BeautyManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Swift.BeautyManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -608,14 +608,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AXT-3n-idg">
-                                <rect key="frame" x="213" y="60" width="91" height="32"/>
+                                <rect key="frame" x="184" y="60" width="120" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="543-sW-fq3"/>
+                                    <constraint firstAttribute="height" constant="44" id="FFC-7T-QBR"/>
+                                </constraints>
                                 <segments>
                                     <segment title="品牌"/>
                                     <segment title="種類"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedAction:" destination="IpA-at-mAn" eventType="valueChanged" id="BMg-eP-X4I"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-Oe-2DW" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="40" y="120" width="240" height="219"/>
+                                <rect key="frame" x="40" y="126" width="240" height="349"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -624,10 +631,10 @@
                         <constraints>
                             <constraint firstItem="9TU-Oe-2DW" firstAttribute="leading" secondItem="5oM-16-0JE" secondAttribute="leading" constant="40" id="5mZ-ld-ZXO"/>
                             <constraint firstItem="AXT-3n-idg" firstAttribute="trailing" secondItem="5oM-16-0JE" secondAttribute="trailing" constant="-16" id="F6q-OZ-IUj"/>
-                            <constraint firstItem="9TU-Oe-2DW" firstAttribute="top" secondItem="phl-eL-EfV" secondAttribute="top" constant="120" id="Qur-JN-FIZ"/>
                             <constraint firstItem="5oM-16-0JE" firstAttribute="trailing" secondItem="9TU-Oe-2DW" secondAttribute="trailing" constant="40" id="ScU-yB-jjt"/>
-                            <constraint firstItem="5oM-16-0JE" firstAttribute="bottom" secondItem="9TU-Oe-2DW" secondAttribute="bottom" constant="180" id="Uzt-6R-hiO"/>
+                            <constraint firstItem="5oM-16-0JE" firstAttribute="bottom" secondItem="9TU-Oe-2DW" secondAttribute="bottom" constant="44" id="Uzt-6R-hiO"/>
                             <constraint firstItem="AXT-3n-idg" firstAttribute="top" secondItem="5oM-16-0JE" secondAttribute="top" constant="16" id="huj-jf-ENi"/>
+                            <constraint firstItem="9TU-Oe-2DW" firstAttribute="top" secondItem="AXT-3n-idg" secondAttribute="bottom" constant="22" id="tGK-Rg-U5i"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Data" id="yxn-43-Pv5"/>

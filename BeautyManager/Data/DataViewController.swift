@@ -19,6 +19,10 @@ class DataViewController: UIViewController {
     @IBOutlet weak var chartView: PieChartView!
     @IBOutlet weak var typeSegmented: UISegmentedControl!
     
+    let activityView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 40),
+                                               type: .ballPulse,
+                                               color: .brown)
+    
     var currentType: DataType = .brands
     var products: [Product] = []
     var brandDatas: [(name: String, value: Double)] = []
@@ -27,23 +31,16 @@ class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.showAnimation()
+        self.chartView.noDataText = ""
         
+        self.view.addSubview(activityView)
+        self.activityView.center = self.view.center
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.loadProducts()
-    }
-    
-    func showAnimation() {
-        
-        let activityView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80), type: .ballPulse, color: .brown)
-        activityView.center = self.view.center
-        activityView.startAnimating()
-        
-        self.view.addSubview(activityView)
     }
     
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
@@ -58,6 +55,8 @@ class DataViewController: UIViewController {
 
     func loadProducts() {
 
+        self.activityView.startAnimating()
+        
         ProductManager.shared.getProducts { [weak self] result in
 
             guard let weakSelf = self else {
@@ -70,7 +69,10 @@ class DataViewController: UIViewController {
                 weakSelf.brandDatas = weakSelf.filterBrands(from: products)
                 weakSelf.typeDatas = weakSelf.filterTypes(from: products)
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                    
+                    self?.activityView.stopAnimating()
+                    
                     if weakSelf.currentType == .brands {
                         weakSelf.setChart(datas: weakSelf.brandDatas)
                     } else {
@@ -160,10 +162,26 @@ class DataViewController: UIViewController {
  
     func createColors(number: Int) -> [UIColor] {
         
+        let defaultColors = [UIColor.RGBA(r: 71, g: 44, b: 27),
+                             UIColor.RGBA(r: 122, g: 158, b: 126),
+                             UIColor.RGBA(r: 164, g: 119, b: 139),
+                             UIColor.RGBA(r: 186, g: 110, b: 110),
+                             UIColor.RGBA(r: 83, g: 104, b: 126),
+                             UIColor.RGBA(r: 137, g: 96, b: 142),
+                             UIColor.RGBA(r: 119, g: 175, b: 156),
+                             UIColor.RGBA(r: 0, g: 126, b: 167),
+                             UIColor.RGBA(r: 211, g: 82, b: 105),
+                             UIColor.RGBA(r: 174, g: 132, b: 126)]
+        
         var result: [UIColor] = []
         
-        for _ in 0..<number {
-            result.append(UIColor.random)
+        // 前十個使用預設的顏色, 其餘使用隨機顏色
+        for index in 0..<number {
+            if index < 10 {
+                result.append(defaultColors[index])
+            } else {
+                result.append(UIColor.random)
+            }
         }
         
         return result

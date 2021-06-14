@@ -146,8 +146,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
                                          photoUrlString: imageUrlString,
                                          brandName: brand,
                                          typeName: type)
-
-        print("=== addTapped dismiss")
+        
         self.dismiss(animated: true, completion: nil)
     }
 }

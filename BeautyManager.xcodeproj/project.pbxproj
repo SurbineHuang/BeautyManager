@@ -26,6 +26,7 @@
 		D49A3009264CC52500C84BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49A3007264CC52500C84BB9 /* LaunchScreen.storyboard */; };
 		D4C10A4E266E1082005D23C9 /* cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = D4C10A4D266E1082005D23C9 /* cosmetic.json */; };
 		D4C10B04266FC312005D23C9 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C10B03266FC312005D23C9 /* AnimationViewController.swift */; };
+		D4D168C42677A68D001CFB51 /* UIDevice+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D168C32677A68D001CFB51 /* UIDevice+Ext.swift */; };
 		D4DA94E226735C35007FD204 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA94E126735C35007FD204 /* DataViewController.swift */; };
 		D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3377F2661488E000667C4 /* TabBarViewController.swift */; };
 		D4FB4081264E5140000AB82A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */; };
@@ -54,6 +55,7 @@
 		D49A300A264CC52500C84BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C10A4D266E1082005D23C9 /* cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cosmetic.json; sourceTree = "<group>"; };
 		D4C10B03266FC312005D23C9 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		D4D168C32677A68D001CFB51 /* UIDevice+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Ext.swift"; sourceTree = "<group>"; };
 		D4DA94E126735C35007FD204 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		D4E3377F2661488E000667C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				D40200FB265D66F700E81B16 /* UIImage+Ext.swift */,
 				D47875BE26763CF80066073E /* UIColor+Ext.swift */,
+				D4D168C32677A68D001CFB51 /* UIDevice+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */,
 				D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */,
 				D4E337802661488E000667C4 /* TabBarViewController.swift in Sources */,
+				D4D168C42677A68D001CFB51 /* UIDevice+Ext.swift in Sources */,
 				D47875BF26763CF80066073E /* UIColor+Ext.swift in Sources */,
 				D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */,
 				D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */,

@@ -38,10 +38,10 @@ class ExpiryDateViewController: UIViewController {
                     let now = Date().timeIntervalSince1970
                     return (product.expiryDate - now) <= 30*24*60*60
                 }
-                
                 self?.tableView.reloadData()
+                
             case .failure(let error):
-                print("===loadExpiredProduct.failure: \(error)")
+                print("ERROR: \(error)")
             }
         }
     }

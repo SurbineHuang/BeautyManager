@@ -21,7 +21,14 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupProviderLoginView()
-        self.skipButton.isHidden = true
+        
+        if UIDevice.isSimulator {
+            self.skipButton.isHidden = false
+            // 直接存一組 AppleId 到 UserDefault
+            userDefaults.set("000621.496f586135014afa92ac6a2c38b3fd53.1518", forKey: "appleId")
+        } else {
+            self.skipButton.isHidden = true
+        }
     }
     
     @IBAction func skipTapped(_ sender: Any) {
@@ -76,7 +83,6 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 
                 ProductManager.shared.addUser(appleId: appleIDCredential.user)
                 self.dismiss(animated: true, completion: nil)
-                
             }
         }
         

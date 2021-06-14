@@ -396,7 +396,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DoodleA" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-J3-lI4">
                                 <rect key="frame" x="25" y="390" width="340" height="300"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96679264310000002" green="0.95031446220000004" blue="0.84810519220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="產品名稱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IaA-Lt-4RD">
                                 <rect key="frame" x="224" y="66.666666666666671" width="150" height="34"/>
@@ -417,7 +417,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未拆封有效期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coZ-xh-ons">
-                                <rect key="frame" x="16" y="222.33333333333334" width="130" height="22.333333333333343"/>
+                                <rect key="frame" x="16" y="222.33333333333334" width="130" height="22.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="bF3-7i-LPn"/>
                                 </constraints>
@@ -426,7 +426,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拆封日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsf-BF-pwo">
-                                <rect key="frame" x="16" y="268.66666666666669" width="130" height="21.666666666666686"/>
+                                <rect key="frame" x="16" y="269" width="130" height="21.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21.5" id="9Zy-Yx-n1T"/>
                                 </constraints>
@@ -435,7 +435,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拆封後保存期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6a-1u-PAC">
-                                <rect key="frame" x="16" y="314.33333333333331" width="130" height="21.333333333333314"/>
+                                <rect key="frame" x="16" y="314.66666666666669" width="130" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -468,7 +468,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttY-aX-C70">
-                                <rect key="frame" x="266" y="308" width="100" height="34"/>
+                                <rect key="frame" x="266" y="308.33333333333331" width="100" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -500,13 +500,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xb6-zh-opS">
-                                <rect key="frame" x="266" y="262.66666666666669" width="100" height="34"/>
+                                <rect key="frame" x="266" y="262.66666666666669" width="100" height="34.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uUe-lx-8Nv"/>
-                        <color key="backgroundColor" red="0.95686274770000002" green="0.93333339689999995" blue="0.83137255909999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.96679264310000002" green="0.95031446220000004" blue="0.84810519220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="B6a-1u-PAC" firstAttribute="leading" secondItem="gsf-BF-pwo" secondAttribute="leading" id="0Js-zA-Jxd"/>
                             <constraint firstItem="gsf-BF-pwo" firstAttribute="trailing" secondItem="coZ-xh-ons" secondAttribute="trailing" id="5Kg-t4-OIf"/>

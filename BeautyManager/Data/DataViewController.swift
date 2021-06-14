@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import NVActivityIndicatorView
 
 class DataViewController: UIViewController {
     
@@ -26,12 +27,23 @@ class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showAnimation()
+        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.loadProducts()
+    }
+    
+    func showAnimation() {
+        
+        let activityView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80), type: .ballPulse, color: .brown)
+        activityView.center = self.view.center
+        activityView.startAnimating()
+        
+        self.view.addSubview(activityView)
     }
     
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
@@ -45,7 +57,7 @@ class DataViewController: UIViewController {
     }
 
     func loadProducts() {
-        
+
         ProductManager.shared.getProducts { [weak self] result in
 
             guard let weakSelf = self else {

@@ -18,5 +18,6 @@ target 'BeautyManager' do
   pod 'lottie-ios'
   pod 'Charts'
   pod 'IQKeyboardManagerSwift'
+  pod 'NVActivityIndicatorView'
   
 end

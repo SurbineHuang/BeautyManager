@@ -88,54 +88,54 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        print("=== addTapped ")
+       
         guard let name = self.nameTextField.text, !name.isEmpty else {
-            print("Error: product is empty")
+            
             return
         }
 
         guard let brand = self.brandTextField.text, !brand.isEmpty else {
-            print("Error: brand is empty")
+            
             return
         }
 
         guard let type = self.typeTextField.text, !type.isEmpty else {
-            print("Error: type is empty")
+            
             return
         }
 
         guard let expiryDateStr = self.expiryTextField.text else {
-            print("Error: expiryDate text is nil")
+            
             return
         }
 
         guard let expiryDate = self.dateFormatter.date(from: expiryDateStr) else {
-            print("Error: expiryDate can not parse to date")
+            
             return
         }
 
         guard let openedDateStr = self.openedTextField.text else {
-            print("Error: openedDate text is nil")
+            
             return
         }
 
         guard let openedDate = self.dateFormatter.date(from: openedDateStr) else {
-            print("Error: openedDate can not parse to date")
+            
             return
         }
 
         guard let periodAfterOpeningStr = self.periodTextField.text else {
-            print("Error: periodAfterOpening text is nil")
+            
             return
         }
 
         guard let periodAfterOpening = self.dateFormatter.date(from: periodAfterOpeningStr) else {
-            print("Error: periodAfterOpening can not parse to date")
+            
             return
         }
 
         guard let imageUrlString = self.productImageUrlString else {
-            print("Error: productImageUrlString is nil")
+            
             return
         }
         

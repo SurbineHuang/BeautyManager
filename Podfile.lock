@@ -377,6 +377,9 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (1.2.12)
   - SwiftLint (0.43.1)
 
@@ -392,6 +395,7 @@ DEPENDENCIES:
   - Kingfisher (~> 6.2)
   - lottie-ios
   - MJRefresh
+  - NVActivityIndicatorView
   - SwiftLint
 
 SPEC REPOS:
@@ -421,6 +425,7 @@ SPEC REPOS:
     - lottie-ios
     - MJRefresh
     - nanopb
+    - NVActivityIndicatorView
     - PromisesObjC
     - SwiftLint
 
@@ -450,9 +455,10 @@ SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 19fd091ff3dc04d8129c94684e0d86c3d3c6604e
+PODFILE CHECKSUM: d33b8a32d0f8a7088a1380bd779ec326d1859317
 
 COCOAPODS: 1.10.1

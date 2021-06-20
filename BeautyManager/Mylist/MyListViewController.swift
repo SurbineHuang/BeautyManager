@@ -164,10 +164,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
 
-        let date = Date(timeIntervalSince1970: product.expiryDate)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        let expiryStr = formatter.string(from: date)
+        // 設定 expiryDate 格式
+        let expiryDate = setUpDateFormatter(expiryDate: product.expiryDate)
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             cell.backView.layer.cornerRadius = 8
@@ -176,7 +174,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
+            cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryDate)
 
             let photoImage = self.products[indexPath.row]
 
@@ -188,7 +186,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-
+    
     // 左滑刪除
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
@@ -300,5 +298,28 @@ extension MyListViewController: UIAlertViewDelegate {
 
         self.present(alertController, animated: true, completion: nil)
         */
+    }
+}
+
+extension MyListViewController {
+    //  TODO: setUp convert 的差別、為什麼不能用 formatter ?
+    //  轉換 expiryDate 格式
+    //    func setUpDateFormatter(expiryDate: TimeInterval) -> String {
+    //
+    //        let date = Date(timeIntervalSince1970: expiryDate)
+    //        let formatter = DateFormatter()
+    //        formatter.dateFormat = "yyyy.MM.dd"
+    //        let expiryStr = formatter.string(from: date)
+    //        return expiryStr
+    //    }
+    
+    // 轉換 expiryDate 格式
+    func convertDateToString(expiryDate: TimeInterval) -> String {
+        
+        let date = Date(timeIntervalSince1970: expiryDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let expiryStr = formatter.string(from: date)
+        return expiryStr
     }
 }

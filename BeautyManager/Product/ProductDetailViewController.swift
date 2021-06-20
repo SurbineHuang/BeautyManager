@@ -54,6 +54,7 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.periodTextField.backgroundColor = .clear
         self.periodTextField.borderStyle = .none
         self.periodTextField.inputView = self.datePicker
+        
         self.addButton.layer.shadowOpacity = 0.2
         self.addButton.layer.cornerRadius = 20
         self.photoButton.layer.cornerRadius = 10

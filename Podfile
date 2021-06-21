@@ -20,4 +20,9 @@ target 'BeautyManager' do
   pod 'IQKeyboardManagerSwift'
   pod 'NVActivityIndicatorView'
   
+  target 'BeautyManagerTests' do
+    inherit! :search_paths
+    pod 'Firebase'
+  end
+  
 end

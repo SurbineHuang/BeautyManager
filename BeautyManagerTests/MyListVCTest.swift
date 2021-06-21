@@ -14,9 +14,10 @@ class MyListVCTest: XCTestCase {
     
     override func setUp() {
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        self.myListVC = storyboard.instantiateViewController(withIdentifier: "MyListViewController") as? MyListViewController
+        self.myListVC = MyListViewController()// 只能在測試使用
+        // 只是要測試，不需要而外生成 storyboard
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        self.myListVC = storyboard.instantiateViewController(withIdentifier: "MyListViewController") as? MyListViewController
     }
     
     override func setUpWithError() throws {

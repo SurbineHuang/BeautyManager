@@ -30,34 +30,15 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.dateFormatter.dateFormat = "yyyy.MM.dd"
-        self.datePicker.minimumDate = Date()
-
         // 設定 datePicker 功能及外觀
-        self.datePicker.datePickerMode = .date
-        self.datePicker.locale = NSLocale(
-            localeIdentifier: "zh_TW") as Locale
-
-        self.datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
-        self.datePicker.preferredDatePickerStyle = .wheels
-        self.datePicker.backgroundColor = .white
+        self.setUpDatePicker()
 
         // 設定 textField 外觀
-        self.expiryTextField.backgroundColor = .clear
-        self.expiryTextField.borderStyle = .none
-        self.expiryTextField.inputView = self.datePicker
+        self.setUpExpiryTextField()
+        self.setUpOpenedTextField()
+        self.setUpPeriodTextField()
+        self.setUpButton()
 
-        self.openedTextField.backgroundColor = .clear
-        self.openedTextField.borderStyle = .none
-        self.openedTextField.inputView = self.datePicker
-
-        self.periodTextField.backgroundColor = .clear
-        self.periodTextField.borderStyle = .none
-        self.periodTextField.inputView = self.datePicker
-        
-        self.addButton.layer.shadowOpacity = 0.2
-        self.addButton.layer.cornerRadius = 20
-        self.photoButton.layer.cornerRadius = 10
         // 設定空白處點選結束
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         self.view.addGestureRecognizer(tapGesture)
@@ -68,6 +49,51 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.nameTextField.clearButtonMode = .whileEditing
         self.typeTextField.clearButtonMode = .whileEditing
         self.brandTextField.clearButtonMode = .whileEditing
+    }
+    
+    func setUpDatePicker() {
+        
+        self.dateFormatter.dateFormat = "yyyy.MM.dd"
+        self.datePicker.minimumDate = Date()
+        
+        self.datePicker.datePickerMode = .date
+        self.datePicker.locale = NSLocale(
+            localeIdentifier: "zh_TW") as Locale
+
+        self.datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        self.datePicker.preferredDatePickerStyle = .wheels
+        self.datePicker.backgroundColor = .white
+    }
+    
+    func setUpExpiryTextField() {
+        
+        self.expiryTextField.backgroundColor = .clear
+        self.expiryTextField.borderStyle = .none
+        self.expiryTextField.inputView = self.datePicker
+    }
+    
+    func setUpOpenedTextField() {
+        
+        self.openedTextField.backgroundColor = .clear
+        self.openedTextField.borderStyle = .none
+        self.openedTextField.inputView = self.datePicker
+        
+    }
+    
+    func setUpPeriodTextField() {
+        
+        self.periodTextField.backgroundColor = .clear
+        self.periodTextField.borderStyle = .none
+        self.periodTextField.inputView = self.datePicker
+        
+    }
+    
+    func setUpButton() {
+        
+        self.addButton.layer.shadowOpacity = 0.2
+        self.addButton.layer.cornerRadius = 20
+        self.photoButton.layer.cornerRadius = 10
+        
     }
 
     @objc func dateChanged(datePicker: UIDatePicker) {

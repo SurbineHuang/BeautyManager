@@ -165,7 +165,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         // 設定 expiryDate 格式
-        let expiryDate = setUpDateFormatter(expiryDate: product.expiryDate)
+        let expiryDate = self.convertDateToString(expiryDate: product.expiryDate)
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             cell.backView.layer.cornerRadius = 8

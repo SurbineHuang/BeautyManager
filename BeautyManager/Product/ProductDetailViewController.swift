@@ -9,7 +9,7 @@ import Firebase
 import FirebaseStorage
 import UIKit
 
-class ProductDetailViewController: UIViewController, UITextFieldDelegate {
+class ProductDetailViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -44,8 +44,6 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapGesture)
 
         // 設定 nameTextField
-        self.nameTextField.delegate = self
-
         self.nameTextField.clearButtonMode = .whileEditing
         self.typeTextField.clearButtonMode = .whileEditing
         self.brandTextField.clearButtonMode = .whileEditing
@@ -95,6 +93,8 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.photoButton.layer.cornerRadius = 10
         
     }
+    
+    
 
     @objc func dateChanged(datePicker: UIDatePicker) {
         if self.expiryTextField.isFirstResponder {

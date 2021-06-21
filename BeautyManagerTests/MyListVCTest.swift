@@ -13,9 +13,9 @@ class MyListVCTest: XCTestCase {
     var myListVC: MyListViewController?
     
     override func setUp() {
-        
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+
         self.myListVC = storyboard.instantiateViewController(withIdentifier: "MyListViewController") as? MyListViewController
     }
     

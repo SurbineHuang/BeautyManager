@@ -9,7 +9,7 @@ import Firebase
 import FirebaseFirestore
 import Foundation
 
-struct Product {
+struct Product: Codable {
     let name: String
     let id: String
     let status: String
@@ -22,18 +22,18 @@ struct Product {
     let ownerId: String
 }
 
-struct User {
+struct User: Codable {
     let id: String
     let appleId: String
     let name: String
 }
 
-struct Brand {
+struct Brand: Codable {
     var id: String
     var name: String
 }
 
-struct Type {
+struct Type: Codable {
     let id: String
     let name: String
 }

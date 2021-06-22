@@ -23,9 +23,9 @@ class ExpiryDateTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        // Configure the view for the selected state
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     // 把 product 帶進來
     func setData(product: Product) {

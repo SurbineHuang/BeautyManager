@@ -44,9 +44,7 @@ class ProductDetailViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
 
         // 設定 nameTextField
-        self.nameTextField.clearButtonMode = .whileEditing
-        self.typeTextField.clearButtonMode = .whileEditing
-        self.brandTextField.clearButtonMode = .whileEditing
+        self.productDetail()
     }
     
     func setUpDatePicker() {
@@ -94,7 +92,13 @@ class ProductDetailViewController: UIViewController {
         
     }
     
-    
+    func productDetail() {
+        
+        self.nameTextField.clearButtonMode = .whileEditing
+        self.typeTextField.clearButtonMode = .whileEditing
+        self.brandTextField.clearButtonMode = .whileEditing
+        
+    }
 
     @objc func dateChanged(datePicker: UIDatePicker) {
         if self.expiryTextField.isFirstResponder {

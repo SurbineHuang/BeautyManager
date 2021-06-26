@@ -28,3 +28,12 @@ To help people manage the expiry date of cosmetics and reduse unnecessary waste.
 + NVActivityIndicatorView
 + SwiftLint
 + UserNotifications
+
+# Requirements
++ iOS 13.5
++ Xcode 12.4+
+
+# Contacts
+Surbine Huang   
+surbine1018tw@gmail.com   
+<a href="https://apps.apple.com/tw/app/beauty-manager/id1571512136?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1623283200&h=a40ffafa33597008ba6052b440ff19f8" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>

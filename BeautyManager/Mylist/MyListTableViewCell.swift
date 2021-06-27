@@ -33,5 +33,8 @@ class MyListTableViewCell: UITableViewCell {
         self.brandLabel.text = brand
         self.typeLabel.text = type
         self.dateLabel.text = expiryDate
+        
+        let url = URL(string: photoUrlString)
+        self.productImageView.kf.setImage(with: url)
     }
 }

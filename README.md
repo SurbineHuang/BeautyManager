@@ -23,6 +23,9 @@ To help people manage the expiry date of cosmetics and reduse unnecessary waste.
 ### DATA
 + Count the number of favorite brands and product types
 
+<img src="https://github.com/SurbineHuang/BeautyManager/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-24%20at%2000.20.30_iphone12promaxgold_portrait.png" width="275">
+
+
 # Library
 + Charts
 + Crashlytics

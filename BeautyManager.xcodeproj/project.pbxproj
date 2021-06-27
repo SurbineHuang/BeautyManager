@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A09678D84B87A2969FA13B1 /* Pods_BeautyManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228283338FC4AC3E08FB7483 /* Pods_BeautyManagerTests.framework */; };
 		79FC1956DB3E208A367A4808 /* Pods_BeautyManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */; };
 		D40200FC265D66F700E81B16 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40200FB265D66F700E81B16 /* UIImage+Ext.swift */; };
 		D4037A082671186B00B1F013 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4037A072671186B00B1F013 /* GoogleService-Info.plist */; };
@@ -15,6 +16,8 @@
 		D4332803265414FE00915F85 /* ExpiryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4332802265414FE00915F85 /* ExpiryDateViewController.swift */; };
 		D43328062654208E00915F85 /* ExpiryDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43328052654208E00915F85 /* ExpiryDateTableViewCell.swift */; };
 		D440A7AD2664E5AF00438D35 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440A7AC2664E5AF00438D35 /* SignInViewController.swift */; };
+		D44B449F26800FED002D5EE0 /* MyListVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B449E26800FED002D5EE0 /* MyListVCTest.swift */; };
+		D451D9AB267F706F000C171D /* BeautyManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D451D9AA267F706F000C171D /* BeautyManagerTests.swift */; };
 		D47875BF26763CF80066073E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47875BE26763CF80066073E /* UIColor+Ext.swift */; };
 		D4914D69265CF87200C0B266 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4914D68265CF87200C0B266 /* ExchangeViewController.swift */; };
 		D4914D6C265CF89500C0B266 /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4914D6B265CF89500C0B266 /* ExchangeTableViewCell.swift */; };
@@ -32,7 +35,19 @@
 		D4FB4081264E5140000AB82A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D451D9AD267F706F000C171D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49A2FF1264CC52500C84BB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D49A2FF8264CC52500C84BB9;
+			remoteInfo = BeautyManager;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		228283338FC4AC3E08FB7483 /* Pods_BeautyManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48576E6F53136965CB19392D /* Pods-BeautyManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyManagerTests.release.xcconfig"; path = "Target Support Files/Pods-BeautyManagerTests/Pods-BeautyManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		49BFB4C618A4DEFA0EC3DB1F /* Pods-BeautyManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyManager.debug.xcconfig"; path = "Target Support Files/Pods-BeautyManager/Pods-BeautyManager.debug.xcconfig"; sourceTree = "<group>"; };
 		D40200FB265D66F700E81B16 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		D4037A072671186B00B1F013 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -42,6 +57,10 @@
 		D43328052654208E00915F85 /* ExpiryDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryDateTableViewCell.swift; sourceTree = "<group>"; };
 		D440A7A92664DDC000438D35 /* BeautyManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeautyManager.entitlements; sourceTree = "<group>"; };
 		D440A7AC2664E5AF00438D35 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D44B449E26800FED002D5EE0 /* MyListVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListVCTest.swift; sourceTree = "<group>"; };
+		D451D9A8267F706F000C171D /* BeautyManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D451D9AA267F706F000C171D /* BeautyManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyManagerTests.swift; sourceTree = "<group>"; };
+		D451D9AC267F706F000C171D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D47875BE26763CF80066073E /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		D4914D68265CF87200C0B266 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		D4914D6B265CF89500C0B266 /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
@@ -60,10 +79,19 @@
 		D4E3377F2661488E000667C4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D4FB4080264E5140000AB82A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautyManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E56B96DBC73432247C2A01B1 /* Pods-BeautyManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-BeautyManagerTests/Pods-BeautyManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6890E0E5609A43C2464D133 /* Pods-BeautyManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautyManager.release.xcconfig"; path = "Target Support Files/Pods-BeautyManager/Pods-BeautyManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D451D9A5267F706F000C171D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A09678D84B87A2969FA13B1 /* Pods_BeautyManagerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D49A2FF6264CC52500C84BB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB9439D508EB3C6072949A8 /* Pods_BeautyManager.framework */,
+				228283338FC4AC3E08FB7483 /* Pods_BeautyManagerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +147,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		D451D9A9267F706F000C171D /* BeautyManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D451D9AA267F706F000C171D /* BeautyManagerTests.swift */,
+				D44B449E26800FED002D5EE0 /* MyListVCTest.swift */,
+				D451D9AC267F706F000C171D /* Info.plist */,
+			);
+			path = BeautyManagerTests;
+			sourceTree = "<group>";
+		};
 		D4914D67265CF85800C0B266 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				D49A2FFB264CC52500C84BB9 /* BeautyManager */,
+				D451D9A9267F706F000C171D /* BeautyManagerTests */,
 				D49A2FFA264CC52500C84BB9 /* Products */,
 				E976F321883154D630C95CD3 /* Pods */,
 				16AA7D6BB0000921C3D2A1A4 /* Frameworks */,
@@ -141,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D49A2FF9264CC52500C84BB9 /* BeautyManager.app */,
+				D451D9A8267F706F000C171D /* BeautyManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +258,8 @@
 			children = (
 				49BFB4C618A4DEFA0EC3DB1F /* Pods-BeautyManager.debug.xcconfig */,
 				E6890E0E5609A43C2464D133 /* Pods-BeautyManager.release.xcconfig */,
+				E56B96DBC73432247C2A01B1 /* Pods-BeautyManagerTests.debug.xcconfig */,
+				48576E6F53136965CB19392D /* Pods-BeautyManagerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -224,6 +267,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D451D9A7267F706F000C171D /* BeautyManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D451D9AF267F706F000C171D /* Build configuration list for PBXNativeTarget "BeautyManagerTests" */;
+			buildPhases = (
+				AFB729D9F9747F151F475A34 /* [CP] Check Pods Manifest.lock */,
+				D451D9A4267F706F000C171D /* Sources */,
+				D451D9A5267F706F000C171D /* Frameworks */,
+				D451D9A6267F706F000C171D /* Resources */,
+				74F2B1F29BD1B172AE1762AB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D451D9AE267F706F000C171D /* PBXTargetDependency */,
+			);
+			name = BeautyManagerTests;
+			productName = BeautyManagerTests;
+			productReference = D451D9A8267F706F000C171D /* BeautyManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D49A2FF8264CC52500C84BB9 /* BeautyManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D49A300D264CC52500C84BB9 /* Build configuration list for PBXNativeTarget "BeautyManager" */;
@@ -254,6 +317,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					D451D9A7267F706F000C171D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D49A2FF8264CC52500C84BB9;
+					};
 					D49A2FF8264CC52500C84BB9 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -273,11 +340,19 @@
 			projectRoot = "";
 			targets = (
 				D49A2FF8264CC52500C84BB9 /* BeautyManager */,
+				D451D9A7267F706F000C171D /* BeautyManagerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D451D9A6267F706F000C171D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D49A2FF7264CC52500C84BB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +385,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeautyManager/Pods-BeautyManager-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		74F2B1F29BD1B172AE1762AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeautyManagerTests/Pods-BeautyManagerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeautyManagerTests/Pods-BeautyManagerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeautyManagerTests/Pods-BeautyManagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B47C64C1140693CD54DFD53 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,6 +418,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BeautyManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB729D9F9747F151F475A34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeautyManagerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -371,6 +485,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D451D9A4267F706F000C171D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44B449F26800FED002D5EE0 /* MyListVCTest.swift in Sources */,
+				D451D9AB267F706F000C171D /* BeautyManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D49A2FF5264CC52500C84BB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +520,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D451D9AE267F706F000C171D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D49A2FF8264CC52500C84BB9 /* BeautyManager */;
+			targetProxy = D451D9AD267F706F000C171D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D49A3002264CC52500C84BB9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -417,6 +548,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D451D9B0267F706F000C171D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E56B96DBC73432247C2A01B1 /* Pods-BeautyManagerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = M7Z59NJ38L;
+				INFOPLIST_FILE = BeautyManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Swift.BeautyManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeautyManager.app/BeautyManager";
+			};
+			name = Debug;
+		};
+		D451D9B1267F706F000C171D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48576E6F53136965CB19392D /* Pods-BeautyManagerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = M7Z59NJ38L;
+				INFOPLIST_FILE = BeautyManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Swift.BeautyManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeautyManager.app/BeautyManager";
+			};
+			name = Release;
+		};
 		D49A300B264CC52500C84BB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -584,6 +761,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D451D9AF267F706F000C171D /* Build configuration list for PBXNativeTarget "BeautyManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D451D9B0267F706F000C171D /* Debug */,
+				D451D9B1267F706F000C171D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D49A2FF4264CC52500C84BB9 /* Build configuration list for PBXProject "BeautyManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

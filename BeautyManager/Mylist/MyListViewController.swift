@@ -54,6 +54,7 @@ class MyListViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if self.didSignIn {
             self.loadBrands()
@@ -114,7 +115,6 @@ class MyListViewController: UIViewController {
     }
 
     func loadBrands() {
-        
         ProductManager.shared.getBrands { [weak self] result in
             switch result {
             case .success(let brands):
@@ -146,6 +146,7 @@ class MyListViewController: UIViewController {
 }
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filteredProducts.count
@@ -174,16 +175,11 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryDate)
-
-            let photoImage = self.products[indexPath.row]
-
-            let imageUrl = photoImage.photo
-            let url = URL(string: imageUrl)
-            cell.productImageView.kf.setImage(with: url)
-
+            cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
+            
             return cell
         }
+        
         return UITableViewCell()
     }
     
@@ -222,9 +218,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyListViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print("searchText \(searchText)")
 
         if searchText == "" {
             self.isSearching = false

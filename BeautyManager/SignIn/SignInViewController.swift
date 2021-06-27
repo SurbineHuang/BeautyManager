@@ -120,7 +120,7 @@ extension SignInViewController: ASAuthorizationControllerPresentationContextProv
 extension UIViewController {
     
     func showSignInViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)// 生成要切換的 storyboard
         if let signInViewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
             signInViewController.modalPresentationStyle = .fullScreen
             signInViewController.isModalInPresentation = true

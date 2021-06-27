@@ -54,6 +54,7 @@ class MyListViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if self.didSignIn {
             self.loadBrands()
@@ -114,7 +115,6 @@ class MyListViewController: UIViewController {
     }
 
     func loadBrands() {
-        
         ProductManager.shared.getBrands { [weak self] result in
             switch result {
             case .success(let brands):
@@ -146,6 +146,7 @@ class MyListViewController: UIViewController {
 }
 
 extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filteredProducts.count
@@ -164,10 +165,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
 
-        let date = Date(timeIntervalSince1970: product.expiryDate)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        let expiryStr = formatter.string(from: date)
+        // 設定 expiryDate 格式
+        let expiryDate = self.convertDateToString(expiryDate: product.expiryDate)
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MyListTableViewCell", for: indexPath) as? MyListTableViewCell {
             cell.backView.layer.cornerRadius = 8
@@ -177,18 +176,13 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
             cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
-
-            let photoImage = self.products[indexPath.row]
-
-            let imageUrl = photoImage.photo
-            let url = URL(string: imageUrl)
-            cell.productImageView.kf.setImage(with: url)
-
+            
             return cell
         }
+        
         return UITableViewCell()
     }
-
+    
     // 左滑刪除
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { _, _, completionHandler in
@@ -224,9 +218,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyListViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        print("searchText \(searchText)")
 
         if searchText == "" {
             self.isSearching = false
@@ -300,5 +293,28 @@ extension MyListViewController: UIAlertViewDelegate {
 
         self.present(alertController, animated: true, completion: nil)
         */
+    }
+}
+
+extension MyListViewController {
+    //  TODO: setUp convert 的差別、為什麼不能用 formatter ?
+    //  轉換 expiryDate 格式
+    //    func setUpDateFormatter(expiryDate: TimeInterval) -> String {
+    //
+    //        let date = Date(timeIntervalSince1970: expiryDate)
+    //        let formatter = DateFormatter()
+    //        formatter.dateFormat = "yyyy.MM.dd"
+    //        let expiryStr = formatter.string(from: date)
+    //        return expiryStr
+    //    }
+    
+    // 轉換 expiryDate 格式
+    func convertDateToString(expiryDate: TimeInterval) -> String {
+        
+        let date = Date(timeIntervalSince1970: expiryDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let expiryStr = formatter.string(from: date)
+        return expiryStr
     }
 }

@@ -26,7 +26,6 @@ class MyListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
     func setData(name: String, photoUrlString: String, brand: String, type: String, expiryDate: String) {
@@ -34,5 +33,8 @@ class MyListTableViewCell: UITableViewCell {
         self.brandLabel.text = brand
         self.typeLabel.text = type
         self.dateLabel.text = expiryDate
+        
+        let url = URL(string: photoUrlString)
+        self.productImageView.kf.setImage(with: url)
     }
 }

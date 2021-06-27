@@ -9,7 +9,7 @@ import Firebase
 import FirebaseStorage
 import UIKit
 
-class ProductDetailViewController: UIViewController, UITextFieldDelegate {
+class ProductDetailViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -30,10 +30,28 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 設定 datePicker 功能及外觀
+        self.setUpDatePicker()
+
+        // 設定 textField 外觀
+        self.setUpExpiryTextField()
+        self.setUpOpenedTextField()
+        self.setUpPeriodTextField()
+        self.setUpButton()
+
+        // 設定空白處點選結束
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.view.addGestureRecognizer(tapGesture)
+
+        // 設定 nameTextField
+        self.productDetail()
+    }
+    
+    func setUpDatePicker() {
+        
         self.dateFormatter.dateFormat = "yyyy.MM.dd"
         self.datePicker.minimumDate = Date()
-
-        // 設定 datePicker 功能及外觀
+        
         self.datePicker.datePickerMode = .date
         self.datePicker.locale = NSLocale(
             localeIdentifier: "zh_TW") as Locale
@@ -41,32 +59,45 @@ class ProductDetailViewController: UIViewController, UITextFieldDelegate {
         self.datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         self.datePicker.preferredDatePickerStyle = .wheels
         self.datePicker.backgroundColor = .white
-
-        // 設定 textField 外觀
+    }
+    
+    func setUpExpiryTextField() {
+        
         self.expiryTextField.backgroundColor = .clear
         self.expiryTextField.borderStyle = .none
         self.expiryTextField.inputView = self.datePicker
-
+    }
+    
+    func setUpOpenedTextField() {
+        
         self.openedTextField.backgroundColor = .clear
         self.openedTextField.borderStyle = .none
         self.openedTextField.inputView = self.datePicker
-
+        
+    }
+    
+    func setUpPeriodTextField() {
+        
         self.periodTextField.backgroundColor = .clear
         self.periodTextField.borderStyle = .none
         self.periodTextField.inputView = self.datePicker
+        
+    }
+    
+    func setUpButton() {
+        
         self.addButton.layer.shadowOpacity = 0.2
         self.addButton.layer.cornerRadius = 20
         self.photoButton.layer.cornerRadius = 10
-        // 設定空白處點選結束
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        self.view.addGestureRecognizer(tapGesture)
-
-        // 設定 nameTextField
-        self.nameTextField.delegate = self
-
+        
+    }
+    
+    func productDetail() {
+        
         self.nameTextField.clearButtonMode = .whileEditing
         self.typeTextField.clearButtonMode = .whileEditing
         self.brandTextField.clearButtonMode = .whileEditing
+        
     }
 
     @objc func dateChanged(datePicker: UIDatePicker) {

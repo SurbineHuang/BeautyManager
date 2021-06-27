@@ -221,6 +221,8 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - Firebase (7.11.0):
+    - Firebase/Core (= 7.11.0)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
   - Firebase/Auth (7.11.0):
@@ -385,6 +387,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - Firebase
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Crashlytics
@@ -459,6 +462,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: d33b8a32d0f8a7088a1380bd779ec326d1859317
+PODFILE CHECKSUM: 3db542d3887b0752379eda2355bde17843fd0c3a
 
 COCOAPODS: 1.10.1

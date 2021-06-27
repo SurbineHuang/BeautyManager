@@ -175,7 +175,7 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             let brand = ProductManager.shared.getBrandName(by: product.brandId)
             let type = ProductManager.shared.getTypeName(by: product.typeId)
             
-            cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryStr)
+            cell.setData(name: product.name, photoUrlString: product.photo, brand: brand, type: type, expiryDate: expiryDate)
             
             return cell
         }

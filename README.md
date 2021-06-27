@@ -8,7 +8,7 @@ To help people manage the expiry date of cosmetics and reduse unnecessary waste.
 + Unsuitable products can swipe right to the pending page.
 + Swipe left to delete the used product.
 
-<img src="https://github.com/SurbineHuang/BeautyManager/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-09%20at%2015.58.11_iphone12promaxgold_portrait.png"  width="270"><img src="https://github.com/SurbineHuang/BeautyManager/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-09%20at%2015.59.32_iphone12promaxgold_portrait.png"  width="270">
+<img src="https://github.com/SurbineHuang/BeautyManager/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-09%20at%2015.58.11_iphone12promaxgold_portrait.png"  width="275"><img src="https://github.com/SurbineHuang/BeautyManager/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-06-09%20at%2015.59.32_iphone12promaxgold_portrait.png"  width="275">
 
 ### Pending
 + Unsuitable products will be moved here, waiting for users to solve.
